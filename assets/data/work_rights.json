@@ -1,0 +1,102 @@
+[
+ {
+  "id": 1,
+  "category": "mgnrega",
+  "title": "You can demand work, not just wait for it",
+  "titleHi": "आप काम माँग सकते हैं, सिर्फ़ इंतज़ार नहीं",
+  "body": "MGNREGA guarantees 100 days of work per rural household per financial year. Work is not offered to you — you demand it. Give a written demand to the Gram Panchayat stating how many days you want and from when, and insist on a dated receipt. That receipt is what starts the clock.",
+  "bodyHi": "मनरेगा हर ग्रामीण परिवार को प्रति वित्तीय वर्ष 100 दिन काम की गारंटी देता है। काम आपको दिया नहीं जाता — आप माँगते हैं। ग्राम पंचायत को लिखित माँग दें कि कितने दिन और कब से काम चाहिए, और तारीख़ वाली रसीद ज़रूर लें। वही रसीद समय की गिनती शुरू करती है।",
+  "source": "https://nrega.nic.in/",
+  "verified": false
+ },
+ {
+  "id": 2,
+  "category": "mgnrega",
+  "title": "If work does not come in 15 days, you are owed money",
+  "titleHi": "15 दिन में काम न मिले तो पैसा आपका हक़ है",
+  "body": "Work must be given within 15 days of your demand. If it is not, you are entitled to an unemployment allowance — a quarter of the wage rate for the first 30 days, and half after that. Very few people ever claim it, because very few know it exists. Apply for it in writing.",
+  "bodyHi": "माँग के 15 दिन के भीतर काम मिलना चाहिए। न मिले तो आप बेरोज़गारी भत्ते के हकदार हैं — पहले 30 दिन मज़दूरी दर का एक चौथाई, उसके बाद आधा। बहुत कम लोग इसे माँगते हैं, क्योंकि बहुत कम लोगों को पता है। इसके लिए लिखित आवेदन करें।",
+  "source": "https://nrega.nic.in/",
+  "verified": false
+ },
+ {
+  "id": 3,
+  "category": "mgnrega",
+  "title": "Late wages carry compensation",
+  "titleHi": "देर से मिली मज़दूरी पर मुआवज़ा मिलता है",
+  "body": "Wages must reach your bank account within 15 days of the work being completed. After that, compensation accrues for every day of delay. Check your payment status yourself on nrega.nic.in using your job card number, and file a grievance there if it is overdue. The helpline is 1800-111-555.",
+  "bodyHi": "काम पूरा होने के 15 दिन के भीतर मज़दूरी आपके बैंक खाते में पहुँचनी चाहिए। उसके बाद हर दिन की देरी पर मुआवज़ा बनता है। अपने जॉब कार्ड नंबर से nrega.nic.in पर भुगतान की स्थिति ख़ुद देखें, और देर हो तो वहीं शिकायत दर्ज करें। हेल्पलाइन 1800-111-555 है।",
+  "source": "https://nrega.nic.in/",
+  "verified": false
+ },
+ {
+  "id": 4,
+  "category": "mgnrega",
+  "title": "The job card is free, and so is everything about it",
+  "titleHi": "जॉब कार्ड मुफ़्त है, और उससे जुड़ी हर चीज़ भी",
+  "body": "Apply at the Gram Panchayat with Aadhaar and bank details of the adult members of the household. The card must be issued within 15 days. Nobody may charge you for it, for registering a work demand, or for getting your wages released. If someone asks, that is corruption and can be reported.",
+  "bodyHi": "ग्राम पंचायत में परिवार के वयस्क सदस्यों के आधार और बैंक विवरण के साथ आवेदन करें। कार्ड 15 दिन के भीतर मिलना चाहिए। इसके लिए, काम की माँग दर्ज कराने के लिए, या मज़दूरी निकलवाने के लिए कोई शुल्क नहीं लिया जा सकता। कोई माँगे तो यह भ्रष्टाचार है और इसकी शिकायत की जा सकती है।",
+  "source": "https://nrega.nic.in/",
+  "verified": false
+ },
+ {
+  "id": 5,
+  "category": "mgnrega",
+  "title": "Work should be within 5 km of your village",
+  "titleHi": "काम गाँव से 5 किलोमीटर के भीतर होना चाहिए",
+  "body": "If the worksite is farther than 5 km, you are entitled to an additional 10 percent of the wage to cover travel and living costs. Worksites must also provide drinking water, shade and first aid, and childcare if there are enough small children present.",
+  "bodyHi": "अगर कार्यस्थल 5 किलोमीटर से दूर है, तो यात्रा और निर्वाह ख़र्च के लिए आपको 10 प्रतिशत अतिरिक्त मज़दूरी का हक़ है। कार्यस्थल पर पीने का पानी, छाया और प्राथमिक चिकित्सा भी होनी चाहिए, और पर्याप्त छोटे बच्चे हों तो बच्चों की देखभाल की व्यवस्था भी।",
+  "source": "https://nrega.nic.in/",
+  "verified": false
+ },
+ {
+  "id": 6,
+  "category": "eshram",
+  "title": "e-Shram is for workers with no employer on paper",
+  "titleHi": "ई-श्रम उन श्रमिकों के लिए है जिनका कागज़ पर कोई नियोक्ता नहीं",
+  "body": "Construction workers, farm labourers, domestic workers, street vendors, rickshaw and auto drivers, delivery riders, weavers, fishers — anyone aged 16 to 59 working outside the organised sector can register free. You get a Universal Account Number card, and registration is how the government reaches you with welfare schemes.",
+  "bodyHi": "निर्माण मज़दूर, खेतिहर मज़दूर, घरेलू कामगार, रेहड़ी-पटरी विक्रेता, रिक्शा और ऑटो चालक, डिलीवरी करने वाले, बुनकर, मछुआरे — 16 से 59 वर्ष का कोई भी असंगठित क्षेत्र का कामगार मुफ़्त पंजीकरण करा सकता है। आपको यूनिवर्सल अकाउंट नंबर कार्ड मिलता है, और पंजीकरण ही वह रास्ता है जिससे सरकार कल्याण योजनाएँ आप तक पहुँचाती है।",
+  "source": "https://eshram.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 7,
+  "category": "eshram",
+  "title": "Registering is free — at a CSC or on your own phone",
+  "titleHi": "पंजीकरण मुफ़्त है — सीएससी पर या अपने फ़ोन से",
+  "body": "You need an Aadhaar number, a mobile number linked to that Aadhaar, and a bank account. Register at any Common Service Centre or on eshram.gov.in. If a CSC operator asks for a fee, they are not supposed to.",
+  "bodyHi": "आपको आधार नंबर, उस आधार से जुड़ा मोबाइल नंबर, और एक बैंक खाता चाहिए। किसी भी कॉमन सर्विस सेंटर पर या eshram.gov.in पर पंजीकरण कराएँ। सीएससी संचालक शुल्क माँगे तो यह नियम के विरुद्ध है।",
+  "source": "https://eshram.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 8,
+  "category": "wages",
+  "title": "What a payslip must show",
+  "titleHi": "वेतन पर्ची में क्या होना चाहिए",
+  "body": "If you are a salaried employee, you are entitled to a wage slip showing days worked, the rate, total wages, every deduction, and the net amount. Deductions must be explained. Keep the slips — without them it is very hard to prove what you were owed if there is ever a dispute.",
+  "bodyHi": "वेतनभोगी कर्मचारी हैं तो आपको वेतन पर्ची का अधिकार है जिसमें काम के दिन, दर, कुल मज़दूरी, हर कटौती और शुद्ध राशि दिखे। कटौतियों का कारण बताना अनिवार्य है। पर्चियाँ संभालकर रखें — विवाद होने पर इनके बिना यह साबित करना बहुत कठिन होता है कि आपका कितना बनता था।",
+  "source": "https://labour.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 9,
+  "category": "wages",
+  "title": "Minimum wage is set by your state, not your employer",
+  "titleHi": "न्यूनतम मज़दूरी आपका राज्य तय करता है, नियोक्ता नहीं",
+  "body": "Every state publishes minimum wage rates by occupation and skill level, and they are revised periodically. An employer paying below the notified rate is breaking the law, whatever was agreed verbally. Rates are published by the state labour department, and complaints go to the labour commissioner for your district.",
+  "bodyHi": "हर राज्य व्यवसाय और कौशल स्तर के अनुसार न्यूनतम मज़दूरी दरें प्रकाशित करता है, और इन्हें समय-समय पर संशोधित किया जाता है। अधिसूचित दर से कम देने वाला नियोक्ता कानून तोड़ रहा है, मौखिक रूप से जो भी तय हुआ हो। दरें राज्य के श्रम विभाग द्वारा प्रकाशित होती हैं, और शिकायत अपने ज़िले के श्रम आयुक्त के पास जाती है।",
+  "source": "https://labour.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 10,
+  "category": "wages",
+  "title": "Free skill training through Skill India",
+  "titleHi": "स्किल इंडिया से निःशुल्क कौशल प्रशिक्षण",
+  "body": "Government skill training is free for eligible candidates across hundreds of trades — electrician, tailoring, beautician, driving, mobile repair, hospitality and more. Many courses include a recognised certificate and placement support. Find courses by trade and district on the Skill India Digital portal.",
+  "bodyHi": "सैकड़ों व्यवसायों में पात्र उम्मीदवारों के लिए सरकारी कौशल प्रशिक्षण निःशुल्क है — इलेक्ट्रीशियन, सिलाई, ब्यूटीशियन, ड्राइविंग, मोबाइल मरम्मत, आतिथ्य और बहुत कुछ। कई पाठ्यक्रमों में मान्यता प्राप्त प्रमाणपत्र और नौकरी में सहायता शामिल है। स्किल इंडिया डिजिटल पोर्टल पर व्यवसाय और ज़िले के अनुसार खोजें।",
+  "source": "https://www.skillindiadigital.gov.in/",
+  "verified": false
+ }
+]

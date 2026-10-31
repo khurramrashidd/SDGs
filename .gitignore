@@ -1,0 +1,190 @@
+# .gitignore — SDG App (com.ibtidaatech.sdgapp)
+#
+# Shipped in every zip from zip 20 onward. If you change it on your machine,
+# note it in LOCAL_CHANGES.md or the next zip will overwrite your edit.
+
+# ===========================================================================
+# 1. RELEASE SIGNING — the one that cannot be undone
+# ===========================================================================
+# Two different disasters live here:
+#
+#   * Commit the keystore to a public repo and anyone can sign an app as
+#     Ibtidaa Tech. Play Store will accept their build as an update to
+#     yours. Removing the file later does not help, because it stays in git
+#     history forever — which is exactly what happened with the Gemini key
+#     in the EmpowHer repo.
+#   * LOSE the keystore and you can never update this app again. Not
+#     "it is difficult" — Play Store will refuse a differently-signed
+#     update, and the only route left is publishing under a new package
+#     name and asking every user to reinstall.
+#
+# So: never in git, and backed up somewhere that is not this folder.
+# Keep a copy in two places you control, with the passwords recorded
+# separately from the file.
+*.jks
+*.keystore
+key.properties
+android/key.properties
+**/key.properties
+upload-keystore.jks
+release-keystore.jks
+
+# ===========================================================================
+# 2. SECRETS
+# ===========================================================================
+# The AI provider keys live on the Render proxy as environment variables and
+# must never appear in this repo. The proxy reads them from the hosting
+# dashboard, not from a file you commit.
+.env
+.env.*
+!.env.example
+*serviceAccount*.json
+*service-account*.json
+*-firebase-adminsdk-*.json
+
+# ===========================================================================
+# 3. Firebase config — not secret, but still kept out
+# ===========================================================================
+# These files carry an `AIza...` Web API key that is a public identifier,
+# not a credential: it ships inside every APK and is readable by anyone who
+# unzips one. Your Firestore rules are what protect the data, which is also
+# why the AI keys sit on the proxy instead.
+#
+# They are ignored for two other reasons:
+#   * They are generated per machine by `flutterfire configure`, so a
+#     committed copy goes stale and causes confusing build errors.
+#   * On the Spark free tier, publishing your project identifiers makes it
+#     cheap for someone to point traffic at your Firestore and exhaust the
+#     daily free quota, which takes the app down until it resets. Firebase
+#     App Check is the real fix; this just does not hand it over.
+#
+# If you would rather the repo clone-and-build on a new machine, delete
+# these four lines and commit them — it is a defensible choice, not a
+# security hole.
+lib/firebase_options.dart
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+macos/Runner/GoogleService-Info.plist
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# ===========================================================================
+# 4. Flutter / Dart build output
+# ===========================================================================
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.dart.js
+*.info.json
+*.js.deps
+*.js.map
+coverage/
+doc/api/
+
+# Release artefacts. Keep built APKs and bundles out of git — they are
+# large, they change every build, and git stores every version forever.
+*.apk
+*.aab
+*.apks
+*.ipa
+*.app.zip
+
+# pubspec.lock IS committed on purpose. This is an application, not a
+# package, and the lock file is what makes a build reproducible — it is how
+# the `intl` version stays pinned to what your SDK accepts.
+#
+# .metadata is also committed on purpose: `flutter upgrade` reads it to
+# migrate the platform folders.
+
+# ===========================================================================
+# 5. Android
+# ===========================================================================
+android/.gradle/
+android/.idea/
+android/captures/
+android/local.properties
+android/app/debug/
+android/app/profile/
+android/app/release/
+android/gradle-wrapper.jar
+*.hprof
+
+# gradle.properties is committed, because it carries the
+# `kotlin.incremental=false` line that this project needs on Windows when
+# the project and the pub cache are on different drives. See LOCAL_CHANGES.md.
+
+# ===========================================================================
+# 6. iOS / macOS
+# ===========================================================================
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/App.framework
+ios/Flutter/ephemeral/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/ServiceDefinitions.json
+ios/Runner/GeneratedPluginRegistrant.*
+**/Flutter/App.framework/
+**/Flutter/ephemeral/
+**/*.mode1v3
+**/*.mode2v3
+**/*.perspectivev3
+**/*.pbxuser
+**/xcuserdata/
+**/DerivedData/
+Podfile.lock
+macos/Flutter/ephemeral/
+macos/Pods/
+
+# ===========================================================================
+# 7. Web and the proxy
+# ===========================================================================
+# `web/` itself is committed — it holds index.html, the manifest and the
+# icons that install_icons.bat writes. Only generated output is ignored.
+node_modules/
+proxy/node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===========================================================================
+# 8. Editors and OS
+# ===========================================================================
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+!.vscode/settings.json
+.history/
+*.swp
+*~
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===========================================================================
+# 9. Scratch
+# ===========================================================================
+*.log
+*.tmp
+*.bak
+*.orig
+*.rej
+/tmp/
+/scratch/
+__pycache__/
+*.pyc

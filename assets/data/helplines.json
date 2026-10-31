@@ -1,0 +1,79 @@
+[
+ {
+  "id": 1,
+  "number": "181",
+  "name": "Women Helpline",
+  "nameHi": "महिला हेल्पलाइन",
+  "detail": "24x7, toll free. Connects you to the nearest One Stop Centre (Sakhi) for rescue, medical help, police support, legal aid, counselling and short-stay shelter. Free, no documents needed, any age or background.",
+  "detailHi": "24 घंटे, निःशुल्क। नज़दीकी वन स्टॉप सेंटर (सखी) से जोड़ता है — बचाव, चिकित्सा, पुलिस सहायता, कानूनी मदद, काउंसलिंग और अस्थायी आश्रय। मुफ़्त, कोई दस्तावेज़ नहीं चाहिए।",
+  "category": "women",
+  "priority": 1,
+  "verified": false
+ },
+ {
+  "id": 2,
+  "number": "112",
+  "name": "Emergency — Police, Fire, Ambulance",
+  "nameHi": "आपातकाल — पुलिस, अग्निशमन, एम्बुलेंस",
+  "detail": "National emergency number. Use when you need help right now.",
+  "detailHi": "राष्ट्रीय आपातकालीन नंबर। जब तुरंत मदद चाहिए तब कॉल करें।",
+  "category": "emergency",
+  "priority": 0,
+  "verified": false
+ },
+ {
+  "id": 3,
+  "number": "1091",
+  "name": "Women Power Line",
+  "nameHi": "महिला पावर लाइन",
+  "detail": "Police women's helpline, operated by state police. Availability varies by state.",
+  "detailHi": "पुलिस की महिला हेल्पलाइन, राज्य पुलिस द्वारा संचालित। उपलब्धता राज्य के अनुसार अलग हो सकती है।",
+  "category": "women",
+  "priority": 2,
+  "verified": false
+ },
+ {
+  "id": 4,
+  "number": "1098",
+  "name": "Childline — for anyone under 18",
+  "nameHi": "चाइल्डलाइन — 18 वर्ष से कम आयु के लिए",
+  "detail": "24x7 help for children in danger or distress.",
+  "detailHi": "संकट में बच्चों के लिए 24 घंटे सहायता।",
+  "category": "child",
+  "priority": 3,
+  "verified": false
+ },
+ {
+  "id": 5,
+  "number": "14567",
+  "name": "Elderline — senior citizens",
+  "nameHi": "एल्डरलाइन — वरिष्ठ नागरिक",
+  "detail": "Help for elderly people facing abuse, neglect or needing support.",
+  "detailHi": "बुज़ुर्गों के लिए सहायता — दुर्व्यवहार, उपेक्षा या अन्य ज़रूरत पर।",
+  "category": "elder",
+  "priority": 4,
+  "verified": false
+ },
+ {
+  "id": 6,
+  "number": "1930",
+  "name": "Cyber crime and online financial fraud",
+  "nameHi": "साइबर अपराध और ऑनलाइन धोखाधड़ी",
+  "detail": "Report online fraud fast — the sooner you call, the better the chance of stopping the transaction.",
+  "detailHi": "ऑनलाइन धोखाधड़ी की तुरंत शिकायत करें — जितनी जल्दी कॉल करेंगे, पैसा रुकने की संभावना उतनी अधिक।",
+  "category": "cyber",
+  "priority": 5,
+  "verified": false
+ },
+ {
+  "id": 7,
+  "number": "104",
+  "name": "Health helpline",
+  "nameHi": "स्वास्थ्य हेल्पलाइन",
+  "detail": "Free medical advice and information on government health services.",
+  "detailHi": "निःशुल्क चिकित्सा सलाह और सरकारी स्वास्थ्य सेवाओं की जानकारी।",
+  "category": "health",
+  "priority": 6,
+  "verified": false
+ }
+]

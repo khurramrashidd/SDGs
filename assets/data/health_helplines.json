@@ -1,0 +1,62 @@
+[
+ {
+  "id": 1,
+  "number": "108",
+  "name": "Ambulance — free, 24x7",
+  "nameHi": "एम्बुलेंस — निःशुल्क, 24x7",
+  "detail": "Emergency ambulance. Works in most states. Use for accidents, chest pain, breathing trouble, snakebite, severe burns, or a seizure lasting more than 5 minutes.",
+  "detailHi": "आपातकालीन एम्बुलेंस। अधिकांश राज्यों में उपलब्ध। दुर्घटना, सीने में दर्द, साँस की तकलीफ़, साँप काटना, गंभीर जलन, या 5 मिनट से लंबा दौरा — इन सब में कॉल करें।",
+  "priority": 0,
+  "verified": false
+ },
+ {
+  "id": 2,
+  "number": "102",
+  "name": "Ambulance for pregnancy and newborns",
+  "nameHi": "गर्भावस्था और नवजात के लिए एम्बुलेंस",
+  "detail": "Free transport to hospital for pregnant women and sick infants, and back home after delivery.",
+  "detailHi": "गर्भवती महिलाओं और बीमार शिशुओं के लिए अस्पताल तक निःशुल्क परिवहन, और प्रसव के बाद घर वापसी।",
+  "priority": 1,
+  "verified": false
+ },
+ {
+  "id": 3,
+  "number": "104",
+  "name": "Health advice helpline",
+  "nameHi": "स्वास्थ्य सलाह हेल्पलाइन",
+  "detail": "Free medical advice over the phone, and information about government health services near you.",
+  "detailHi": "फ़ोन पर निःशुल्क चिकित्सा सलाह, और आपके पास की सरकारी स्वास्थ्य सेवाओं की जानकारी।",
+  "priority": 2,
+  "verified": false
+ },
+ {
+  "id": 4,
+  "number": "14416",
+  "name": "Tele-MANAS — mental health",
+  "nameHi": "टेली-मानस — मानसिक स्वास्थ्य",
+  "detail": "Free 24x7 mental health counselling from the Health Ministry, in many Indian languages. For stress, sleep problems, low mood, addiction or grief.",
+  "detailHi": "स्वास्थ्य मंत्रालय की निःशुल्क 24x7 मानसिक स्वास्थ्य काउंसलिंग, कई भारतीय भाषाओं में। तनाव, नींद की समस्या, उदासी, नशे की लत या शोक के लिए।",
+  "priority": 3,
+  "verified": false
+ },
+ {
+  "id": 5,
+  "number": "1098",
+  "name": "Childline — anyone under 18",
+  "nameHi": "चाइल्डलाइन — 18 वर्ष से कम",
+  "detail": "24x7 help for a child in danger, being hurt, or needing medical care.",
+  "detailHi": "ख़तरे में, चोट खाए हुए, या चिकित्सा सहायता चाहने वाले बच्चे के लिए 24 घंटे मदद।",
+  "priority": 4,
+  "verified": false
+ },
+ {
+  "id": 6,
+  "number": "1097",
+  "name": "National AIDS helpline",
+  "nameHi": "राष्ट्रीय एड्स हेल्पलाइन",
+  "detail": "Confidential information and counselling about HIV, testing and treatment.",
+  "detailHi": "एचआईवी, जाँच और इलाज के बारे में गोपनीय जानकारी और परामर्श।",
+  "priority": 5,
+  "verified": false
+ }
+]

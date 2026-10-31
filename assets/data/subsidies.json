@@ -1,0 +1,470 @@
+[
+ {
+  "id": 1,
+  "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+  "category": "Agriculture",
+  "eligibility": "Land-holding farmer families",
+  "ministry": "Agriculture & Farmers Welfare",
+  "officialLink": "https://pmkisan.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 2,
+  "name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+  "category": "Agriculture",
+  "eligibility": "Farmers growing notified crops",
+  "ministry": "Agriculture & Farmers Welfare",
+  "officialLink": "https://pmfby.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 3,
+  "name": "Kisan Credit Card (KCC)",
+  "category": "Agriculture",
+  "eligibility": "Farmers, fishers and animal husbandry workers",
+  "ministry": "Agriculture & Farmers Welfare",
+  "officialLink": "https://www.myscheme.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 4,
+  "name": "Soil Health Card Scheme",
+  "category": "Agriculture",
+  "eligibility": "All farmers",
+  "ministry": "Agriculture & Farmers Welfare",
+  "officialLink": "https://soilhealth.dac.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 5,
+  "name": "PM Kisan Maandhan Yojana",
+  "category": "Agriculture",
+  "eligibility": "Small and marginal farmers aged 18-40",
+  "ministry": "Agriculture & Farmers Welfare",
+  "officialLink": "https://maandhan.in/",
+  "verified": false
+ },
+ {
+  "id": 6,
+  "name": "PM-KUSUM (Solar for Farmers)",
+  "category": "Agriculture",
+  "eligibility": "Farmers installing solar pumps",
+  "ministry": "New & Renewable Energy",
+  "officialLink": "https://pmkusum.mnre.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 7,
+  "name": "Ayushman Bharat PM-JAY",
+  "category": "Health",
+  "eligibility": "Eligible poor and vulnerable families",
+  "ministry": "Health & Family Welfare",
+  "officialLink": "https://pmjay.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 8,
+  "name": "Janani Suraksha Yojana (JSY)",
+  "category": "Health",
+  "eligibility": "Pregnant women from poor households",
+  "ministry": "Health & Family Welfare",
+  "officialLink": "https://nhm.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 9,
+  "name": "Pradhan Mantri Matru Vandana Yojana",
+  "category": "Health",
+  "eligibility": "Pregnant and lactating mothers",
+  "ministry": "Women & Child Development",
+  "officialLink": "https://pmmvy.wcd.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 10,
+  "name": "Ayushman Bharat Digital Mission (ABHA)",
+  "category": "Health",
+  "eligibility": "All citizens",
+  "ministry": "Health & Family Welfare",
+  "officialLink": "https://abdm.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 11,
+  "name": "Pradhan Mantri Bhartiya Janaushadhi Pariyojana",
+  "category": "Health",
+  "eligibility": "All citizens seeking affordable medicines",
+  "ministry": "Chemicals & Fertilizers",
+  "officialLink": "https://janaushadhi.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 12,
+  "name": "POSHAN Abhiyaan",
+  "category": "Health",
+  "eligibility": "Children, pregnant women, lactating mothers",
+  "ministry": "Women & Child Development",
+  "officialLink": "https://www.myscheme.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 13,
+  "name": "National Scholarship Portal Schemes",
+  "category": "Education",
+  "eligibility": "Students meeting scheme-specific criteria",
+  "ministry": "Education",
+  "officialLink": "https://scholarships.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 14,
+  "name": "Samagra Shiksha Abhiyan",
+  "category": "Education",
+  "eligibility": "School students, pre-primary to class 12",
+  "ministry": "Education",
+  "officialLink": "https://samagra.education.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 15,
+  "name": "PM POSHAN (Mid Day Meal)",
+  "category": "Education",
+  "eligibility": "Government school students, class 1-8",
+  "ministry": "Education",
+  "officialLink": "https://www.myscheme.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 16,
+  "name": "SWAYAM Free Online Courses",
+  "category": "Education",
+  "eligibility": "Any learner",
+  "ministry": "Education",
+  "officialLink": "https://swayam.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 17,
+  "name": "DIKSHA Digital Learning Platform",
+  "category": "Education",
+  "eligibility": "School students and teachers",
+  "ministry": "Education",
+  "officialLink": "https://diksha.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 18,
+  "name": "National Means-cum-Merit Scholarship",
+  "category": "Education",
+  "eligibility": "Class 8 students from low-income families",
+  "ministry": "Education",
+  "officialLink": "https://scholarships.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 19,
+  "name": "Pradhan Mantri Vidyalaxmi Education Loan",
+  "category": "Education",
+  "eligibility": "Students pursuing higher education",
+  "ministry": "Education",
+  "officialLink": "https://www.vidyalakshmi.co.in/",
+  "verified": false
+ },
+ {
+  "id": 20,
+  "name": "Pradhan Mantri Awas Yojana - Gramin",
+  "category": "Housing",
+  "eligibility": "Rural households without a pucca house",
+  "ministry": "Rural Development",
+  "officialLink": "https://pmayg.nic.in/",
+  "verified": false
+ },
+ {
+  "id": 21,
+  "name": "Pradhan Mantri Awas Yojana - Urban",
+  "category": "Housing",
+  "eligibility": "Urban poor and EWS/LIG households",
+  "ministry": "Housing & Urban Affairs",
+  "officialLink": "https://www.myscheme.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 22,
+  "name": "Swachh Bharat Mission",
+  "category": "Infrastructure",
+  "eligibility": "All households",
+  "ministry": "Jal Shakti",
+  "officialLink": "https://swachhbharatmission.ddws.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 23,
+  "name": "Jal Jeevan Mission",
+  "category": "Infrastructure",
+  "eligibility": "Rural households needing tap water",
+  "ministry": "Jal Shakti",
+  "officialLink": "https://jaljeevanmission.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 24,
+  "name": "Pradhan Mantri Ujjwala Yojana",
+  "category": "Energy",
+  "eligibility": "Women from eligible poor households",
+  "ministry": "Petroleum & Natural Gas",
+  "officialLink": "https://www.pmuy.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 25,
+  "name": "Saubhagya - Household Electrification",
+  "category": "Energy",
+  "eligibility": "Un-electrified households",
+  "ministry": "Power",
+  "officialLink": "https://www.myscheme.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 26,
+  "name": "PM Surya Ghar Muft Bijli Yojana",
+  "category": "Energy",
+  "eligibility": "Households installing rooftop solar",
+  "ministry": "New & Renewable Energy",
+  "officialLink": "https://pmsuryaghar.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 27,
+  "name": "Pradhan Mantri Mudra Yojana",
+  "category": "Entrepreneurship",
+  "eligibility": "Small and micro business owners",
+  "ministry": "Finance",
+  "officialLink": "https://www.mudra.org.in/",
+  "verified": false
+ },
+ {
+  "id": 28,
+  "name": "Stand-Up India",
+  "category": "Entrepreneurship",
+  "eligibility": "SC/ST and women entrepreneurs",
+  "ministry": "Finance",
+  "officialLink": "https://www.standupmitra.in/",
+  "verified": false
+ },
+ {
+  "id": 29,
+  "name": "PMEGP - Employment Generation Programme",
+  "category": "Entrepreneurship",
+  "eligibility": "Individuals above 18 starting a unit",
+  "ministry": "MSME",
+  "officialLink": "https://www.kviconline.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 30,
+  "name": "Udyam Registration (MSME)",
+  "category": "Entrepreneurship",
+  "eligibility": "Micro, small and medium enterprises",
+  "ministry": "MSME",
+  "officialLink": "https://udyamregistration.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 31,
+  "name": "Startup India",
+  "category": "Entrepreneurship",
+  "eligibility": "Recognised startups",
+  "ministry": "DPIIT",
+  "officialLink": "https://www.startupindia.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 32,
+  "name": "PM Vishwakarma Yojana",
+  "category": "Entrepreneurship",
+  "eligibility": "Traditional artisans and craftspeople",
+  "ministry": "MSME",
+  "officialLink": "https://pmvishwakarma.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 33,
+  "name": "PM SVANidhi - Street Vendors",
+  "category": "Entrepreneurship",
+  "eligibility": "Urban street vendors",
+  "ministry": "Housing & Urban Affairs",
+  "officialLink": "https://pmsvanidhi.mohua.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 34,
+  "name": "MGNREGA - 100 Days Employment",
+  "category": "Employment",
+  "eligibility": "Rural households seeking unskilled work",
+  "ministry": "Rural Development",
+  "officialLink": "https://nrega.nic.in/",
+  "verified": false
+ },
+ {
+  "id": 35,
+  "name": "e-Shram - Unorganised Workers",
+  "category": "Employment",
+  "eligibility": "Unorganised sector workers aged 16-59",
+  "ministry": "Labour & Employment",
+  "officialLink": "https://eshram.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 36,
+  "name": "National Career Service",
+  "category": "Employment",
+  "eligibility": "Job seekers and employers",
+  "ministry": "Labour & Employment",
+  "officialLink": "https://www.ncs.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 37,
+  "name": "Skill India Digital / PMKVY",
+  "category": "Employment",
+  "eligibility": "Youth seeking skill training",
+  "ministry": "Skill Development",
+  "officialLink": "https://www.skillindiadigital.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 38,
+  "name": "DDU-GKY Rural Skilling",
+  "category": "Employment",
+  "eligibility": "Rural youth aged 15-35",
+  "ministry": "Rural Development",
+  "officialLink": "https://www.myscheme.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 39,
+  "name": "Pradhan Mantri Jan Dhan Yojana",
+  "category": "Welfare",
+  "eligibility": "Any citizen without a bank account",
+  "ministry": "Finance",
+  "officialLink": "https://pmjdy.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 40,
+  "name": "Pradhan Mantri Suraksha Bima Yojana",
+  "category": "Welfare",
+  "eligibility": "Bank account holders aged 18-70",
+  "ministry": "Finance",
+  "officialLink": "https://jansuraksha.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 41,
+  "name": "Pradhan Mantri Jeevan Jyoti Bima Yojana",
+  "category": "Welfare",
+  "eligibility": "Bank account holders aged 18-50",
+  "ministry": "Finance",
+  "officialLink": "https://jansuraksha.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 42,
+  "name": "Atal Pension Yojana",
+  "category": "Pension",
+  "eligibility": "Citizens aged 18-40 with a bank account",
+  "ministry": "Finance",
+  "officialLink": "https://www.npscra.nsdl.co.in/",
+  "verified": false
+ },
+ {
+  "id": 43,
+  "name": "National Social Assistance Programme",
+  "category": "Pension",
+  "eligibility": "Elderly, widows and persons with disability",
+  "ministry": "Rural Development",
+  "officialLink": "https://nsap.nic.in/",
+  "verified": false
+ },
+ {
+  "id": 44,
+  "name": "National Food Security Act / Ration",
+  "category": "Welfare",
+  "eligibility": "Priority households and AAY families",
+  "ministry": "Consumer Affairs & Food",
+  "officialLink": "https://nfsa.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 45,
+  "name": "One Nation One Ration Card",
+  "category": "Welfare",
+  "eligibility": "Ration card holders who migrate",
+  "ministry": "Consumer Affairs & Food",
+  "officialLink": "https://nfsa.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 46,
+  "name": "Sukanya Samriddhi Yojana",
+  "category": "Women Welfare",
+  "eligibility": "Parents of a girl child below 10",
+  "ministry": "Finance",
+  "officialLink": "https://www.indiapost.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 47,
+  "name": "Beti Bachao Beti Padhao",
+  "category": "Women Welfare",
+  "eligibility": "Families with a girl child",
+  "ministry": "Women & Child Development",
+  "officialLink": "https://wcd.nic.in/",
+  "verified": false
+ },
+ {
+  "id": 48,
+  "name": "Mahila Samman Savings Certificate",
+  "category": "Women Welfare",
+  "eligibility": "Women and girls",
+  "ministry": "Finance",
+  "officialLink": "https://www.indiapost.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 49,
+  "name": "Support to Training & Employment for Women",
+  "category": "Women Welfare",
+  "eligibility": "Women seeking skill training",
+  "ministry": "Women & Child Development",
+  "officialLink": "https://wcd.nic.in/",
+  "verified": false
+ },
+ {
+  "id": 50,
+  "name": "Scholarships for Persons with Disabilities",
+  "category": "Disability",
+  "eligibility": "Students with benchmark disability",
+  "ministry": "Social Justice",
+  "officialLink": "https://scholarships.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 51,
+  "name": "ADIP - Assistive Devices Scheme",
+  "category": "Disability",
+  "eligibility": "Persons with disability needing aids",
+  "ministry": "Social Justice",
+  "officialLink": "https://www.myscheme.gov.in/",
+  "verified": false
+ },
+ {
+  "id": 52,
+  "name": "UDID - Disability Certificate",
+  "category": "Disability",
+  "eligibility": "Persons with disability",
+  "ministry": "Social Justice",
+  "officialLink": "https://www.swavlambancard.gov.in/",
+  "verified": false
+ }
+]

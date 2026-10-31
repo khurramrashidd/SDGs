@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "category": "rights",
+    "title": "No connection without a meter",
+    "titleHi": "मीटर के बिना कनेक्शन नहीं",
+    "body": "The Electricity (Rights of Consumers) Rules, 2020 state plainly that no connection shall be given without a meter. An unmetered supply, or a bill month after month marked estimated or average, is not how it is supposed to work. The same rules give you a right to transparency in the tariff and in your bill, which means you can ask for the breakup and they have to give it.",
+    "bodyHi": "विद्युत (उपभोक्ता अधिकार) नियम, 2020 साफ़ कहते हैं कि मीटर के बिना कोई कनेक्शन नहीं दिया जाएगा। बिना मीटर सप्लाई, या महीने दर महीने अनुमानित या औसत लिखा बिल, ऐसा होना नहीं चाहिए। वही नियम आपको टैरिफ़ और बिल में पारदर्शिता का अधिकार देते हैं, यानी आप ब्रेकअप माँग सकते हैं और उन्हें देना होगा।",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1682384&reg=48&lang=2",
+    "verified": false
+  },
+  {
+    "id": 2,
+    "category": "rights",
+    "title": "Grievances must be settled within 45 days",
+    "titleHi": "शिकायत 45 दिन में निपटनी चाहिए",
+    "body": "A maximum of 45 days is specified for grievance redressal. Every distribution company must run a Consumer Grievance Redressal Forum, and those forums now include consumer and prosumer representatives rather than only company officers. Each level of the forum has its own resolution time set by the licensee, but 45 days is the outer limit for the whole process. Write the date on your complaint and keep the acknowledgement.",
+    "bodyHi": "शिकायत निवारण के लिए अधिकतम 45 दिन तय हैं। हर वितरण कंपनी को उपभोक्ता शिकायत निवारण फ़ोरम चलाना होता है, और उन फ़ोरमों में अब कंपनी के अधिकारियों के साथ उपभोक्ता और प्रोस्यूमर प्रतिनिधि भी होते हैं। फ़ोरम के हर स्तर का अपना समय कंपनी तय करती है, पर पूरी प्रक्रिया की बाहरी सीमा 45 दिन है। शिकायत पर तारीख़ लिखें और रसीद सँभालकर रखें।",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1682384&reg=48&lang=2",
+    "verified": false
+  },
+  {
+    "id": 3,
+    "category": "rights",
+    "title": "How long a new connection may take",
+    "titleHi": "नया कनेक्शन कितने दिन में मिलना चाहिए",
+    "body": "The rules set a maximum of 7 days in metro cities, 15 days in other municipal areas and 30 days in rural areas for a new connection or a modification to an existing one. Supply is to be 24x7, though the regulator may set fewer hours for some categories such as agriculture. If a deadline passes, that is the moment to put the request in writing rather than to keep visiting the office.",
+    "bodyHi": "नियमों के अनुसार नया कनेक्शन या मौजूदा कनेक्शन में बदलाव महानगरों में अधिकतम 7 दिन, अन्य नगरपालिका क्षेत्रों में 15 दिन और ग्रामीण क्षेत्रों में 30 दिन में होना चाहिए। सप्लाई 24x7 होनी चाहिए, हालाँकि नियामक कृषि जैसी कुछ श्रेणियों के लिए कम घंटे तय कर सकता है। समय-सीमा निकल जाए तो दफ़्तर के चक्कर लगाने की जगह अनुरोध लिखित में देने का वही समय है।",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1682384&reg=48&lang=2",
+    "verified": false
+  },
+  {
+    "id": 4,
+    "category": "rights",
+    "title": "Some failures carry automatic compensation",
+    "titleHi": "कुछ चूकों पर मुआवज़ा अपने आप मिलता है",
+    "body": "The rules provide for automatic compensation where a standard can be monitored remotely. The list of covered failures includes interruptions beyond the permitted limits, and delays in giving a connection, disconnection, reconnection, shifting, a change of category or load, replacing a meter, delivering a bill, and resolving voltage or billing complaints. Compensation amounts are set by each state regulator, so ask your office which schedule applies and on what form to claim.",
+    "bodyHi": "नियमों में उन मानकों के लिए स्वतः मुआवज़े का प्रावधान है जिन्हें दूर से देखा जा सकता है। कवर की गई चूकों में तय सीमा से ज़्यादा बिजली कटौती, और कनेक्शन देने, काटने, फिर जोड़ने, जगह बदलने, श्रेणी या लोड बदलने, मीटर बदलने, बिल पहुँचाने तथा वोल्टेज या बिल की शिकायत निपटाने में देरी शामिल है। मुआवज़े की रक़म हर राज्य का नियामक तय करता है, इसलिए दफ़्तर से पूछें कि कौन सी सूची लागू है और किस फ़ॉर्म पर दावा करना है।",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1682384&reg=48&lang=2",
+    "verified": false
+  },
+  {
+    "id": 5,
+    "category": "bill",
+    "title": "What a unit is, and where the money goes",
+    "titleHi": "यूनिट क्या है, और पैसा कहाँ जाता है",
+    "body": "A unit is one kilowatt-hour: a 1,000-watt appliance running for one hour. A 100-watt fan running ten hours is also one unit. Your bill charges for units in slabs, so the first block of units costs less per unit than later ones, and crossing a slab can raise the rate on the units above it. On top of the units there are fixed or demand charges you pay whether you use anything or not, plus electricity duty and sometimes a fuel surcharge or arrears. This is why dividing the total by the units gives a figure higher than the tariff rate. The 2020 rules give you a right to transparency in the applicable tariff and in your bill, so you can ask the office for this breakup and they are required to provide it.",
+    "bodyHi": "एक यूनिट का अर्थ एक किलोवाट-घंटा है: 1,000 वाट का उपकरण एक घंटा चले तो एक यूनिट। 100 वाट का पंखा दस घंटे चले तो भी एक यूनिट। बिल में यूनिट स्लैब में लगती हैं, इसलिए शुरुआती यूनिट बाद की यूनिट से सस्ती होती हैं, और स्लैब पार करने पर उससे ऊपर की यूनिट की दर बढ़ सकती है। यूनिट के अलावा फ़िक्स्ड या डिमांड चार्ज होता है जो इस्तेमाल करें या न करें, देना पड़ता है, साथ में बिजली ड्यूटी और कभी ईंधन अधिभार या बकाया। इसीलिए कुल रक़म को यूनिट से भाग देने पर टैरिफ़ दर से ज़्यादा आता है। 2020 के नियम आपको लागू टैरिफ़ और अपने बिल में पारदर्शिता का अधिकार देते हैं, इसलिए आप दफ़्तर से यह ब्रेकअप माँग सकते हैं और उन्हें देना ज़रूरी है।",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1682384&reg=48&lang=2",
+    "verified": false
+  },
+  {
+    "id": 6,
+    "category": "bill",
+    "title": "The one check anyone can do on any bill",
+    "titleHi": "कोई भी किसी भी बिल पर कर सकने वाली एक जाँच",
+    "body": "Find the previous reading and the current reading on the bill, subtract one from the other, and compare the answer with the units you were billed for. They should be the same number. If they are not, both figures are printed on the same bill and the office has to explain or correct it. This check needs no knowledge of tariffs and works in every state. It is also the only billing error you can prove standing at the counter. And if they will not explain it, the right to transparency in your bill under the 2020 rules is what you are invoking when you ask.",
+    "bodyHi": "बिल पर पिछली रीडिंग और वर्तमान रीडिंग देखें, एक को दूसरे से घटाएँ, और उत्तर को बिल में लगाई गई यूनिट से मिलाएँ। दोनों संख्याएँ एक होनी चाहिए। न हों, तो दोनों आँकड़े उसी बिल पर छपे हैं और दफ़्तर को इसका जवाब देना या सुधार करना होगा। इस जाँच के लिए टैरिफ़ की जानकारी ज़रूरी नहीं और यह हर राज्य में चलती है। यही एक बिल की ग़लती है जिसे आप काउंटर पर खड़े होकर साबित कर सकते हैं। और वे समझाने से मना करें, तो माँगते समय आप 2020 के नियमों के तहत अपने बिल में पारदर्शिता के अधिकार का ही हवाला दे रहे हैं।",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1682384&reg=48&lang=2",
+    "verified": false
+  },
+  {
+    "id": 7,
+    "category": "complaint",
+    "title": "Where to take a wrong bill, in order",
+    "titleHi": "ग़लत बिल कहाँ ले जाएँ, क्रम से",
+    "body": "Start at your distribution company — the section or subdivision office, or its online complaint system — and get a written acknowledgement or a docket number. If it is not settled, go to the Consumer Grievance Redressal Forum of that company, which is a separate body with consumer representatives on it and which must work within the 45-day outer limit. If the forum's order does not satisfy you, the next step is the Electricity Ombudsman for your state. Keep a copy of the bill in dispute at every stage, and pay any undisputed part so the supply is not cut while the case runs.",
+    "bodyHi": "अपनी वितरण कंपनी से शुरू करें — सेक्शन या उपखंड कार्यालय, या उसकी ऑनलाइन शिकायत व्यवस्था — और लिखित रसीद या डॉकेट नंबर लें। निपटारा न हो तो उसी कंपनी के उपभोक्ता शिकायत निवारण फ़ोरम में जाएँ, जो अलग निकाय है, जिसमें उपभोक्ता प्रतिनिधि होते हैं और जिसे 45 दिन की बाहरी सीमा में काम करना होता है। फ़ोरम के आदेश से संतुष्ट न हों तो अगला क़दम अपने राज्य का विद्युत लोकपाल है। हर चरण पर विवादित बिल की कॉपी रखें, और बिना विवाद वाला हिस्सा जमा कर दें जिससे मामले के दौरान सप्लाई न कटे।",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=1682384&reg=48&lang=2",
+    "verified": false
+  },
+  {
+    "id": 8,
+    "category": "solar",
+    "title": "PM Surya Ghar: what the subsidy is worth",
+    "titleHi": "पीएम सूर्य घर: सब्सिडी कितनी है",
+    "body": "Central financial assistance is paid as a one-time amount straight into your bank account, sized to the system. Published figures put a 1 to 2 kW system at roughly Rs 30,000 to Rs 60,000, a 2 to 3 kW system at roughly Rs 60,000 to Rs 78,000, and cap the subsidy at Rs 78,000 for anything larger. The recommended size follows your own consumption, so a household using 150 units a month is pointed at 1 to 2 kW. Treat these as indicative and confirm the current amounts on the national portal before you commit money, because the figures are revised.",
+    "bodyHi": "केंद्रीय सहायता एक बार में सीधे आपके बैंक खाते में आती है, और सिस्टम के आकार के अनुसार होती है। प्रकाशित आँकड़ों के अनुसार 1 से 2 किलोवाट पर लगभग 30,000 से 60,000 रुपये, 2 से 3 किलोवाट पर लगभग 60,000 से 78,000 रुपये, और उससे बड़े सिस्टम पर सब्सिडी की सीमा 78,000 रुपये है। सुझाया गया आकार आपकी ख़पत पर निर्भर करता है, इसलिए महीने में 150 यूनिट वाले घर को 1 से 2 किलोवाट बताया जाता है। इन्हें संकेत मानें और पैसा लगाने से पहले राष्ट्रीय पोर्टल पर मौजूदा रक़म की पुष्टि करें, क्योंकि आँकड़े बदलते रहते हैं।",
+    "source": "https://pmsuryaghar.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 9,
+    "category": "solar",
+    "title": "Who can apply, and what to settle before paying anyone",
+    "titleHi": "कौन आवेदन कर सकता है, और पैसा देने से पहले क्या तय करें",
+    "body": "You need Indian citizenship, a house you own with enough sound roof space, a valid electricity connection, and no earlier government solar subsidy on that property. Apply on the national portal and pick a registered vendor through it rather than from a visiting salesman. Before paying anything, get in writing: the panel and inverter make and wattage, the warranty on each and who honours it, who applies for net metering and when, and what happens if the subsidy is delayed. The subsidy reaches you after installation and inspection, not before, so a vendor who asks you to pay the full amount expecting instant reimbursement is describing a risk you carry.",
+    "bodyHi": "आपके पास भारतीय नागरिकता, पर्याप्त मज़बूत छत वाला अपना घर, वैध बिजली कनेक्शन, और उस संपत्ति पर पहले कोई सरकारी सोलर सब्सिडी न ली गई हो — यह ज़रूरी है। राष्ट्रीय पोर्टल पर आवेदन करें और घर आए सेल्समैन की जगह पोर्टल से पंजीकृत वेंडर चुनें। कोई भी भुगतान करने से पहले लिखित में लें: पैनल और इन्वर्टर का मेक और वाट, दोनों की वारंटी और उसे कौन निभाएगा, नेट मीटरिंग के लिए कौन और कब आवेदन करेगा, और सब्सिडी में देरी हो तो क्या होगा। सब्सिडी इंस्टॉलेशन और निरीक्षण के बाद मिलती है, पहले नहीं, इसलिए जो वेंडर तुरंत वापसी का भरोसा देकर पूरी रक़म माँगे, वह जोखिम आप पर डाल रहा है।",
+    "source": "https://pmsuryaghar.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 10,
+    "category": "lpg",
+    "title": "Ujjwala: the subsidy is Rs 300 a cylinder, but how many is the question",
+    "titleHi": "उज्ज्वला: सब्सिडी 300 रुपये प्रति सिलेंडर, पर कितने पर — यही सवाल है",
+    "body": "Under Ujjwala the subsidy is Rs 300 on a 14.2 kg refill, pro-rated for a 5 kg cylinder, and it is paid as a transfer into your bank account rather than taken off the price at the shop. The number of refills it applies to has been changed repeatedly — 12 a year when the subsidy was Rs 200, still 12 when it rose to Rs 300, then 9 for 2025-26, and reported in mid-2026 as cut to the first few refills of the year. Because that count keeps moving, do not rely on any number printed here or told to you by a dealer. Check what actually reached your own account.",
+    "bodyHi": "उज्ज्वला में सब्सिडी 14.2 किलो रीफ़िल पर 300 रुपये है, 5 किलो सिलेंडर पर आनुपातिक, और यह दुकान पर दाम से कटने की जगह आपके बैंक खाते में आती है। यह कितने रीफ़िल पर मिलती है, यह बार-बार बदला है — 200 रुपये सब्सिडी के समय साल में 12, 300 रुपये होने पर भी 12, फिर 2025-26 के लिए 9, और 2026 के मध्य में ख़बरों के अनुसार साल के शुरुआती कुछ रीफ़िल तक सीमित। यह गिनती बदलती रहती है, इसलिए यहाँ लिखी या डीलर की बताई किसी संख्या पर भरोसा न करें। देखें कि आपके खाते में असल में क्या आया।",
+    "source": "https://www.pmindia.gov.in/en/news_updates/cabinet-approves-continuation-of-targeted-subsidy-for-pradhan-mantri-ujjwala-yojana-consumers-for-2025-26-at-rs-12000-crore/",
+    "verified": false
+  },
+  {
+    "id": 11,
+    "category": "lpg",
+    "title": "How to check your own gas subsidy",
+    "titleHi": "अपनी गैस सब्सिडी कैसे जाँचें",
+    "body": "Because the subsidy is a bank transfer and not a discount, the only way to know you are getting it is to look. Check your bank passbook or statement for a credit from the oil company in the days after each refill, and compare it with the number of refills you have taken this year. Your LPG distributor can also print your refill history. If refills are going out and credits are not coming in, raise it with the distributor first and then with the oil company's customer care, and ask them to confirm your bank account and Aadhaar linkage, which is where this usually breaks.",
+    "bodyHi": "सब्सिडी बैंक ट्रांसफ़र है, छूट नहीं — इसलिए मिल रही है या नहीं, यह जानने का एक ही तरीक़ा है, देखना। हर रीफ़िल के बाद के दिनों में अपनी बैंक पासबुक या स्टेटमेंट में तेल कंपनी से आए क्रेडिट देखें, और इस साल लिए रीफ़िल की संख्या से मिलाएँ। आपका एलपीजी डिस्ट्रीब्यूटर भी आपकी रीफ़िल हिस्ट्री निकाल कर दे सकता है। रीफ़िल जा रहे हैं और क्रेडिट नहीं आ रहे, तो पहले डिस्ट्रीब्यूटर और फिर तेल कंपनी के कस्टमर केयर में बात करें, और बैंक खाता तथा आधार लिंक की पुष्टि कराएँ — गड़बड़ी आम तौर पर वहीं होती है।",
+    "source": "https://www.pmindia.gov.in/en/news_updates/cabinet-approves-continuation-of-targeted-subsidy-for-pradhan-mantri-ujjwala-yojana-consumers-for-2025-26-at-rs-12000-crore/",
+    "verified": false
+  },
+  {
+    "id": 12,
+    "category": "indoor",
+    "title": "Why the cooking fire matters more than it seems",
+    "titleHi": "चूल्हे का धुआँ जितना लगता है, उससे ज़्यादा मायने रखता है",
+    "body": "WHO attributes about 2.9 million deaths a year to household air pollution, including over 309,000 children under five. It accounts for 44 per cent of pneumonia deaths in children under five and almost doubles the risk of a child getting a lower respiratory infection. In adults it is linked to heart disease, stroke, chronic obstructive pulmonary disease and lung cancer. Women and children carry most of this because they spend the most time near the fire, and it falls hardest on rural households: in 2021, 49 per cent of rural people worldwide cooked on polluting fuels against 14 per cent in cities. That is why a clean cooking connection is treated as a health programme and not a convenience. Where gas is out of reach for now, what measurably helps is venting the smoke outside rather than into the room, cooking with the kitchen open on more than one side, keeping infants out while the fire is lit, and using dry fuel, since damp wood smokes far more.",
+    "bodyHi": "डब्ल्यूएचओ घरेलू वायु प्रदूषण को हर साल लगभग 29 लाख मौतों से जोड़ता है, जिनमें पाँच साल से छोटे 3,09,000 से ज़्यादा बच्चे शामिल हैं। पाँच साल से छोटे बच्चों की निमोनिया से होने वाली मौतों में इसका हिस्सा 44 प्रतिशत है, और यह बच्चे को श्वसन संक्रमण होने का ख़तरा लगभग दोगुना कर देता है। बड़ों में इसका संबंध हृदय रोग, लकवा, फेफड़ों की पुरानी रुकावट वाली बीमारी और फेफड़ों के कैंसर से है। इसका बोझ महिलाओं और बच्चों पर सबसे ज़्यादा है क्योंकि वे आग के पास सबसे ज़्यादा समय बिताते हैं, और ग्रामीण घरों पर सबसे भारी पड़ता है: 2021 में दुनिया की 49 प्रतिशत ग्रामीण आबादी प्रदूषणकारी ईंधन पर खाना बनाती थी, शहरों में 14 प्रतिशत। इसीलिए स्वच्छ ईंधन कनेक्शन को सुविधा नहीं, स्वास्थ्य कार्यक्रम माना जाता है। जहाँ अभी गैस संभव न हो, वहाँ असर करने वाली बातें: धुआँ कमरे में नहीं बाहर निकालना, रसोई एक से ज़्यादा तरफ़ से खुली रखकर खाना बनाना, आग जलने के समय शिशुओं को दूर रखना, और सूखा ईंधन इस्तेमाल करना, क्योंकि गीली लकड़ी कहीं ज़्यादा धुआँ देती है।",
+    "source": "https://www.who.int/en/news-room/fact-sheets/detail/household-air-pollution-and-health",
+    "verified": false
+  },
+  {
+    "id": 13,
+    "category": "indoor",
+    "title": "Gas cylinder safety, from the official consumer guidance",
+    "titleHi": "गैस सिलेंडर सुरक्षा, आधिकारिक उपभोक्ता मार्गदर्शन से",
+    "body": "Keep the cylinder upright, never in a pit below floor level and never inside a closed compartment, and keep the stove on a platform above the level of the cylinder. Use an ISI-marked hotplate and a Suraksha LPG hose, which is fire retardant and has a five-year life: check it regularly, and replace it if it cracks or before its expiry date rather than when it looks worn. To check the body or bung for a leak, use soap solution and watch for bubbles. Never use a lighted match to look for a leak. If you smell gas: close the burner knobs and put out every flame, turn the regulator knob clockwise to OFF, open all doors and windows, and do not operate any electrical switch. Then detach the regulator, fit the safety cap on the valve, and move the cylinder to a safe ventilated place away from any flame. If the smell persists, call your gas distributor or the Emergency Service Cell — get that number from your distributor and keep it written somewhere in the kitchen.",
+    "bodyHi": "सिलेंडर सीधा रखें, फ़र्श से नीचे किसी गड्ढे में कभी नहीं और बंद ख़ाने के भीतर कभी नहीं, और चूल्हा सिलेंडर के स्तर से ऊपर किसी प्लेटफ़ॉर्म पर रखें। आईएसआई मार्क वाला हॉटप्लेट और सुरक्षा एलपीजी होज़ इस्तेमाल करें, जो आग प्रतिरोधी है और जिसका जीवन पाँच साल है: उसे नियमित जाँचें, और घिसा दिखने पर नहीं बल्कि दरार आने पर या समाप्ति तिथि से पहले बदलें। बॉडी या बंग में रिसाव जाँचने के लिए साबुन का घोल लगाकर बुलबुले देखें। रिसाव ढूँढने के लिए जलती माचिस कभी इस्तेमाल न करें। गैस की गंध आए तो: बर्नर के नॉब बंद करें और हर आग बुझाएँ, रेगुलेटर का नॉब घड़ी की दिशा में घुमाकर बंद करें, सभी दरवाज़े-खिड़कियाँ खोलें, और कोई भी बिजली का स्विच न चलाएँ। फिर रेगुलेटर अलग करें, वाल्व पर सुरक्षा कैप लगाएँ, और सिलेंडर को किसी आग से दूर, हवादार सुरक्षित जगह ले जाएँ। गंध बनी रहे तो अपने गैस डिस्ट्रीब्यूटर या इमरजेंसी सर्विस सेल को फ़ोन करें — वह नंबर डिस्ट्रीब्यूटर से लेकर रसोई में कहीं लिखकर रखें।",
+    "source": "https://pmuy.gov.in/docs/Consumer_Guidance.pdf",
+    "verified": false
+  }
+]
