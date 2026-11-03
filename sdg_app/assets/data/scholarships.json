@@ -1,0 +1,722 @@
+[
+ {
+  "id": 1,
+  "name": "Pre-Matric Scholarship for SC Students",
+  "provider": "Ministry of Social Justice & Empowerment",
+  "levels": [
+   "pre_matric"
+  ],
+  "minClass": 9,
+  "maxClass": 10,
+  "categories": [
+   "sc"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 250000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Caste certificate",
+   "Income certificate",
+   "Previous year marksheet",
+   "Aadhaar",
+   "Bank passbook",
+   "Bonafide certificate"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 2,
+  "name": "Post-Matric Scholarship for SC Students",
+  "provider": "Ministry of Social Justice & Empowerment",
+  "levels": [
+   "post_matric",
+   "ug",
+   "pg"
+  ],
+  "minClass": 11,
+  "maxClass": 99,
+  "categories": [
+   "sc"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 250000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Caste certificate",
+   "Income certificate",
+   "Previous year marksheet",
+   "Aadhaar",
+   "Bank passbook",
+   "Fee receipt"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 3,
+  "name": "Pre-Matric Scholarship for ST Students",
+  "provider": "Ministry of Tribal Affairs",
+  "levels": [
+   "pre_matric"
+  ],
+  "minClass": 9,
+  "maxClass": 10,
+  "categories": [
+   "st"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 250000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Tribe certificate",
+   "Income certificate",
+   "Previous year marksheet",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 4,
+  "name": "Post-Matric Scholarship for ST Students",
+  "provider": "Ministry of Tribal Affairs",
+  "levels": [
+   "post_matric",
+   "ug",
+   "pg"
+  ],
+  "minClass": 11,
+  "maxClass": 99,
+  "categories": [
+   "st"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 250000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Tribe certificate",
+   "Income certificate",
+   "Previous year marksheet",
+   "Aadhaar",
+   "Bank passbook",
+   "Fee receipt"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 5,
+  "name": "Pre-Matric Scholarship for OBC Students",
+  "provider": "Ministry of Social Justice & Empowerment",
+  "levels": [
+   "pre_matric"
+  ],
+  "minClass": 9,
+  "maxClass": 10,
+  "categories": [
+   "obc"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 250000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Caste certificate",
+   "Income certificate",
+   "Previous year marksheet",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 6,
+  "name": "Post-Matric Scholarship for OBC Students",
+  "provider": "Ministry of Social Justice & Empowerment",
+  "levels": [
+   "post_matric",
+   "ug",
+   "pg"
+  ],
+  "minClass": 11,
+  "maxClass": 99,
+  "categories": [
+   "obc"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 250000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Caste certificate",
+   "Income certificate",
+   "Previous year marksheet",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 7,
+  "name": "Pre-Matric Scholarship for Students with Disabilities",
+  "provider": "Department of Empowerment of PwD",
+  "levels": [
+   "pre_matric"
+  ],
+  "minClass": 9,
+  "maxClass": 10,
+  "categories": [
+   "any"
+  ],
+  "gender": "any",
+  "disability": true,
+  "incomeMax": 250000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Disability certificate / UDID",
+   "Income certificate",
+   "Marksheet",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 8,
+  "name": "Post-Matric Scholarship for Students with Disabilities",
+  "provider": "Department of Empowerment of PwD",
+  "levels": [
+   "post_matric",
+   "ug",
+   "pg"
+  ],
+  "minClass": 11,
+  "maxClass": 99,
+  "categories": [
+   "any"
+  ],
+  "gender": "any",
+  "disability": true,
+  "incomeMax": 250000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Disability certificate / UDID",
+   "Income certificate",
+   "Marksheet",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 9,
+  "name": "National Means-cum-Merit Scholarship (NMMS)",
+  "provider": "Ministry of Education",
+  "levels": [
+   "pre_matric"
+  ],
+  "minClass": 8,
+  "maxClass": 8,
+  "categories": [
+   "any"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 350000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Income certificate",
+   "Class 7 marksheet",
+   "Aadhaar",
+   "Bank passbook",
+   "School bonafide"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 10,
+  "name": "Central Sector Scheme of Scholarships for College & University Students",
+  "provider": "Ministry of Education",
+  "levels": [
+   "ug",
+   "pg"
+  ],
+  "minClass": 12,
+  "maxClass": 99,
+  "categories": [
+   "any"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 450000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Class 12 marksheet",
+   "Income certificate",
+   "Aadhaar",
+   "Bank passbook",
+   "College admission proof"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 11,
+  "name": "PM-YASASVI Scholarship (OBC, EBC, DNT)",
+  "provider": "Ministry of Social Justice & Empowerment",
+  "levels": [
+   "pre_matric",
+   "post_matric"
+  ],
+  "minClass": 9,
+  "maxClass": 12,
+  "categories": [
+   "obc",
+   "ebc",
+   "dnt"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 250000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Caste certificate",
+   "Income certificate",
+   "Marksheet",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 12,
+  "name": "Top Class Education Scheme for SC Students",
+  "provider": "Ministry of Social Justice & Empowerment",
+  "levels": [
+   "ug",
+   "pg"
+  ],
+  "minClass": 12,
+  "maxClass": 99,
+  "categories": [
+   "sc"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 800000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Caste certificate",
+   "Income certificate",
+   "Admission proof from notified institute",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 13,
+  "name": "AICTE Pragati Scholarship for Girl Students",
+  "provider": "AICTE",
+  "levels": [
+   "ug"
+  ],
+  "minClass": 12,
+  "maxClass": 99,
+  "categories": [
+   "any"
+  ],
+  "gender": "female",
+  "disability": false,
+  "incomeMax": 800000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Class 12 marksheet",
+   "Income certificate",
+   "AICTE institute admission proof",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 14,
+  "name": "AICTE Saksham Scholarship for Differently-Abled Students",
+  "provider": "AICTE",
+  "levels": [
+   "ug"
+  ],
+  "minClass": 12,
+  "maxClass": 99,
+  "categories": [
+   "any"
+  ],
+  "gender": "any",
+  "disability": true,
+  "incomeMax": 800000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Disability certificate (40%+)",
+   "Income certificate",
+   "Admission proof",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 15,
+  "name": "Ishan Uday Special Scholarship for North Eastern Region",
+  "provider": "UGC",
+  "levels": [
+   "ug"
+  ],
+  "minClass": 12,
+  "maxClass": 99,
+  "categories": [
+   "any"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 450000,
+  "states": [
+   "Arunachal Pradesh",
+   "Assam",
+   "Manipur",
+   "Meghalaya",
+   "Mizoram",
+   "Nagaland",
+   "Sikkim",
+   "Tripura"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Domicile certificate of NE state",
+   "Class 12 marksheet",
+   "Income certificate",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 16,
+  "name": "Begum Hazrat Mahal National Scholarship for Minority Girls",
+  "provider": "Maulana Azad Education Foundation",
+  "levels": [
+   "pre_matric",
+   "post_matric"
+  ],
+  "minClass": 9,
+  "maxClass": 12,
+  "categories": [
+   "minority"
+  ],
+  "gender": "female",
+  "disability": false,
+  "incomeMax": 200000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Minority community certificate",
+   "Income certificate",
+   "Marksheet",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 17,
+  "name": "PM Scholarship Scheme for Wards of Ex-Servicemen",
+  "provider": "Kendriya Sainik Board",
+  "levels": [
+   "ug"
+  ],
+  "minClass": 12,
+  "maxClass": 99,
+  "categories": [
+   "any"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 0,
+  "states": [
+   "any"
+  ],
+  "portal": "https://ksb.gov.in/",
+  "documents": [
+   "Ex-servicemen certificate",
+   "Class 12 marksheet",
+   "Admission proof",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 18,
+  "name": "INSPIRE Scholarship for Higher Education (SHE)",
+  "provider": "Department of Science & Technology",
+  "levels": [
+   "ug"
+  ],
+  "minClass": 12,
+  "maxClass": 99,
+  "categories": [
+   "any"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 0,
+  "states": [
+   "any"
+  ],
+  "portal": "https://online-inspire.gov.in/",
+  "documents": [
+   "Class 12 marksheet (top 1% or eligible exam rank)",
+   "Admission proof in natural sciences",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 19,
+  "name": "Swami Vivekananda Single Girl Child Fellowship",
+  "provider": "UGC",
+  "levels": [
+   "phd"
+  ],
+  "minClass": 99,
+  "maxClass": 99,
+  "categories": [
+   "any"
+  ],
+  "gender": "female",
+  "disability": false,
+  "incomeMax": 0,
+  "states": [
+   "any"
+  ],
+  "portal": "https://www.ugc.gov.in/",
+  "documents": [
+   "Single girl child affidavit",
+   "PhD registration proof",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 20,
+  "name": "National Fellowship for SC Students (higher education)",
+  "provider": "UGC / Ministry of Social Justice",
+  "levels": [
+   "phd",
+   "pg"
+  ],
+  "minClass": 99,
+  "maxClass": 99,
+  "categories": [
+   "sc"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 0,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Caste certificate",
+   "MPhil/PhD registration proof",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 21,
+  "name": "National Overseas Scholarship",
+  "provider": "Ministry of Social Justice & Empowerment",
+  "levels": [
+   "pg",
+   "phd"
+  ],
+  "minClass": 99,
+  "maxClass": 99,
+  "categories": [
+   "sc",
+   "dnt"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 800000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://nosmsje.gov.in/",
+  "documents": [
+   "Caste certificate",
+   "Income certificate",
+   "Foreign university admission offer",
+   "Passport",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 22,
+  "name": "Prime Minister's Research Fellowship (PMRF)",
+  "provider": "Ministry of Education",
+  "levels": [
+   "phd"
+  ],
+  "minClass": 99,
+  "maxClass": 99,
+  "categories": [
+   "any"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 0,
+  "states": [
+   "any"
+  ],
+  "portal": "https://pmrf.in/",
+  "documents": [
+   "Academic transcripts",
+   "GATE score or qualifying criteria proof",
+   "PhD admission proof",
+   "Aadhaar"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 23,
+  "name": "Dr. Ambedkar Post-Matric Scholarship for EBC Students",
+  "provider": "Ministry of Social Justice & Empowerment",
+  "levels": [
+   "post_matric",
+   "ug"
+  ],
+  "minClass": 11,
+  "maxClass": 99,
+  "categories": [
+   "ebc"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 100000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "EBC certificate",
+   "Income certificate",
+   "Marksheet",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ },
+ {
+  "id": 24,
+  "name": "Pre-Matric Scholarship for Minority Students",
+  "provider": "Ministry of Minority Affairs",
+  "levels": [
+   "pre_matric"
+  ],
+  "minClass": 9,
+  "maxClass": 10,
+  "categories": [
+   "minority"
+  ],
+  "gender": "any",
+  "disability": false,
+  "incomeMax": 100000,
+  "states": [
+   "any"
+  ],
+  "portal": "https://scholarships.gov.in/",
+  "documents": [
+   "Minority community certificate",
+   "Income certificate",
+   "Marksheet",
+   "Aadhaar",
+   "Bank passbook"
+  ],
+  "verified": false,
+  "deadline": null
+ }
+]

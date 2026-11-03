@@ -10,6 +10,7 @@ import '../../core/theme/brand.dart';
 import 'ai_providers_page.dart';
 import 'content_editor_page.dart';
 import 'deadlines_page.dart';
+import 'moderation_page.dart';
 import 'send_notice_page.dart';
 import 'translations_page.dart';
 import 'user_admin_page.dart';
@@ -180,6 +181,16 @@ class _AdminHomePageState extends State<AdminHomePage> {
               ),
               const SizedBox(height: 12),
             ],
+
+            _AdminCard(
+              icon: Icons.verified_user_outlined,
+              title: 'Moderation',
+              subtitle:
+                  'Approve study questions and answers before anyone sees '
+                  'them; act on reported Q&A and food board posts; user corrections.',
+              onTap: () => _push(context, const ModerationPage()),
+            ),
+            const SizedBox(height: 12),
 
             _AdminCard(
               icon: Icons.campaign_outlined,

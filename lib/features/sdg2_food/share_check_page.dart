@@ -4,6 +4,8 @@ import '../../core/i18n/locale_scope.dart';
 import '../../core/layout/responsive.dart';
 import '../../core/theme/brand.dart';
 import '../../core/widgets/selection_tile.dart';
+import 'food_board.dart';
+import 'food_board_page.dart';
 import 'share_check.dart';
 
 class ShareCheckPage extends StatefulWidget {
@@ -168,11 +170,49 @@ class _ShareCheckPageState extends State<ShareCheckPage> {
             if (answer != null) ...[
               const SizedBox(height: 26),
               _Verdict(answer: answer, hi: _hi),
+              ..._postOption(answer),
             ],
           ],
         ),
       ),
     );
+  }
+
+  /// The only door into the food board's posting form: a yes or soon
+  /// verdict with enough safe time left for a stranger to collect.
+  List<Widget> _postOption(ShareAnswer answer) {
+    if (answer.verdict == ShareVerdict.no) return const [];
+    final hours = listingHours(
+      kind: _kind!,
+      heldAt: _held ?? HeldAt.roomTemp,
+      hoursOld: _hours ?? 0,
+      hotWeather: _hotWeather,
+      verdict: answer.verdict,
+    );
+    if (hours == null) {
+      return [
+        const SizedBox(height: 14),
+        Text(
+          _hi
+              ? 'किसी अनजान व्यक्ति के आने लायक समय नहीं बचा, इसलिए इसे बोर्ड पर '
+                  'नहीं डाला जा सकता। किसी पड़ोसी या पास की संस्था को अभी फ़ोन करें।'
+              : 'Too little safe time is left for a stranger to see it and '
+                  'come, so it cannot go on the food board. Call a neighbour '
+                  'or a nearby collection partner now.',
+          style: const TextStyle(fontSize: 13.5, height: 1.45),
+        ),
+      ];
+    }
+    return [
+      const SizedBox(height: 14),
+      FilledButton.icon(
+        onPressed: () => Navigator.of(context).push(localeScopedRoute(
+          PostFoodPage(kind: _kind!, verdict: answer.verdict, hours: hours),
+        )),
+        icon: const Icon(Icons.campaign_outlined),
+        label: Text(_hi ? 'खाना बोर्ड पर डालें' : 'Put it on the food board'),
+      ),
+    ];
   }
 
   String _hoursLabel(double h) {

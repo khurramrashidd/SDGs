@@ -5,6 +5,8 @@ import '../../core/i18n/locale_scope.dart';
 import '../../core/i18n/strings.dart';
 import '../../core/layout/responsive.dart';
 import '../../core/theme/brand.dart';
+import '../../core/widgets/guide_list_page.dart';
+import '../sdg9_enterprise/scheme_match_page.dart';
 import 'leaders_page.dart';
 import 'mentor_page.dart';
 import 'report_page.dart';
@@ -69,6 +71,61 @@ class EmpowerHomePage extends StatelessWidget {
             ),
 
             const SizedBox(height: 24),
+            _SectionLabel(hi ? 'सेहत' : 'Health and wellbeing'),
+            _Row(
+              icon: Icons.pregnant_woman_outlined,
+              title: hi ? 'माँ बनने पर' : 'Pregnancy and birth',
+              subtitle: hi
+                  ? 'मातृ वंदना के पैसे, सरकारी अस्पताल में मुफ़्त प्रसव'
+                  : 'Matru Vandana cash, a free delivery in a government '
+                      'hospital',
+              onTap: () => _push(
+                context,
+                const GuideListPage(
+                  collection: 'wellness',
+                  category: 'mother',
+                  title: 'Pregnancy and birth',
+                  titleHi: 'माँ बनने पर',
+                  goal: 5,
+                ),
+              ),
+            ),
+            _Row(
+              icon: Icons.favorite_border,
+              title: hi ? 'ख़ून की कमी और कैंसर जाँच' : 'Anaemia and cancer checks',
+              subtitle: hi
+                  ? 'आधी से ज़्यादा महिलाओं में ख़ून की कमी — जाँच और गोलियाँ'
+                  : 'More than half of women are anaemic — tests and tablets',
+              onTap: () => _push(
+                context,
+                const GuideListPage(
+                  collection: 'wellness',
+                  category: 'body',
+                  title: 'Anaemia and cancer checks',
+                  titleHi: 'ख़ून की कमी और कैंसर जाँच',
+                  goal: 5,
+                ),
+              ),
+            ),
+            _Row(
+              icon: Icons.self_improvement_outlined,
+              title: hi ? 'मन की बात: 14416' : 'Someone to talk to: 14416',
+              subtitle: hi
+                  ? 'टेली-मानस — मुफ़्त, 24 घंटे, कई भाषाओं में'
+                  : 'Tele-MANAS — free, 24 hours, many languages',
+              onTap: () => _push(
+                context,
+                const GuideListPage(
+                  collection: 'wellness',
+                  category: 'mind',
+                  title: 'Someone to talk to',
+                  titleHi: 'बात करने के लिए कोई',
+                  goal: 5,
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 24),
             _SectionLabel(hi ? 'आगे बढ़ें' : 'Build your future'),
             _Row(
               icon: Icons.work_outline,
@@ -87,6 +144,14 @@ class EmpowerHomePage extends StatelessWidget {
                   : 'Small businesses you could start from home',
               onTap: () => _push(
                   context, const MentorPage(task: MentorTask.businessIdea)),
+            ),
+            _Row(
+              icon: Icons.account_balance_outlined,
+              title: hi ? 'व्यवसाय के लिए पैसा' : 'Money to start a business',
+              subtitle: hi
+                  ? 'मुद्रा, स्टैंड-अप इंडिया, पीएमईजीपी — कौन सी योजना आपकी है'
+                  : 'Mudra, Stand-Up India, PMEGP — which loan fits you',
+              onTap: () => _push(context, const SchemeMatchPage()),
             ),
             _Row(
               icon: Icons.school_outlined,

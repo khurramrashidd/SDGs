@@ -1,0 +1,411 @@
+rules_version = '2';
+
+// ---------------------------------------------------------------------------
+// IBTIDAA TECH SDG APP - Firestore security rules
+//
+// Deploy with:  firebase deploy --only firestore:rules
+//
+// Three things in this file matter more than the rest:
+//
+//   1. /_secrets/{doc} denies ALL client access. AI provider keys written
+//      there can only be read by the Render proxy, which uses the Admin SDK
+//      and bypasses rules because it runs on a server you control.
+//
+//   2. ROOT_OWNER is the recovery account, matched by email. It keeps working
+//      even if the users collection is wiped, and cannot be demoted from
+//      inside the app. Changing it means editing this file and redeploying.
+//
+//   3. Rules are OR'd, not overridden. A broad `match` does not get narrowed
+//      by a more specific one - if either grants access, access is granted.
+//      That is why the wildcard content rule below explicitly excludes
+//      'reports'. Without that exclusion, abuse reports would be world
+//      readable despite the specific rule above denying it.
+// ---------------------------------------------------------------------------
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------- identity ----------
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // request.auth.token.email is absent for anonymous sign-in, so it is
+    // checked before any method is called on it.
+    function myEmail() {
+      return signedIn() && request.auth.token.email is string
+        ? request.auth.token.email.lower()
+        : '';
+    }
+
+    // Permanent master admin. Must match AdminConfig.rootOwnerEmail in
+    // lib/core/admin/admin_config.dart.
+    function isRootOwner() {
+      return myEmail() == 'free.timesenjoy@gmail.com';
+    }
+
+    function adminConfig() {
+      return get(/databases/$(database)/documents/config/admin).data;
+    }
+
+    // The transferable owner, stored in /config/admin. Guarded with exists()
+    // so the rules work before that document has ever been written.
+    function isActiveOwner() {
+      return myEmail() != ''
+        && exists(/databases/$(database)/documents/config/admin)
+        && adminConfig().ownerEmail is string
+        && myEmail() == adminConfig().ownerEmail.lower();
+    }
+
+    function isOwner() {
+      return isRootOwner() || isActiveOwner();
+    }
+
+    function myUser() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function hasUserDoc() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+    function isSuperAdmin() {
+      return isOwner() || (hasUserDoc() && myUser().role == 'super_admin');
+    }
+
+    function isAdmin() {
+      return isSuperAdmin() || (hasUserDoc() && myUser().role == 'admin');
+    }
+
+    // Can this person edit a particular goal's content?
+    function canEditGoal(goal) {
+      return isSuperAdmin()
+        || (hasUserDoc()
+            && myUser().role == 'admin'
+            && myUser().sdgAccess is list
+            && goal in myUser().sdgAccess);
+    }
+
+    // ---------- owner record ----------
+    // Any signed-in user may read it, because the app needs to know who the
+    // owner is to decide what to show. Only the current owner may change it,
+    // which is what makes transfer possible without opening a hole.
+    match /config/admin {
+      allow read: if signedIn();
+      allow write: if isOwner();
+    }
+    match /config/{doc} {
+      allow read: if signedIn();
+      allow write: if isSuperAdmin();
+    }
+
+    // ---------- SECRETS: nothing client-side, ever ----------
+    // Not even for the owner at runtime - an admin account can be phished,
+    // and this is the one thing that must survive that. To seed keys, open
+    // `write` briefly and close it again; see the README.
+    match /_secrets/{doc} {
+      allow read: if false;
+      allow write: if false;
+    }
+
+    // ---------- users ----------
+    match /users/{uid} {
+      allow read: if (signedIn() && request.auth.uid == uid) || isSuperAdmin();
+      allow create: if signedIn() && request.auth.uid == uid;
+
+      // A user may edit their own profile but NOT their own permissions.
+      // Without this, anyone could make themselves an admin.
+      allow update: if signedIn()
+        && request.auth.uid == uid
+        && !request.resource.data.diff(resource.data)
+              .affectedKeys().hasAny(['role', 'sdgAccess']);
+
+      // Super admins grant and revoke access - except on the recovery
+      // account, which nobody can alter from inside the app.
+      allow update: if isSuperAdmin()
+        && !(resource.data.email is string
+             && resource.data.email.lower() == 'free.timesenjoy@gmail.com');
+
+      allow delete: if false;
+    }
+
+    // ---------- AI provider status (NO keys here) ----------
+    match /aiProviders/{id} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+
+    // ---------- notifications ----------
+    match /notifications/{id} {
+      allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ---------- device tokens for push ----------
+    match /deviceTokens/{token} {
+      allow read: if false;
+      allow create, update: if true;
+      allow delete: if isAdmin();
+    }
+
+    // ---------- SDG 5 abuse reports ----------
+    // Write-only from the client. Nobody using the app can read reports
+    // back - not their own, not anyone else's. If they were readable by
+    // their author, anyone holding an unlocked phone could read them.
+    // Admins read them in the Firebase console, or server-side.
+    match /sdg/5/reports/{reportId} {
+      allow read: if false;
+      allow create: if
+        request.resource.data.text is string
+        && request.resource.data.text.size() > 0
+        && request.resource.data.text.size() <= 2000
+        && request.resource.data.mode in ['anonymous', 'withContact']
+        // An anonymous report must carry nothing identifying. Enforced here
+        // rather than trusted from the client.
+        && (request.resource.data.mode != 'anonymous'
+            || (!('uid' in request.resource.data)
+                && !('contact' in request.resource.data)));
+      allow update, delete: if false;
+    }
+
+    // ---------- SDG content and admin corrections ----------
+    // Public read, because these overrides are merged over the bundled data
+    // so a corrected government link reaches every device.
+    //
+    // 'reports' is excluded explicitly. Rules are OR'd, so without this the
+    // wildcard would grant the public read that the rule above denies.
+    match /sdg/{goal} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+
+      match /{collection}/{docId} {
+        allow read: if collection != 'reports';
+        allow write: if collection != 'reports' && canEditGoal(int(goal));
+      }
+    }
+
+    // ---------- user-generated submissions ----------
+    match /submissions/{goal}/items/{itemId} {
+      allow read: if true;
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid);
+    }
+
+    // ---------- SDG 2 food board ----------
+    // Strangers sharing food. What keeps it safe is enforced here, not only
+    // in the app, because an edited app can send anything:
+    //   - the public post carries no phone and no address;
+    //   - a listing cannot outlive the food (cooked: ~3 hours, else a day);
+    //   - only the poster and the one claimer can read the contact;
+    //   - one report per person per post, counted honestly.
+    match /foodBoard/{postId} {
+      function post() {
+        return get(/databases/$(database)/documents/foodBoard/$(postId)).data;
+      }
+      function postAfter() {
+        return getAfter(/databases/$(database)/documents/foodBoard/$(postId)).data;
+      }
+      function changed() {
+        return request.resource.data.diff(resource.data).affectedKeys();
+      }
+      function cookedKind(k) {
+        return k in ['cookedHighRisk', 'cookedLowRisk'];
+      }
+
+      allow read: if true;
+
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['uid', 'title', 'kind',
+             'servings', 'area', 'verdict', 'createdAt', 'expiresAt',
+             'status', 'reportCount'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.title is string
+        && request.resource.data.title.size() >= 3
+        && request.resource.data.title.size() <= 80
+        && request.resource.data.area is string
+        && request.resource.data.area.size() >= 2
+        && request.resource.data.area.size() <= 60
+        && request.resource.data.kind in ['cookedHighRisk', 'cookedLowRisk',
+             'packagedSealed', 'rawProduce']
+        && request.resource.data.servings is int
+        && request.resource.data.servings >= 1
+        && request.resource.data.servings <= 500
+        && request.resource.data.verdict in ['yes', 'soon']
+        && request.resource.data.status == 'open'
+        && request.resource.data.reportCount == 0
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.expiresAt is timestamp
+        && request.resource.data.expiresAt > request.time
+        // A few minutes of slack over the app's limit, for phone clocks.
+        && request.resource.data.expiresAt <= request.time + duration.value(
+             cookedKind(request.resource.data.kind) ? 190 : 1450, 'm');
+
+      // Someone else claims an open, live, unhidden post.
+      allow update: if signedIn()
+        && resource.data.status == 'open'
+        && resource.data.uid != request.auth.uid
+        && request.time < resource.data.expiresAt
+        && resource.data.reportCount < 3
+        && changed().hasOnly(['status', 'claimedBy', 'claimedAt'])
+        && request.resource.data.status == 'claimed'
+        && request.resource.data.claimedBy == request.auth.uid
+        && request.resource.data.claimedAt == request.time;
+
+      // The poster closes it, or releases a claim nobody came for.
+      allow update: if signedIn()
+        && resource.data.uid == request.auth.uid
+        && changed().hasOnly(['status', 'claimedBy', 'claimedAt'])
+        && (request.resource.data.status == 'closed'
+            || (request.resource.data.status == 'open'
+                && !('claimedBy' in request.resource.data)));
+
+      // The report counter goes up by exactly one, and only in the same
+      // write that creates this person's first report on this post.
+      allow update: if signedIn()
+        && changed().hasOnly(['reportCount'])
+        && request.resource.data.reportCount == resource.data.reportCount + 1
+        && !exists(/databases/$(database)/documents/foodBoard/$(postId)/reports/$(request.auth.uid))
+        && existsAfter(/databases/$(database)/documents/foodBoard/$(postId)/reports/$(request.auth.uid));
+
+      allow delete: if (signedIn() && resource.data.uid == request.auth.uid)
+        || isAdmin();
+
+      // Phone and pickup details. Not readable by admins either: nobody
+      // needs them except the two people meeting.
+      match /private/{doc} {
+        allow read: if signedIn()
+          && (post().uid == request.auth.uid
+              || post().get('claimedBy', '') == request.auth.uid);
+        allow create: if signedIn()
+          && doc == 'contact'
+          && postAfter().uid == request.auth.uid
+          && request.resource.data.keys().hasOnly(['uid', 'phone', 'pickup'])
+          && request.resource.data.uid == request.auth.uid
+          && request.resource.data.phone is string
+          && request.resource.data.phone.matches('^[6-9][0-9]{9}$')
+          && request.resource.data.pickup is string
+          && request.resource.data.pickup.size() <= 300;
+        allow update: if false;
+        allow delete: if (signedIn() && post().uid == request.auth.uid)
+          || isAdmin();
+      }
+
+      match /reports/{reporterId} {
+        allow read: if isAdmin();
+        allow create: if signedIn()
+          && reporterId == request.auth.uid
+          && request.resource.data.keys().hasOnly(['uid', 'reason', 'at'])
+          && request.resource.data.uid == request.auth.uid
+          && request.resource.data.reason in ['unsafe', 'money', 'fake',
+               'behaviour']
+          && request.resource.data.at == request.time
+          && postAfter().reportCount == post().reportCount + 1;
+        allow update, delete: if false;
+      }
+    }
+
+    // ---------- SDG 4 study questions and answers ----------
+    // Many users are children. Nothing is public until an SDG 4 admin
+    // approves it, there are no names or messages, and anything that could
+    // lead someone off the app - a link, an email or @handle, a phone
+    // number - is refused here as well as in the app. The pattern must
+    // match `contactPattern` in lib/features/sdg4_scholarships/qa.dart.
+    function noContact(t) {
+      return !t.matches('(?is).*(https?://|www[.]|@|[0-9][0-9 -]{6,}[0-9]).*');
+    }
+    function reviewOnly() {
+      return request.resource.data.diff(resource.data).affectedKeys()
+               .hasOnly(['status', 'approvedAt', 'reviewedBy'])
+        && request.resource.data.status in ['approved', 'rejected']
+        && (request.resource.data.status != 'approved'
+            || request.resource.data.approvedAt == request.time);
+    }
+
+    match /qa/{qid} {
+      allow read: if resource.data.status == 'approved'
+        || (signedIn() && resource.data.uid == request.auth.uid)
+        || canEditGoal(4);
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['uid', 'text', 'subject',
+             'level', 'status', 'createdAt'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.text is string
+        && request.resource.data.text.size() >= 10
+        && request.resource.data.text.size() <= 500
+        && noContact(request.resource.data.text)
+        && request.resource.data.subject in ['maths', 'science', 'english',
+             'hindi', 'social', 'computer', 'other']
+        && request.resource.data.level in ['primary', 'middle', 'secondary',
+             'college']
+        && request.resource.data.status == 'pending'
+        && request.resource.data.createdAt == request.time;
+      allow update: if canEditGoal(4) && reviewOnly();
+      allow delete: if canEditGoal(4)
+        || (signedIn() && resource.data.uid == request.auth.uid);
+    }
+
+    match /qaAnswers/{aid} {
+      allow read: if resource.data.status == 'approved'
+        || (signedIn() && resource.data.uid == request.auth.uid)
+        || canEditGoal(4);
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['uid', 'qid', 'text',
+             'status', 'createdAt'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.qid is string
+        && get(/databases/$(database)/documents/qa/$(request.resource.data.qid))
+             .data.status == 'approved'
+        && request.resource.data.text is string
+        && request.resource.data.text.size() >= 2
+        && request.resource.data.text.size() <= 1500
+        && noContact(request.resource.data.text)
+        && request.resource.data.status == 'pending'
+        && request.resource.data.createdAt == request.time;
+      allow update: if canEditGoal(4) && reviewOnly();
+      allow delete: if canEditGoal(4)
+        || (signedIn() && resource.data.uid == request.auth.uid);
+    }
+
+    match /qaReports/{rid} {
+      allow read, delete: if canEditGoal(4);
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['uid', 'itemId', 'kind',
+             'reason', 'at'])
+        && request.resource.data.uid == request.auth.uid
+        && rid == request.auth.uid + '_' + request.resource.data.itemId
+        && request.resource.data.kind in ['question', 'answer']
+        && request.resource.data.reason in ['contact', 'unkind', 'wrong',
+             'other']
+        && request.resource.data.at == request.time;
+      allow update: if false;
+    }
+
+    // ---------- SDG 17 corrections from users ----------
+    // Anyone signed in can point out a mistake; only admins read them.
+    match /corrections/{id} {
+      allow read, update, delete: if isAdmin();
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['uid', 'goal', 'what',
+             'source', 'status', 'createdAt'])
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.goal is int
+        && request.resource.data.goal >= 1
+        && request.resource.data.goal <= 17
+        && request.resource.data.what is string
+        && request.resource.data.what.size() >= 10
+        && request.resource.data.what.size() <= 1000
+        && request.resource.data.source is string
+        && request.resource.data.source.size() <= 300
+        && request.resource.data.status == 'new'
+        && request.resource.data.createdAt == request.time;
+    }
+
+    // ---------- default deny ----------
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

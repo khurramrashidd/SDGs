@@ -21,8 +21,7 @@ class SdgEntry {
   bool get isLive => route != null;
 }
 
-/// Goals 7-17 carry plain English titles because they are not reachable yet;
-/// they move into the translation file as each one is built.
+/// All 17 goals are built and translated (zip 24).
 const List<SdgEntry> kSdgCatalog = [
   SdgEntry(
     goal: 1,
@@ -87,12 +86,48 @@ const List<SdgEntry> kSdgCatalog = [
     icon: Icons.precision_manufacturing_outlined,
     route: '/sdg/9',
   ),
-  SdgEntry(goal: 10, titleKey: 'Reduced Inequalities', descKey: '', icon: Icons.balance_outlined),
-  SdgEntry(goal: 11, titleKey: 'Sustainable Cities', descKey: '', icon: Icons.location_city_outlined),
-  SdgEntry(goal: 12, titleKey: 'Responsible Consumption', descKey: '', icon: Icons.recycling_outlined),
-  SdgEntry(goal: 13, titleKey: 'Climate Action', descKey: '', icon: Icons.thermostat_outlined),
-  SdgEntry(goal: 14, titleKey: 'Life Below Water', descKey: '', icon: Icons.waves_outlined),
-  SdgEntry(goal: 15, titleKey: 'Life on Land', descKey: '', icon: Icons.forest_outlined),
+  SdgEntry(
+    goal: 10,
+    titleKey: 'sdg10_title',
+    descKey: 'sdg10_desc',
+    icon: Icons.balance_outlined,
+    route: '/sdg/10',
+  ),
+  SdgEntry(
+    goal: 11,
+    titleKey: 'sdg11_title',
+    descKey: 'sdg11_desc',
+    icon: Icons.location_city_outlined,
+    route: '/sdg/11',
+  ),
+  SdgEntry(
+    goal: 12,
+    titleKey: 'sdg12_title',
+    descKey: 'sdg12_desc',
+    icon: Icons.recycling_outlined,
+    route: '/sdg/12',
+  ),
+  SdgEntry(
+    goal: 13,
+    titleKey: 'sdg13_title',
+    descKey: 'sdg13_desc',
+    icon: Icons.thermostat_outlined,
+    route: '/sdg/13',
+  ),
+  SdgEntry(
+    goal: 14,
+    titleKey: 'sdg14_title',
+    descKey: 'sdg14_desc',
+    icon: Icons.waves_outlined,
+    route: '/sdg/14',
+  ),
+  SdgEntry(
+    goal: 15,
+    titleKey: 'sdg15_title',
+    descKey: 'sdg15_desc',
+    icon: Icons.forest_outlined,
+    route: '/sdg/15',
+  ),
   SdgEntry(
     goal: 16,
     titleKey: 'sdg16_title',
@@ -100,5 +135,11 @@ const List<SdgEntry> kSdgCatalog = [
     icon: Icons.gavel_outlined,
     route: '/sdg/16',
   ),
-  SdgEntry(goal: 17, titleKey: 'Partnerships', descKey: '', icon: Icons.handshake_outlined),
+  SdgEntry(
+    goal: 17,
+    titleKey: 'sdg17_title',
+    descKey: 'sdg17_desc',
+    icon: Icons.handshake_outlined,
+    route: '/sdg/17',
+  ),
 ];

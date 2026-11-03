@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "category": "wildlife",
+    "title": "Attacked or crops destroyed: report to the forest department at once",
+    "titleHi": "हमला हुआ या फ़सल बर्बाद: तुरंत वन विभाग को बताएँ",
+    "body": "Compensation for death, injury, livestock killed and crops destroyed by wild animals is paid through the forest department, and claims depend on a quick report and an inspection before the evidence is gone. Inform the nearest forest office or beat guard the same day, take photos and get the inspection done. For a death, the Centre's guideline amount is Rs 10 lakh (raised in 2024); states set the amounts for injury, cattle and crops and often add their own. Keep copies of everything you submit.",
+    "bodyHi": "जंगली जानवरों से मौत, चोट, मारे गए पशुओं और बर्बाद फ़सल का मुआवज़ा वन विभाग देता है, और दावे इस पर टिके हैं कि सूचना जल्दी दी जाए और सबूत मिटने से पहले निरीक्षण हो। उसी दिन नज़दीकी वन कार्यालय या बीट गार्ड को बताएँ, फ़ोटो लें और निरीक्षण कराएँ। मौत के लिए केंद्र की दिशानिर्देश राशि 10 लाख रुपये है (2024 में बढ़ाई गई); चोट, मवेशी और फ़सल की राशि राज्य तय करते हैं और अक्सर अपनी ओर से जोड़ते हैं। जो कुछ जमा करें, उसकी कॉपी रखें।",
+    "source": "https://moef.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 2,
+    "category": "wildlife",
+    "title": "Elephants, leopards, bears: keep distance, do not crowd",
+    "titleHi": "हाथी, तेंदुआ, भालू: दूरी रखें, भीड़ न लगाएँ",
+    "body": "Most deaths happen when people go close — to chase an elephant from a field, to watch, or to take a photo. Never approach, surround or throw stones at a wild animal, and keep crowds back so it has a way out. Do not go to fields alone at dawn or dusk in conflict areas, carry a torch, and keep children and livestock in at night. Call the forest department to drive it away. Killing or injuring a protected animal is a crime, even after crop damage.",
+    "bodyHi": "ज़्यादातर मौतें तब होती हैं जब लोग पास जाते हैं — खेत से हाथी भगाने, देखने, या फ़ोटो लेने। किसी जंगली जानवर के पास न जाएँ, उसे न घेरें, पत्थर न फेंकें, और भीड़ पीछे रखें ताकि उसे निकलने का रास्ता मिले। टकराव वाले इलाक़ों में सुबह-शाम अकेले खेत न जाएँ, टॉर्च रखें, और रात में बच्चों और पशुओं को अंदर रखें। भगाने के लिए वन विभाग को बुलाएँ। संरक्षित जानवर को मारना या घायल करना अपराध है, फ़सल बर्बाद होने के बाद भी।",
+    "source": "https://moef.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 3,
+    "category": "wildlife",
+    "title": "Snakebite: hospital, fast — not the healer",
+    "titleHi": "साँप का काटना: जल्दी अस्पताल — झाड़-फूँक नहीं",
+    "body": "India has more snakebite deaths than any other country, and most happen to farm workers on the way to treatment that came too late. Keep the person still and calm, remove rings and tight things near the bite, keep the bitten limb still, and go straight to a hospital or health centre that has anti-snake venom — call 108. Do not cut the wound, suck it, tie a tight band, or apply herbs or ice. Time to anti-venom is what saves lives.",
+    "bodyHi": "भारत में साँप के काटने से किसी भी दूसरे देश से ज़्यादा मौतें होती हैं, और ज़्यादातर खेतिहर मज़दूरों की, जिनका इलाज बहुत देर से शुरू हुआ। व्यक्ति को शांत और स्थिर रखें, काटे के पास अँगूठी और कसी चीज़ें उतारें, काटे अंग को हिलने न दें, और सीधे ऐसे अस्पताल या स्वास्थ्य केंद्र जाएँ जहाँ एंटी-स्नेक वेनम हो — 108 पर कॉल करें। घाव न काटें, न चूसें, कसकर पट्टी न बाँधें, जड़ी-बूटी या बर्फ़ न लगाएँ। जान बचाती है एंटी-वेनम तक पहुँचने की जल्दी।",
+    "source": "https://www.who.int/news-room/fact-sheets/detail/snakebite-envenoming",
+    "phone": "108",
+    "verified": false
+  },
+  {
+    "id": 4,
+    "category": "soil",
+    "title": "Soil Health Card: a free soil test for your field",
+    "titleHi": "मृदा स्वास्थ्य कार्ड: आपके खेत की मुफ़्त मिट्टी जाँच",
+    "body": "Under the Soil Health Card scheme, soil from farmers' fields is tested and each farmer gets a card showing the soil's nutrients and condition, with fertiliser recommendations for the crops they grow. Ask the agriculture office or Krishi Vigyan Kendra when samples are being collected in your village, and download your card on the Soil Health Card portal using your mobile number. Following it usually means using less of some fertilisers, not more — which saves money.",
+    "bodyHi": "मृदा स्वास्थ्य कार्ड योजना के तहत किसानों के खेतों की मिट्टी जाँची जाती है और हर किसान को एक कार्ड मिलता है, जिसमें मिट्टी के पोषक तत्व और हालत, और उगाई जाने वाली फ़सलों के लिए खाद की सलाह होती है। कृषि कार्यालय या कृषि विज्ञान केंद्र से पूछें कि आपके गाँव में नमूने कब लिए जा रहे हैं, और मृदा स्वास्थ्य कार्ड पोर्टल पर मोबाइल नंबर से अपना कार्ड डाउनलोड करें। इसे मानने का मतलब अक्सर कुछ खादें कम डालना होता है, ज़्यादा नहीं — जिससे पैसे बचते हैं।",
+    "source": "https://soilhealth.dac.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 5,
+    "category": "soil",
+    "title": "Reading the card: N, P, K and pH",
+    "titleHi": "कार्ड पढ़ना: एन, पी, के और पीएच",
+    "body": "N (nitrogen), P (phosphorus) and K (potassium) are marked low, medium or high; the recommendation adjusts urea, DAP or SSP, and potash accordingly — high means you can cut back. pH tells you whether the soil is acidic (below about 6.5), normal, or alkaline (above about 7.5); acidic soils may need lime and alkaline soils gypsum, as the card advises. Micronutrients like zinc, iron and boron are also listed; a deficiency there can hold back a crop even when N, P and K are fine.",
+    "bodyHi": "एन (नाइट्रोजन), पी (फ़ॉस्फ़ोरस) और के (पोटैशियम) कम, मध्यम या ज़्यादा लिखे होते हैं; सलाह उसी हिसाब से यूरिया, डीएपी या एसएसपी, और पोटाश घटाती-बढ़ाती है — ज़्यादा का मतलब आप कम डाल सकते हैं। पीएच बताता है कि मिट्टी अम्लीय (लगभग 6.5 से कम), सामान्य, या क्षारीय (लगभग 7.5 से ज़्यादा) है; कार्ड की सलाह के अनुसार अम्लीय मिट्टी को चूना और क्षारीय को जिप्सम चाहिए हो सकता है। ज़िंक, आयरन और बोरॉन जैसे सूक्ष्म पोषक भी दिए होते हैं; एन, पी, के ठीक होने पर भी इनकी कमी फ़सल रोक सकती है।",
+    "source": "https://soilhealth.dac.gov.in/",
+    "verified": false
+  }
+]

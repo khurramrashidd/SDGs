@@ -10,10 +10,12 @@ import 'health_models.dart';
 
 /// The Universal Immunisation Programme schedule, as a reference.
 ///
-/// A reference, not a tracker: a tracker would need the child's date of
-/// birth and would start telling people they are late, which needs to be
-/// right about a real child on a real date. This just answers "what is due
-/// at this age, and is it free" - which is the question people actually ask.
+/// The per-child tracker lives in child_vaccines_page.dart. It was held back
+/// at first because a tracker that tells parents a dose is "late" has to be
+/// right about catch-up rules for a real child on a real date, and those
+/// rules differ by vaccine. It was built once that was solved by design: the
+/// tracker never says late. A passed date reads "due now — go anyway", and
+/// what can still be given is left to the ANM, who has the MCP card.
 class VaccinationPage extends StatefulWidget {
   const VaccinationPage({super.key});
 

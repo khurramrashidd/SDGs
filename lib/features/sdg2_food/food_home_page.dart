@@ -8,6 +8,7 @@ import '../../core/i18n/locale_scope.dart';
 import '../../core/i18n/strings.dart';
 import '../../core/layout/responsive.dart';
 import '../../core/theme/brand.dart';
+import 'food_board_page.dart';
 import 'share_check_page.dart';
 
 /// SDG 2 — Zero Hunger.
@@ -91,6 +92,17 @@ class FoodHomePage extends StatelessWidget {
                         : 'Can this be shared?'),
                   ),
                 ],
+              ),
+            ),
+            const SizedBox(height: 12),
+            _Row(
+              icon: Icons.volunteer_activism_outlined,
+              title: hi ? 'खाना बोर्ड' : 'Food board',
+              subtitle: hi
+                  ? 'पास में बचा खाना लें, या अपना बचा खाना दें'
+                  : 'Collect surplus food near you, or give yours',
+              onTap: () => Navigator.of(context).push(
+                localeScopedRoute(const FoodBoardPage()),
               ),
             ),
             const SizedBox(height: 22),

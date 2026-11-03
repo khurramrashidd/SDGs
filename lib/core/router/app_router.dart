@@ -18,13 +18,20 @@ import '../../features/notifications/notifications_page.dart';
 import '../../features/sdg1_schemes/schemes_page.dart';
 import '../../features/sdg2_food/food_home_page.dart';
 import '../../features/sdg3_health/health_home_page.dart';
-import '../../features/sdg4_scholarships/scholarships_page.dart';
+import '../../features/sdg4_scholarships/education_home_page.dart';
 import '../../features/sdg16_justice/justice_home_page.dart';
 import '../../features/sdg8_work/work_home_page.dart';
 import '../../features/sdg5_empower/empower_home_page.dart';
 import '../../features/sdg6_water/water_home_page.dart';
 import '../../features/sdg7_energy/energy_home_page.dart';
 import '../../features/sdg9_enterprise/enterprise_home_page.dart';
+import '../../features/sdg10_equality/equality_pages.dart';
+import '../../features/sdg11_cities/cities_pages.dart';
+import '../../features/sdg13_climate/climate_pages.dart';
+import '../../features/sdg12_consumption/consumption_pages.dart';
+import '../../features/sdg14_ocean/ocean_pages.dart';
+import '../../features/sdg15_land/land_pages.dart';
+import '../../features/sdg17_partnerships/partnerships_pages.dart';
 import '../../features/settings/settings_page.dart';
 
 /// A content route, wrapped so the screen can be read in another language
@@ -68,17 +75,23 @@ final appRouter = GoRouter(
     _contentRoute('/sdg/1', () => const SchemesPage()),
     _contentRoute('/sdg/2', () => const FoodHomePage()),
     _contentRoute('/sdg/3', () => const HealthHomePage()),
-    _contentRoute('/sdg/4', () => const ScholarshipsPage()),
+    _contentRoute('/sdg/4', () => const EducationHomePage()),
     _contentRoute('/sdg/5', () => const EmpowerHomePage()),
     _contentRoute('/sdg/6', () => const WaterHomePage()),
     _contentRoute('/sdg/7', () => const EnergyHomePage()),
     _contentRoute('/sdg/8', () => const WorkHomePage()),
     _contentRoute('/sdg/9', () => const EnterpriseHomePage()),
+    _contentRoute('/sdg/10', () => const EqualityHomePage()),
+    _contentRoute('/sdg/11', () => const CitiesHomePage()),
+    _contentRoute('/sdg/13', () => const ClimateHomePage()),
+    _contentRoute('/sdg/12', () => const ConsumptionHomePage()),
+    _contentRoute('/sdg/14', () => const OceanHomePage()),
+    _contentRoute('/sdg/15', () => const LandHomePage()),
     _contentRoute('/sdg/16', () => const JusticeHomePage()),
+    _contentRoute('/sdg/17', () => const PartnershipsHomePage()),
 
-    // Goals 10-17. One route rather than nine: the plan for each lives in
-    // kSdgRoadmap, so a locked tile explains what is coming instead of
-    // showing a dead "coming soon" toast.
+    // Every goal is live now; this route stays so an old link to a planned
+    // goal still opens its roadmap rather than a blank error.
     GoRoute(
       path: '/sdg/planned/:goal',
       builder: (_, state) {

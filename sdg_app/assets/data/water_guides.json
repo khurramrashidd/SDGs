@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "category": "treatment",
+    "title": "Boiling: what it fixes, and what it does not",
+    "titleHi": "उबालना: क्या ठीक होता है, क्या नहीं",
+    "body": "Bring water to a rolling boil and keep it boiling for 1 full minute. Above about 2,000 m in the hills, boil for 3 minutes. This kills bacteria, viruses and parasites, and it is the most reliable household treatment there is for germs. It removes no chemicals at all. Arsenic, fluoride, nitrate and salt stay behind, and because some water leaves as steam the water left in the pot is if anything slightly more concentrated. Boiling is the right answer for a dirty source and the wrong answer for a chemically contaminated one.",
+    "bodyHi": "पानी को तेज़ उबाल पर लाएँ और पूरे 1 मिनट उबलने दें। पहाड़ों में लगभग 2,000 मीटर से ऊपर 3 मिनट उबालें। इससे बैक्टीरिया, वायरस और परजीवी मर जाते हैं, और कीटाणुओं के लिए यह घर पर सबसे भरोसेमंद उपाय है। इससे कोई रसायन नहीं निकलता। आर्सेनिक, फ़्लोराइड, नाइट्रेट और नमक वैसे ही रह जाते हैं, और कुछ पानी भाप बनकर उड़ने से बचा हुआ पानी थोड़ा और गाढ़ा हो जाता है। गंदे स्रोत के लिए उबालना सही है, रासायनिक रूप से दूषित स्रोत के लिए ग़लत।",
+    "source": "https://www.cdc.gov/natural-disasters/psa-toolkit/boil-water-advisory.html",
+    "verified": false
+  },
+  {
+    "id": 2,
+    "category": "chemical",
+    "title": "Arsenic cannot be seen, smelled or tasted",
+    "titleHi": "आर्सेनिक दिखता, सूँघा या चखा नहीं जा सकता",
+    "body": "Arsenic in groundwater is colourless, odourless and tasteless. Water carrying a harmful amount looks exactly like clean water. The damage builds over 5 to 10 years or more and shows first as skin pigmentation and hard patches on palms and soles, and later as cancers of the skin, lung and bladder, heart disease and nerve damage. Nobody gets an early warning. Testing is the only way to know, which is why a clear-looking handpump that has never been tested is not evidence of anything.",
+    "bodyHi": "भूजल में आर्सेनिक रंगहीन, गंधहीन और स्वादहीन होता है। नुक़सानदेह मात्रा वाला पानी भी बिल्कुल साफ़ पानी जैसा दिखता है। नुक़सान 5 से 10 साल या उससे ज़्यादा समय में बढ़ता है और पहले त्वचा के रंग में बदलाव और हथेलियों-तलवों पर कड़े चकत्ते दिखते हैं, बाद में त्वचा, फेफड़े और मूत्राशय का कैंसर, हृदय रोग और तंत्रिका क्षति। किसी को पहले से चेतावनी नहीं मिलती। जाँच ही एक रास्ता है — इसीलिए कभी न जाँचा गया साफ़ दिखने वाला हैंडपंप किसी बात का सबूत नहीं है।",
+    "source": "https://www.indiawaterportal.org/water-quality-and-pollution/water-quality-/faq-on-arsenic-contamination-in-india-causes-impacts-and-mitigation-options",
+    "verified": false
+  },
+  {
+    "id": 3,
+    "category": "testing",
+    "title": "Your village water test is free",
+    "titleHi": "आपके गाँव में पानी की जाँच मुफ़्त है",
+    "body": "Under Jal Jeevan Mission, five women in every village are trained to test drinking water with a Field Test Kit. Over 9 lakh women have been trained, and the kits are handed to the Panchayat. Ask your Gram Panchayat, Pani Samiti or VWSC, or your ASHA or Anganwadi worker, who is trained in your village. There is no charge for this check. The results are uploaded to the national water quality portal, so your village's readings become public record rather than a verbal assurance.",
+    "bodyHi": "जल जीवन मिशन के तहत हर गाँव में पाँच महिलाओं को फ़ील्ड टेस्ट किट से पीने के पानी की जाँच का प्रशिक्षण दिया जाता है। 9 लाख से ज़्यादा महिलाएँ प्रशिक्षित हैं, और किट पंचायत को दी जाती हैं। अपनी ग्राम पंचायत, पानी समिति या वीडब्ल्यूएससी से, या आशा/आँगनवाड़ी कार्यकर्ता से पूछें कि आपके गाँव में कौन प्रशिक्षित है। इस जाँच का कोई शुल्क नहीं है। नतीजे राष्ट्रीय पोर्टल पर चढ़ाए जाते हैं, जिससे आपके गाँव की रीडिंग ज़ुबानी भरोसे की जगह सार्वजनिक रिकॉर्ड बन जाती है।",
+    "source": "https://jaljeevanmission.gov.in/wq/training",
+    "verified": false
+  },
+  {
+    "id": 4,
+    "category": "testing",
+    "title": "The standard kit does not test for arsenic",
+    "titleHi": "आम किट आर्सेनिक की जाँच नहीं करती",
+    "body": "The Field Test Kit used in villages checks nine things: pH, alkalinity, chloride, nitrate, total hardness, fluoride, iron, residual free chlorine and H2S. Arsenic is not among them. Arsenic-affected areas are supposed to receive a separate arsenic kit, so if you are in the Ganga or Brahmaputra plains, ask for an arsenic test by name rather than assuming the routine check covered it. Field kit results are indicative in any case; anything positive should go to a laboratory for confirmation.",
+    "bodyHi": "गाँवों में इस्तेमाल होने वाली फ़ील्ड टेस्ट किट नौ चीज़ें जाँचती है: पीएच, क्षारीयता, क्लोराइड, नाइट्रेट, कुल कठोरता, फ़्लोराइड, लोहा, अवशिष्ट मुक्त क्लोरीन और एच2एस। आर्सेनिक इनमें नहीं है। आर्सेनिक प्रभावित इलाक़ों को अलग आर्सेनिक किट मिलनी चाहिए, इसलिए अगर आप गंगा या ब्रह्मपुत्र के मैदानों में हैं, तो यह मानने की जगह कि आम जाँच में वह शामिल था, आर्सेनिक जाँच नाम लेकर माँगें। किट के नतीजे किसी भी हाल में सिर्फ़ संकेत हैं; कुछ भी मिलने पर पुष्टि के लिए प्रयोगशाला भेजना चाहिए।",
+    "source": "https://jaljeevanmission.gov.in/sites/default/files/manual_document/WQMS-Framework.pdf",
+    "verified": false
+  },
+  {
+    "id": 5,
+    "category": "testing",
+    "title": "Government labs are open to the public",
+    "titleHi": "सरकारी प्रयोगशालाएँ जनता के लिए खुली हैं",
+    "body": "District and sub-division water testing laboratories accept samples from the public at nominal rates, and some states run mobile collection vans for remote villages. A laboratory test is what confirms a field kit result, and it is what you need if you intend to press the Panchayat or the department to act. Ask the lab how to collect and carry the sample before you take it, because an incorrectly collected sample can give a wrong reading. Fees differ by state, so ask yours rather than relying on a figure from anywhere else.",
+    "bodyHi": "ज़िला और उप-मंडल जल जाँच प्रयोगशालाएँ जनता से नमूने नाममात्र शुल्क पर लेती हैं, और कुछ राज्य दूरदराज़ के गाँवों के लिए चलती वैन चलाते हैं। प्रयोगशाला जाँच ही फ़ील्ड किट के नतीजे की पुष्टि करती है, और पंचायत या विभाग पर कार्रवाई के लिए दबाव बनाने के लिए यही ज़रूरी है। नमूना लेने से पहले प्रयोगशाला से पूछ लें कि उसे कैसे लेना और लाना है, क्योंकि ग़लत ढंग से लिया नमूना ग़लत नतीजा दे सकता है। शुल्क राज्य के अनुसार अलग है, इसलिए कहीं और का आँकड़ा मानने की जगह अपने राज्य से पूछें।",
+    "source": "https://ejalshakti.gov.in/WQMIS/",
+    "verified": false
+  },
+  {
+    "id": 6,
+    "category": "treatment",
+    "title": "Cloth straining removes mud, not germs",
+    "titleHi": "कपड़े से छानना मिट्टी हटाता है, कीटाणु नहीं",
+    "body": "Letting water stand so the silt settles, then straining it through clean folded cloth, makes a real difference to muddy water, but it is a first step and never the last one. Cloth cannot stop bacteria or viruses, and it does nothing about dissolved chemicals. Its value is that boiling and chlorination both work much better on clear water than on cloudy water, so straining makes the step that follows it effective. Use a clean cloth, and dry it in the sun between uses.",
+    "bodyHi": "पानी को रखकर गाद बैठने देना और फिर साफ़ मोड़े कपड़े से छानना मैले पानी में सच में फ़र्क़ डालता है, लेकिन यह पहला क़दम है, आख़िरी कभी नहीं। कपड़ा बैक्टीरिया या वायरस नहीं रोक सकता, और घुले रसायनों पर इसका कोई असर नहीं। इसका फ़ायदा यह है कि उबालना और क्लोरीन दोनों मैले पानी से साफ़ पानी पर बेहतर काम करते हैं, इसलिए छानने से अगला क़दम असरदार हो जाता है। साफ़ कपड़ा इस्तेमाल करें, और बीच में धूप में सुखाएँ।",
+    "source": "https://www.cdc.gov/natural-disasters/psa-toolkit/boil-water-advisory.html",
+    "verified": false
+  },
+  {
+    "id": 7,
+    "category": "treatment",
+    "title": "What a candle or ceramic filter can and cannot do",
+    "titleHi": "कैंडल या सेरेमिक फ़िल्टर क्या कर सकता है, क्या नहीं",
+    "body": "A ceramic or candle filter traps mud and many bacteria, and for a cloudy biological problem it helps. It does not remove arsenic, fluoride, nitrate or salt, because those are dissolved in the water rather than floating in it. Removing those needs a filter built for the job: activated alumina, iron-based adsorption units, or reverse osmosis. Any such unit only works while it is maintained, so before trusting one, find out who services it, how often, and what it costs.",
+    "bodyHi": "सेरेमिक या कैंडल फ़िल्टर मिट्टी और कई बैक्टीरिया रोक लेता है, और मैले जैविक प्रदूषण में मदद करता है। यह आर्सेनिक, फ़्लोराइड, नाइट्रेट या नमक नहीं हटाता, क्योंकि ये पानी में घुले होते हैं, तैरते नहीं। इन्हें हटाने के लिए उसी काम का फ़िल्टर चाहिए: एक्टिवेटेड एल्यूमिना, लोहे पर आधारित अधिशोषण इकाई, या रिवर्स ऑस्मोसिस। ऐसी कोई इकाई रखरखाव के बिना काम नहीं करती, इसलिए भरोसा करने से पहले पता करें कि कौन सर्विस करता है, कितने दिन में, और ख़र्च कितना है।",
+    "source": "https://www.indiawaterportal.org/water-quality-and-pollution/water-quality-/faq-on-arsenic-contamination-in-india-causes-impacts-and-mitigation-options",
+    "verified": false
+  },
+  {
+    "id": 8,
+    "category": "chemical",
+    "title": "Deep borewells and piped supply are the usual fix",
+    "titleHi": "गहरे बोरवेल और नल जलापूर्ति आम समाधान हैं",
+    "body": "Where arsenic affects shallow groundwater, the standard remedies are not household gadgets. They are tapping a deeper safe aquifer with the contaminated layers sealed off, piping in treated surface water, or a community treatment unit for the whole village. All three are village-level decisions, which is why reporting a result to the Gram Panchayat matters more than solving it house by house. A neighbour's deep borewell is not automatically safe either, since depth alone is no guarantee without a test.",
+    "bodyHi": "जहाँ आर्सेनिक उपरी भूजल को प्रभावित करता है, वहाँ आम समाधान घरेलू उपकरण नहीं हैं। वे हैं — दूषित परतों को बंद करके गहरे सुरक्षित जलभृत से पानी लेना, उपचारित सतही पानी पाइप से लाना, या पूरे गाँव के लिए सामुदायिक उपचार इकाई। तीनों गाँव स्तर के फ़ैसले हैं, इसीलिए नतीजे की सूचना ग्राम पंचायत को देना घर-घर हल निकालने से ज़्यादा मायने रखता है। पड़ोसी का गहरा बोरवेल भी अपने आप सुरक्षित नहीं है, क्योंकि जाँच के बिना सिर्फ़ गहराई कोई गारंटी नहीं।",
+    "source": "https://www.indiawaterportal.org/water-quality-and-pollution/water-quality-/faq-on-arsenic-contamination-in-india-causes-impacts-and-mitigation-options",
+    "verified": false
+  },
+  {
+    "id": 9,
+    "category": "entitlement",
+    "title": "What Jal Jeevan Mission entitles your household to",
+    "titleHi": "जल जीवन मिशन से आपके घर को क्या मिलना चाहिए",
+    "body": "Jal Jeevan Mission is meant to provide every rural household a functional tap connection delivering potable water regularly, at a service level of 55 litres per person per day. It is designed as a bottom-up scheme: the Gram Panchayat and its Village Water and Sanitation Committee, also called the Pani Samiti, plan and run the village scheme, and these committees are required to have at least half women members. If your household has no tap connection, or has one that does not deliver, that committee is where the question belongs first.",
+    "bodyHi": "जल जीवन मिशन का उद्देश्य हर ग्रामीण घर को चालू नल कनेक्शन देना है, जिससे नियमित रूप से पीने योग्य पानी मिले, प्रति व्यक्ति प्रतिदिन 55 लीटर के स्तर पर। यह नीचे से ऊपर चलने वाली योजना है: ग्राम पंचायत और उसकी ग्राम जल एवं स्वच्छता समिति, जिसे पानी समिति भी कहते हैं, गाँव की योजना बनाती और चलाती है, और इन समितियों में कम से कम आधी महिला सदस्य होनी चाहिए। अगर आपके घर में नल कनेक्शन नहीं है, या है पर पानी नहीं आता, तो सवाल पहले उसी समिति के पास जाता है।",
+    "source": "https://jaljeevanmission.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 10,
+    "category": "entitlement",
+    "title": "Your village's test results are public",
+    "titleHi": "आपके गाँव के जाँच नतीजे सार्वजनिक हैं",
+    "body": "Water quality testing data under Jal Jeevan Mission is published on the WQMIS portal, built with ICMR, and is in the public domain rather than held inside the department. You can look up testing done in your own village, by field kit and by laboratory. This matters in an argument: a recorded result is harder to wave away than a complaint, and if no test is recorded for your village at all, that absence is itself the thing to raise with the Panchayat.",
+    "bodyHi": "जल जीवन मिशन के तहत पानी की जाँच का डेटा आईसीएमआर के साथ बने WQMIS पोर्टल पर प्रकाशित होता है और विभाग के भीतर रखा जाने की जगह सार्वजनिक है। आप अपने ही गाँव में हुई जाँच — फ़ील्ड किट और प्रयोगशाला दोनों — देख सकते हैं। बहस में यह काम आता है: दर्ज नतीजे को टालना शिकायत से मुश्किल है, और अगर आपके गाँव के लिए कोई जाँच दर्ज ही नहीं है, तो वही बात पंचायत के सामने उठाने लायक़ है।",
+    "source": "https://ejalshakti.gov.in/WQMIS/",
+    "verified": false
+  },
+  {
+    "id": 11,
+    "category": "complaint",
+    "title": "Reporting a broken handpump or a bad source",
+    "titleHi": "ख़राब हैंडपंप या दूषित स्रोत की शिकायत",
+    "body": "Go in order, and keep a note of dates and names at every step. Start with the Gram Panchayat or the Pani Samiti, which is responsible for running and watching over the village supply. If nothing moves, go to the Public Health Engineering or Rural Water Supply department at block or district level, which is responsible for the works themselves. If it still does not move, file on CPGRAMS, the central public grievance portal, where a complaint is tracked and has to be answered. A written complaint with a date beats a verbal one, every time.",
+    "bodyHi": "क्रम से चलें, और हर क़दम पर तारीख़ और नाम लिखते रहें। ग्राम पंचायत या पानी समिति से शुरू करें, जो गाँव की जलापूर्ति चलाने और उस पर नज़र रखने के लिए ज़िम्मेदार है। कुछ न हो तो ब्लॉक या ज़िला स्तर पर लोक स्वास्थ्य अभियांत्रिकी या ग्रामीण जलापूर्ति विभाग के पास जाएँ, जो काम के लिए ज़िम्मेदार है। फिर भी न हो तो सीपीग्राम्स — केंद्रीय लोक शिकायत पोर्टल — पर शिकायत दर्ज करें, जहाँ शिकायत ट्रैक होती है और जवाब देना पड़ता है। तारीख़ वाली लिखित शिकायत ज़ुबानी शिकायत से हर बार भारी पड़ती है।",
+    "source": "https://pgportal.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 12,
+    "category": "protect",
+    "title": "Keeping the source itself clean",
+    "titleHi": "स्रोत को ख़ुद साफ़ रखना",
+    "body": "Most germ contamination gets in at the source, not in the pot. A handpump needs a sound raised platform with no cracks, and drainage that carries spilled water away rather than letting it pool and seep back down the pipe. Toilets, soak pits and cattle sheds belong well away from any drinking water point, and downhill from it where there is a slope. An open well needs a parapet and a cover, and water drawn with a dedicated bucket rather than whatever is to hand.",
+    "bodyHi": "ज़्यादातर कीटाणु स्रोत पर ही पानी में आते हैं, बर्तन में नहीं। हैंडपंप के लिए मज़बूत ऊँचा चबूतरा चाहिए जिसमें दरार न हो, और ऐसी निकासी जो गिरा पानी बहा ले जाए, न कि जमा होकर पाइप के सहारे नीचे रिसने दे। शौचालय, सोख़्ता गड्ढे और पशुशाला किसी भी पीने के पानी के स्थान से दूर होने चाहिए, और ढलान हो तो उससे नीचे की ओर। खुले कुएँ पर जगत और ढक्कन चाहिए, और पानी किसी भी बर्तन से नहीं, एक तय बाल्टी से निकालना चाहिए।",
+    "source": "https://jaljeevanmission.gov.in/sites/default/files/manual_document/WQMS-Framework.pdf",
+    "verified": false
+  },
+  {
+    "id": 13,
+    "category": "protect",
+    "title": "Water stored badly stops being safe water",
+    "titleHi": "ग़लत भंडारण सुरक्षित पानी को असुरक्षित कर देता है",
+    "body": "Water that was boiled properly and then poured back into the same uncleaned pot, or dipped into with hands, is contaminated again within the day. Store treated water in a covered, narrow-necked container, take it out with a long-handled ladle or a tap rather than a hand or a cup, and keep the drinking container separate from the one used for carrying. Let boiled water cool in the covered pot it was boiled in. None of this costs anything, and it is where a lot of careful boiling gets undone.",
+    "bodyHi": "ठीक से उबाला पानी वापस उसी बिना धुले बर्तन में डाल दिया जाए, या उसमें हाथ डाला जाए, तो वह उसी दिन फिर दूषित हो जाता है। उपचारित पानी ढके, सँकरे मुँह वाले बर्तन में रखें, उसे हाथ या कप से नहीं बल्कि लंबे हैंडल वाली डोंगी या टोंटी से निकालें, और पीने का बर्तन ढोने वाले बर्तन से अलग रखें। उबला पानी उसी ढके बर्तन में ठंडा होने दें जिसमें उबाला था। इसमें कुछ ख़र्च नहीं होता, और यहीं बहुत सारी मेहनत से किया उबालना बेकार हो जाता है।",
+    "source": "https://www.cdc.gov/natural-disasters/psa-toolkit/boil-water-advisory.html",
+    "verified": false
+  },
+  {
+    "id": 14,
+    "category": "chemical",
+    "title": "Too much fluoride, and what it does",
+    "titleHi": "ज़्यादा फ़्लोराइड और उसका असर",
+    "body": "Fluoride occurs naturally in groundwater across large parts of Rajasthan, Gujarat, Andhra Pradesh, Telangana, Karnataka, Tamil Nadu and Madhya Pradesh, among others. A small amount protects teeth; too much does the opposite, mottling and staining them, and over years it affects bones and joints, with stiffness and pain and in severe cases deformity. Children growing up on the water are affected most. Unlike arsenic, fluoride is one of the nine things the standard village field kit does test for, so this is a question your Panchayat can begin answering today.",
+    "bodyHi": "फ़्लोराइड राजस्थान, गुजरात, आंध्र प्रदेश, तेलंगाना, कर्नाटक, तमिलनाडु और मध्य प्रदेश सहित कई इलाक़ों के भूजल में प्राकृतिक रूप से मौजूद है। थोड़ी मात्रा दाँतों की रक्षा करती है; ज़्यादा उलटा असर करती है, दाँतों पर धब्बे और दाग़ डालती है, और सालों में हड्डियों और जोड़ों पर असर करती है — अकड़न, दर्द और गंभीर हालत में विकृति। उस पानी पर बड़े हो रहे बच्चों पर सबसे ज़्यादा असर होता है। आर्सेनिक से उलट, फ़्लोराइड उन नौ चीज़ों में है जिन्हें आम गाँव की फ़ील्ड किट जाँचती है, इसलिए यह सवाल आपकी पंचायत आज से हल करना शुरू कर सकती है।",
+    "source": "https://www.indiawaterportal.org/water-quality-and-pollution/water-quality-/faq-on-arsenic-contamination-in-india-causes-impacts-and-mitigation-options",
+    "verified": false
+  }
+]

@@ -7,6 +7,178 @@ Naming: `sdg_app_zipNN_what-changed.zip`
 
 ---
 
+## zip 24 — `sdg_app_zip24_all-17-goals.zip`
+**2 Nov 2026**
+
+**All 17 goals are now built.** Deploy rules again (new `corrections`):
+`firebase deploy --only firestore:rules`
+
+- **SDG 12 — Responsible Consumption.** *Check a label* — type fat,
+  saturated fat, sugar, salt (per 100 g, or per serving + serving size;
+  sodium in mg converted) → low / medium / high, using the NHS
+  traffic-light thresholds, clearly labelled as a comparison guide. Guides:
+  Right to Repair portal, warranty complaints (1915), e-waste rules,
+  banned single-use plastics (corrected against CPCB's own release).
+- **SDG 14 — Life Below Water.** *Is the fishing ban on today?* — east
+  coast 15 Apr–14 Jun, west coast 1 Jun–31 Jul (61 days, MPEDA), with days
+  left or days until it starts, and the state-waters caveat. Guides: Coast
+  Guard 1554, INCOIS forecasts and fishing-zone advisories, PMMSY support
+  during the ban, reporting oil/dead fish, CRZ violations.
+- **SDG 15 — Life on Land.** *Forest rights check* — ST / other forest
+  dweller, before 13 Dec 2005, 75 years → individual (Form A), community
+  (Form B), community forest resource (Form C), the evidence that counts,
+  and the 60-day appeal. Guides: wildlife conflict and compensation (Rs 10
+  lakh central guideline for a death), snakebite first aid, Soil Health
+  Card and how to read it.
+- **SDG 17 — Partnerships.** *Send a correction* — any user can point out a
+  wrong number or dead link; it lands in Admin → Moderation → Corrections.
+  *What this app keeps* — on the phone, on the server, AI questions, what
+  we never do, how sure the information is.
+- Home screen: every tile is live.
+- Validator: fishing-ban dates, FRA eligibility, label thresholds pinned.
+
+---
+
+## zip 23 — `sdg_app_zip23_sdg10-11-13.zip`
+**2 Nov 2026**
+
+Three new goals, each with a working tool. **13 of 17 goals built.**
+
+- **SDG 10 — Reduced Inequalities.** *Which certificate do you need?* —
+  purpose, category, income, disability → the exact papers (caste, OBC
+  non-creamy layer, EWS with its asset tests, income, domicile, UDID) and
+  where to get them. *Where to complain* — caste violence, exclusion,
+  reservation denied, disability, religion, women, police abuse → police
+  FIR / NCSC / NCST / NCBC / disability commissioner / NCM / NCW / NHRC, in
+  order. Guides: disability rights, reservation in plain words.
+- **SDG 11 — Sustainable Cities.** *Street complaint writer* — pick the
+  problem, type the place, copy a ready complaint, then a 4-step escalation
+  ladder (complaint number → commissioner/BDO → state grievance portal →
+  RTI). *PM Awas checker* — urban/rural, pucca house, income, build/buy/
+  rent → BLC, AHP, interest subsidy (4%, up to Rs 1.80 lakh), rental, or
+  PMAY-G, always with the fraud warning. Guides: mutation, tax receipts,
+  flood, earthquake, lightning.
+- **SDG 13 — Climate Action.** *Heat illness check* — tick signs →
+  heat stroke (call 108, cool fast) vs exhaustion vs early signs.
+  *Crop loss clock* — PMFBY's 72-hour reporting deadline computed from the
+  damage time, and the 14-day post-harvest cover checked; how to report
+  (14447). Guides: IMD warning colours, Sachet/Damini/Meghdoot/Mausam apps,
+  heat-wave safety for workers and older people.
+- Titles and descriptions for goals 10–15 and 17 in all 14 languages.
+- New shared widgets: `module_hub.dart` (hub, hero, rows, tool screen,
+  answer list) and `core/sdg/advice.dart`.
+- Validator: safety lines of the three tools pinned (e.g. confusion or
+  collapse always means heat stroke; PMAY result always carries the fraud
+  warning).
+
+---
+
+## zip 22 — `sdg_app_zip22_food-board-study-qa.zip`
+**2 Nov 2026**
+
+**Deploy the rules and indexes after copying:**
+`firebase deploy --only firestore:rules,firestore:indexes`
+Without the rules, posting and claiming are refused; without the indexes, the
+Q&A list shows an error for a few minutes while Firebase builds them.
+
+- **SDG 2 — Food board** (the core of your old food-sharing app, built the
+  safe way you chose). Post only from a passing "Can this be shared?" check;
+  the listing disappears when the food stops being safe (cooked: ≤3 h);
+  sign-in to post or claim; the public post has only a locality — phone and
+  pickup details show only to the one person who claims; claim is
+  first-come via a transaction; poster can reopen a no-show or close; any
+  signed-in user can report, 3 reports hide a post.
+- **SDG 4 — Study questions**, moderated, no DMs. Nothing appears until an
+  admin approves it. No names on posts ("a student", "a helper"). Phone
+  numbers, links, emails and @handles refused — in the app and again in the
+  rules. Report button on every question and answer.
+- **Admin → Moderation**: Q&A approval queue, Q&A reports, reported food
+  posts.
+- Firestore rules: `foodBoard` (+ private contact, reports), `qa`,
+  `qaAnswers`, `qaReports`. Two composite indexes.
+- Validator: food board and Q&A safety rules pinned (contact privacy, time
+  cap, pending-before-visible, app/rules pattern equality); nullable-return
+  functions now recognised.
+- Everything from zips 20 and 21 carried.
+
+---
+
+## zip 21 — `sdg_app_zip21_sdg3-reminders-dailylog.zip`
+**2 Nov 2026**
+
+**Needs two one-time edits under `android/` before it builds — LOCAL_CHANGES.md #7.**
+
+- **SDG 3 — Medicine reminders.** Real phone notifications, daily, at the
+  time the doctor said. The app never suggests a medicine or dose. Up to 20.
+  Survives restarts. Android only; the website says so.
+- **SDG 3 — Daily log.** Water, steps (typed in), active minutes; last 7
+  days. No calorie or weight targets, on purpose. Phone only, 60 days kept.
+- **SDG 3 — Leftover medicines.** Safe disposal, the strong-painkiller
+  exception, and why not to pass medicines on (your answer: guide instead
+  of donation).
+- New packages: `flutter_local_notifications` ^19.4.0 (held below 20 so it
+  works on your Flutter), `timezone`.
+- Validator: new check — any `...Page`, `...Store`, `...Service` used in a
+  file must be declared or imported there. It caught a missing import in
+  this very zip before it shipped.
+- Everything from zip 20 carried, `.gitignore` included.
+
+---
+
+## zip 20 — `sdg_app_zip20_parity-health-learning.zip`
+**2 Nov 2026**
+
+Feature parity with your five Render apps. See the parity table in STATUS.md.
+
+- **SDG 3 — My child's vaccines.** Add a child by birth date; every dose
+  gets its due date; tick off what is done. Stored on the phone only.
+  Never says "late" — a missed dose says "go anyway".
+- **SDG 3 — Free and cheaper care.** eSanjeevani (free doctor by video),
+  Ayushman Arogya Mandir, PM-JAY Rs 5 lakh cover incl. everyone 70+,
+  Jan Aushadhi. Tap-to-dial 14555.
+- **SDG 4 — new home screen.** Scholarships stay first. Added: free learning
+  by class level (DIKSHA, NCERT, PM eVIDYA, SWAYAM, NIOS, NDL) with subject
+  search and language links; practice quiz (six subjects); literacy rates
+  for India and neighbours, women and men side by side.
+- **SDG 5 — Health and wellbeing.** Matru Vandana cash, free delivery under
+  JSSK, anaemia, cancer screening, Tele-MANAS 14416. Plus "Money to start a
+  business", opening the SDG 9 loan matcher.
+- **New shared widget** `lib/core/widgets/guide_list_page.dart` (with
+  tap-to-dial), used by SDG 3 and 5.
+- **`fixes/5_EmpowHer/`** — corrected `app.py` for your EmpowHer Render app:
+  key read from `GEMINI_API_KEY`, length and rate limits on every AI route.
+  Not part of the Flutter app. Revoke the old key first.
+- Validator: guide-set rules for the new datasets, learning `levels`,
+  vaccination offsets.
+- `.gitignore` carried.
+
+---
+
+## .gitignore — rewritten 31 Oct 2026
+
+Sent on its own, and carried in zip 20 onward.
+
+- **Release signing added, which was the serious omission.** `*.jks`,
+  `*.keystore` and `key.properties` were not ignored. Committing a keystore
+  to a public repo cannot be undone — git keeps history, and anyone holding
+  it can sign an app as Ibtidaa Tech that Play Store accepts as an update
+  to yours. Losing it is the mirror disaster: no update is possible ever
+  again, only a new package name.
+- Android `local.properties` and `.gradle/`, iOS and macOS Pods and Xcode
+  user data, `node_modules/`, release `.apk`/`.aab` artefacts, editor and
+  OS files.
+- `pubspec.lock` and `.metadata` stay committed on purpose, with the reason
+  in a comment — the lock file is what keeps the `intl` version from
+  drifting again.
+- `gradle.properties` stays committed too, because it carries the
+  `kotlin.incremental=false` line this project needs on Windows.
+- Validator now refuses to pass a project whose `.gitignore` has lost the
+  keystore, `key.properties` or `.env` rules, or that has started ignoring
+  `pubspec.lock`.
+- **Fixed a documentation bug:** `LOCAL_CHANGES.md` listed `.gitignore`
+  among the files I never ship. It has in fact been in every zip since 28
+  October, so a zip would have silently overwritten any edit made to it.
+
 ## zip 19 — `sdg_app_zip19_sdg9-enterprise-schemes.zip`
 **31 Oct 2026**
 

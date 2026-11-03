@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "category": "repair",
+    "title": "The Right to Repair portal",
+    "titleHi": "मरम्मत का अधिकार पोर्टल",
+    "body": "The Department of Consumer Affairs runs a Right to Repair portal where companies selling phones, appliances, vehicles and farm equipment are asked to publish repair manuals, spare part prices and authorised repair centres. Before you replace something because 'it cannot be repaired', check there for the brand's service details and spare part availability. Local repairers can often fix what a showroom will only replace.",
+    "bodyHi": "उपभोक्ता मामले विभाग एक मरम्मत का अधिकार पोर्टल चलाता है, जहाँ फ़ोन, उपकरण, गाड़ियाँ और खेती के औज़ार बेचने वाली कंपनियों से मरम्मत मैनुअल, पुर्ज़ों की कीमत और अधिकृत सर्विस सेंटर बताने को कहा गया है। 'मरम्मत नहीं हो सकती' कहकर कुछ बदलने से पहले वहाँ ब्रांड की सर्विस जानकारी और पुर्ज़े मिलने की जानकारी देखें। जिसे शोरूम सिर्फ़ बदलने को कहता है, उसे अक्सर स्थानीय मिस्त्री ठीक कर देता है।",
+    "source": "https://righttorepairindia.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 2,
+    "category": "repair",
+    "title": "Refused a repair under warranty? Call 1915",
+    "titleHi": "वारंटी में मरम्मत से मना? 1915 पर कॉल करें",
+    "body": "If a product fails within warranty and the company delays, refuses or charges for a repair it should do free, register a complaint with the National Consumer Helpline — call 1915 or use the NCH app or website. They take it up with the company. If that does not settle it, you can file a case in the consumer commission online through e-Daakhil, without a lawyer. Keep the bill, the warranty card and every job sheet.",
+    "bodyHi": "अगर सामान वारंटी में ख़राब हो और कंपनी मुफ़्त मरम्मत में देरी करे, मना करे या पैसे माँगे, तो राष्ट्रीय उपभोक्ता हेल्पलाइन पर शिकायत करें — 1915 पर कॉल करें या एनसीएच ऐप या वेबसाइट इस्तेमाल करें। वे कंपनी से बात करते हैं। इससे न सुलझे तो बिना वकील के ई-दाख़िल पर उपभोक्ता आयोग में ऑनलाइन केस कर सकते हैं। बिल, वारंटी कार्ड और हर जॉब शीट संभालकर रखें।",
+    "source": "https://consumerhelpline.gov.in/",
+    "phone": "1915",
+    "verified": false
+  },
+  {
+    "id": 3,
+    "category": "waste",
+    "title": "Old phones, chargers, batteries and bulbs are e-waste",
+    "titleHi": "पुराने फ़ोन, चार्जर, बैटरी और बल्ब ई-कचरा हैं",
+    "body": "Under India's E-Waste (Management) Rules, makers of electronics must take back their products at end of life, and e-waste should go to an authorised collection centre, dismantler or recycler — not the household bin or a burning heap, where lead, mercury and cadmium end up in soil, water and lungs. Ask the brand's service centre about its take-back, or find authorised recyclers listed by the Central Pollution Control Board. Wipe and remove the SIM and memory card from a phone first.",
+    "bodyHi": "भारत के ई-कचरा (प्रबंधन) नियमों के तहत इलेक्ट्रॉनिक्स बनाने वालों को पुराने उत्पाद वापस लेने होते हैं, और ई-कचरा अधिकृत संग्रह केंद्र, डिस्मेंटलर या रीसाइक्लर के पास जाना चाहिए — घर के कूड़ेदान या जलते ढेर में नहीं, जहाँ सीसा, पारा और कैडमियम मिट्टी, पानी और फेफड़ों में पहुँचते हैं। ब्रांड के सर्विस सेंटर से उनकी वापसी योजना पूछें, या केंद्रीय प्रदूषण नियंत्रण बोर्ड की सूची में अधिकृत रीसाइक्लर खोजें। फ़ोन देने से पहले डेटा मिटाएँ और सिम व मेमोरी कार्ड निकाल लें।",
+    "source": "https://cpcb.nic.in/",
+    "verified": false
+  },
+  {
+    "id": 4,
+    "category": "waste",
+    "title": "Single-use plastics that are banned",
+    "titleHi": "प्रतिबंधित एकल-उपयोग प्लास्टिक",
+    "body": "Since 1 July 2022 India has banned making, selling and using identified single-use plastic items, including plastic sticks for earbuds, balloons, flags, candy and ice-cream; thermocol for decoration; plastic plates, cups, glasses, cutlery, straws and stirrers; and thin wrapping film for sweet boxes and cigarette packets. Since 31 December 2022, plastic carry bags must be at least 120 microns thick. Anyone still selling these can be reported to the municipality or the state pollution control board, including through the Central Pollution Control Board's single-use plastic grievance app.",
+    "bodyHi": "1 जुलाई 2022 से भारत ने चिह्नित एकल-उपयोग प्लास्टिक चीज़ें बनाना, बेचना और इस्तेमाल करना प्रतिबंधित किया है — जैसे ईयरबड, गुब्बारे, झंडे, कैंडी और आइसक्रीम की प्लास्टिक डंडियाँ; सजावट का थर्मोकोल; प्लास्टिक की प्लेटें, कप, गिलास, कटलरी, स्ट्रॉ और स्टिरर; और मिठाई के डिब्बों व सिगरेट पैकेटों की पतली पन्नी। 31 दिसंबर 2022 से प्लास्टिक कैरी बैग कम से कम 120 माइक्रॉन मोटे होने चाहिए। ये अब भी बेचने वालों की शिकायत नगर निकाय या राज्य प्रदूषण नियंत्रण बोर्ड में, केंद्रीय प्रदूषण नियंत्रण बोर्ड के एकल-उपयोग प्लास्टिक शिकायत ऐप से भी, की जा सकती है।",
+    "source": "https://www.cpcb.nic.in/uploads/Press-release-SUP-ban-17062022.pdf",
+    "verified": false
+  }
+]

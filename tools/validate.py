@@ -168,7 +168,9 @@ def declared_symbols(path: str) -> set[str]:
     out |= set(re.findall(
         r'^(?:abstract\s+)?(?:class|enum|mixin|extension)\s+(\w+)', s, re.M))
     out |= set(re.findall(r'^(?:const|final)\s+[\w<>,\s]*?(\w+)\s*=', s, re.M))
-    out |= set(re.findall(r'^[\w<>,\s]+\s+(\w+)\s*\(', s, re.M))
+    # `?` included: a nullable return type (`double? f(`) hid the function
+    # and made its import look unused (zip 22).
+    out |= set(re.findall(r'^[\w<>,?\s]+\s+(\w+)\s*\(', s, re.M))
 
     # Members of an extension are used as `context.tr(...)`, so the
     # extension's own name never appears at the call site. Collect the
@@ -425,7 +427,47 @@ def check_json() -> None:
          {'rights', 'bill', 'complaint', 'solar', 'lpg', 'indoor'}),
         ('assets/data/enterprise_guides.json', 'SDG 9',
          {'udyam', 'loans', 'fraud', 'records', 'digital'}),
+        ('assets/data/free_care.json', 'SDG 3',
+         {'doctor', 'cover', 'medicine', 'leftover'}),
+        ('assets/data/women_wellness.json', 'SDG 5',
+         {'mother', 'body', 'mind'}),
+        ('assets/data/land_guides.json', 'SDG 15',
+         {'wildlife', 'soil'}),
+        ('assets/data/ocean_guides.json', 'SDG 14',
+         {'safety', 'report'}),
+        ('assets/data/consumption_guides.json', 'SDG 12',
+         {'repair', 'waste'}),
+        ('assets/data/climate_guides.json', 'SDG 13',
+         {'alerts', 'heat'}),
+        ('assets/data/cities_guides.json', 'SDG 11',
+         {'property', 'disaster'}),
+        ('assets/data/equality_guides.json', 'SDG 10',
+         {'disability', 'reservation'}),
     ]
+
+    # The learning page filters on `levels`, not `category`. A level the
+    # page offers with no platform behind it is an empty screen for exactly
+    # the person who picked it.
+    lg = 'assets/data/learning_guides.json'
+    if os.path.exists(lg):
+        rows = json.load(open(lg, encoding='utf-8'))
+        offered = {'early', 'primary', 'secondary', 'leftschool', 'college'}
+        seen = set()
+        for r in rows:
+            lv = r.get('levels')
+            if not isinstance(lv, list) or not lv:
+                fail(f'{lg}: row {r["id"]} has no levels, so no level shows it')
+                continue
+            stray = set(lv) - offered
+            if stray:
+                fail(f'{lg}: row {r["id"]} has unknown levels {sorted(stray)}')
+            seen |= set(lv)
+            if not str(r.get('source', '')).startswith('https://'):
+                fail(f'{lg}: row {r["id"]} has no https link')
+        missing = sorted(offered - seen)
+        if missing:
+            fail(f'{lg}: levels {missing} have no platform - picking them '
+                 'shows an empty page')
     for path, goal, known in GUIDE_SETS:
         if not os.path.exists(path):
             continue
@@ -451,6 +493,39 @@ def check_json() -> None:
         if empty:
             fail(f'{path}: categories {empty} have no rows, but the {goal} '
                  'home screen links to them')
+        # A `phone` on a guide card becomes a tap-to-dial button. `tel:`
+        # silently does nothing with a hyphen or a space in it, and the card
+        # still looks fine, so this is the only place it gets caught.
+        bad_phone = [(r['id'], r['phone']) for r in rows
+                     if 'phone' in r and not str(r['phone']).isdigit()]
+        if bad_phone:
+            fail(f'{path}: phone numbers {bad_phone} are not plain digits '
+                 'and will not dial')
+
+    # The child vaccine tracker computes due dates from these offsets. A
+    # stage with no offset, or two, or offsets that go backwards, produces a
+    # wrong date for a real child - and the screen would look perfectly fine.
+    vs = 'assets/data/vaccination_schedule.json'
+    if os.path.exists(vs):
+        rows = json.load(open(vs, encoding='utf-8'))
+        approx = []
+        for r in rows:
+            if r.get('pregnancy') is True:
+                continue
+            keys = [k for k in ('dueWeeks', 'dueMonths', 'dueYears')
+                    if isinstance(r.get(k), int)]
+            if len(keys) != 1:
+                fail(f'{vs}: stage {r["id"]} needs exactly one of dueWeeks, '
+                     f'dueMonths or dueYears, has {keys or "none"}')
+                continue
+            k = keys[0]
+            days = r[k] * {'dueWeeks': 7, 'dueMonths': 30.44,
+                           'dueYears': 365.25}[k]
+            approx.append((r['id'], days))
+        for (a, da), (b, db) in zip(approx, approx[1:]):
+            if not db > da:
+                fail(f'{vs}: stage {b} is due no later than stage {a} - the '
+                     'schedule order and the offsets disagree')
 
     lr = 'assets/data/legal_rights.json'
     if os.path.exists(lr):
@@ -846,6 +921,51 @@ def check_bill_logic() -> None:
                      'establish either.')
 
 
+def check_gitignore() -> None:
+    """The release keystore must never be committable.
+
+    This is the only check here guarding against a mistake that cannot be
+    undone. Commit the keystore to a public repo and anyone can sign an app
+    as Ibtidaa Tech, and deleting it later does not help because git keeps
+    history — the Gemini key in the EmpowHer repo is the precedent. Lose the
+    keystore and the app can never be updated at all.
+
+    A committed `.env` is the other one: the AI provider keys belong on the
+    Render proxy's environment, never in the repo.
+    """
+    f = '.gitignore'
+    if not os.path.exists(f):
+        fail('.gitignore is missing. A Flutter repo without one commits '
+             'build output, and sooner or later the release keystore.')
+        return
+
+    body = open(f, encoding='utf-8').read()
+    required = {
+        '*.jks': 'the Android release keystore',
+        '*.keystore': 'the Android release keystore',
+        'key.properties': 'the keystore passwords',
+        '.env': 'the AI provider keys',
+        'build/': 'build output',
+        '.dart_tool/': 'the Dart tool cache',
+    }
+    for pattern, what in required.items():
+        # Match the pattern as its own line, so a mention inside a comment
+        # does not count as a rule.
+        if not re.search(rf'^{re.escape(pattern)}\s*$', body, re.M):
+            fail(f'{f}: no rule for "{pattern}" ({what}). '
+                 + ('Committing this cannot be undone - git keeps history.'
+                    if pattern in ('*.jks', '*.keystore', 'key.properties',
+                                   '.env')
+                    else ''))
+
+    # pubspec.lock must NOT be ignored: this is an application, and the lock
+    # file is what keeps the intl version pinned to what his SDK accepts.
+    if re.search(r'^pubspec\.lock\s*$', body, re.M):
+        fail(f'{f}: pubspec.lock is ignored. For an application it should '
+             'be committed - it is what makes the build reproducible and '
+             'what keeps the intl version from drifting again.')
+
+
 def check_scheme_logic() -> None:
     """SDG 9's scheme matcher must never dead-end and never over-promise.
 
@@ -1050,11 +1170,195 @@ def check_i18n() -> None:
                  'corrupted, it will show as a black diamond')
 
 
+# -- screens used but never imported -----------------------------------------
+# zip 21 nearly shipped `const MedicineRemindersPage()` in a file that did
+# not import it: a bulk edit's anchor line did not exist, so the import was
+# silently not added. Every name ending in Page/Store/Service that is
+# referenced must be declared in this file or in a project file it imports
+# (one level of `export` followed). Package classes with those suffixes
+# would be false positives, so names from package imports are allowed by
+# listing them below.
+PACKAGE_SUFFIXED = {'SharedPreferences', 'GuideListPage'}
+
+
+def check_local_refs() -> None:
+    decl_cache = {}
+
+    def decls(path):
+        if path not in decl_cache:
+            src = open(path, encoding='utf-8').read()
+            names = set(re.findall(
+                r'^(?:abstract\s+|final\s+|sealed\s+|base\s+)*'
+                r'(?:class|enum|mixin|extension|typedef)\s+(\w+)', src, re.M))
+            for m in re.finditer(r"^export '([^':]+\.dart)'", src, re.M):
+                t = os.path.normpath(os.path.join(os.path.dirname(path),
+                                                  m.group(1)))
+                if os.path.exists(t):
+                    names |= set(re.findall(
+                        r'^(?:abstract\s+)?(?:class|enum)\s+(\w+)',
+                        open(t, encoding='utf-8').read(), re.M))
+            decl_cache[path] = names
+        return decl_cache[path]
+
+    for f in DART:
+        src = open(f, encoding='utf-8').read()
+        known = set(decls(f))
+        for m in re.finditer(r"^import '([^':]+\.dart)'", src, re.M):
+            t = os.path.normpath(os.path.join(os.path.dirname(f), m.group(1)))
+            if os.path.exists(t):
+                known |= decls(t)
+        code = re.sub(r"//[^\n]*", '', src)
+        code = re.sub(r"'(?:[^'\\\n]|\\.)*'", "''", code)
+        for name in set(re.findall(r'\b([A-Z]\w*(?:Page|Store|Service))\b',
+                                   code)):
+            if name in known or name in PACKAGE_SUFFIXED:
+                continue
+            if re.search(rf"import 'package:[^']+' show [^;]*\b{name}\b", src):
+                continue
+            fail(f'{f}: uses {name} but neither declares nor imports it')
+
+
+# -- SDG 2 food board ----------------------------------------------------------
+# Strangers exchanging food. The safety decisions (2 Nov 2026) are pinned
+# here so a later edit cannot quietly drop one.
+def check_food_board() -> None:
+    rules = open('firestore.rules', encoding='utf-8').read()
+    m = re.search(r'match /foodBoard/\{postId\} \{(.*?)\n    \}\n', rules, re.S)
+    if not m:
+        fail('firestore.rules: foodBoard rules missing')
+        return
+    body = m.group(1)
+    priv = re.search(r'match /private/\{doc\} \{(.*?)\n      \}', body, re.S)
+    if not priv:
+        fail('firestore.rules: foodBoard private contact rules missing')
+    else:
+        read = re.search(r'allow read:(.*?);', priv.group(1), re.S)
+        if not read or 'true' in read.group(1) or 'isAdmin' in read.group(1):
+            fail('firestore.rules: food contact must be readable only by the '
+                 'poster and the claimer')
+    for needle, why in [
+        ("keys().hasOnly(['uid', 'title'", 'public post must not carry extra '
+         'fields such as a phone'),
+        ("duration.value(", 'listing must be capped in time'),
+        ("existsAfter(", 'report counter must be tied to a report document'),
+        ("phone.matches(", 'phone must be validated'),
+    ]:
+        if needle not in body:
+            fail(f'firestore.rules: foodBoard - {why}')
+
+    fb = 'lib/features/sdg2_food/food_board.dart'
+    src = open(fb, encoding='utf-8').read()
+    if "'phone'" in src.split('..set(ref.collection')[0].split('final batch')[-1]:
+        fail(f'{fb}: phone written into the public post')
+    if 'hours < 1 / 3 ? null' not in src:
+        fail(f'{fb}: listingHours must refuse listings with under 20 minutes')
+    if 'verdict == ShareVerdict.no) return null' not in src:
+        fail(f'{fb}: listingHours must refuse a "no" verdict')
+
+    # The posting form is reachable only from the share check.
+    for f in DART:
+        if 'PostFoodPage(' in open(f, encoding='utf-8').read() and not (
+                f.endswith('share_check_page.dart')
+                or f.endswith('food_board_page.dart')):
+            fail(f'{f}: opens PostFoodPage - posting must start at the '
+                 'share check')
+
+
+# -- SDG 4 moderated Q&A --------------------------------------------------------
+# Children and strangers. Approval-before-visible and the contact filter
+# are pinned here, and the app's pattern must equal the rules' pattern.
+def check_qa() -> None:
+    rules = open('firestore.rules', encoding='utf-8').read()
+    m = re.search(r"t\.matches\('\(\?is\)\.\*\((.*?)\)\.\*'\)", rules)
+    qa = 'lib/features/sdg4_scholarships/qa.dart'
+    src = open(qa, encoding='utf-8').read()
+    d = re.search(r"RegExp\(r'\((.*?)\)',", src)
+    if not m or not d:
+        fail('Q&A contact pattern missing from firestore.rules or qa.dart')
+    else:
+        norm = lambda x: x.replace('[.]', '.').replace('\\.', '.') \
+            .replace('\\-', '-')
+        if norm(m.group(1)) != norm(d.group(1)):
+            fail(f'Q&A contact pattern differs: rules {m.group(1)!r} vs '
+                 f'app {d.group(1)!r}')
+    for coll in ('qa', 'qaAnswers'):
+        blk = re.search(rf'match /{coll}/\{{\w+\}} \{{(.*?)\n    \}}', rules, re.S)
+        if not blk:
+            fail(f'firestore.rules: /{coll} rules missing')
+            continue
+        b = blk.group(1)
+        if "request.resource.data.status == 'pending'" not in b:
+            fail(f'firestore.rules: /{coll} must be created as pending')
+        if 'noContact(' not in b:
+            fail(f'firestore.rules: /{coll} must refuse contact details')
+        read = re.search(r'allow read:(.*?);', b, re.S).group(1)
+        if 'true' in read:
+            fail(f'firestore.rules: /{coll} must not be readable before approval')
+    for bad in ('displayName', 'photoURL', "'name'"):
+        if bad in src:
+            fail(f'{qa}: Q&A must not carry {bad} - no identities on posts')
+
+
+# -- goals 10-17 decision tools ------------------------------------------------
+# The safety-critical lines of each tool, pinned.
+def check_goal_tools() -> None:
+    pins = [
+        ('lib/features/sdg13_climate/climate_tools.dart', [
+            ('const reportWindow = Duration(hours: 72);',
+             'PMFBY reporting window must be 72 hours'),
+            ('const postHarvestDays = 14;',
+             'PMFBY post-harvest cover is 14 days'),
+            ("if (signs.contains(HeatSign.confused) || signs.contains(HeatSign.collapsed)) {\n    return HeatLevel.stroke;",
+             'confusion or collapse must always mean heat stroke'),
+            ("phone: '108'", 'heat stroke advice must offer 108'),
+        ]),
+        ('lib/features/sdg14_ocean/ocean_tools.dart', [
+            ('Coast.east => BanWindow(DateTime(year, 4, 15), DateTime(year, 6, 14)),',
+             'east coast ban is 15 April - 14 June'),
+            ('Coast.west => BanWindow(DateTime(year, 6, 1), DateTime(year, 7, 31)),',
+             'west coast ban is 1 June - 31 July'),
+        ]),
+        ('lib/features/sdg15_land/land_tools.dart', [
+            ('final eligible = before2005 && (who == Claimant.stHere || threeGenerations);',
+             'FRA eligibility: before 2005, and ST here or 75 years'),
+            ('if (!eligible) return [_notEligible];',
+             'ineligible must still get an answer'),
+        ]),
+        ('lib/features/sdg12_consumption/consumption_tools.dart', [
+            ('Nutrient.fat: Band(3.0, 17.5),', 'fat thresholds (NHS)'),
+            ('Nutrient.saturates: Band(1.5, 5.0),', 'saturates thresholds (NHS)'),
+            ('Nutrient.sugars: Band(5.0, 22.5),', 'sugar thresholds (NHS)'),
+            ('Nutrient.salt: Band(0.3, 1.5),', 'salt thresholds (NHS)'),
+            ('sodiumMg / 1000 * 2.5', 'salt = sodium x 2.5'),
+        ]),
+        ('lib/features/sdg11_cities/cities_tools.dart', [
+            ('if (ownsPucca) return [_ownsPucca];',
+             'owning a pucca house must be checked first'),
+            ('out.add(_noAgent);', 'every PMAY result must carry the fraud warning'),
+        ]),
+        ('lib/features/sdg10_equality/equality_tools.dart', [
+            ('out.add(_notSureCategory);',
+             '"not sure" of category must say to ask before applying'),
+            ("phone: '112'", 'atrocity advice must offer 112'),
+        ]),
+    ]
+    for path, items in pins:
+        if not os.path.exists(path):
+            fail(f'{path}: missing')
+            continue
+        src = open(path, encoding='utf-8').read()
+        for needle, why in items:
+            if needle not in src:
+                fail(f'{path}: {why}')
+
+
 def main() -> int:
     for fn in (check_delimiters, check_imports, check_const,
                check_http_bodies, check_slivers, check_json, check_secrets,
                check_regressions, check_i18n, check_water_logic,
-               check_bill_logic, check_scheme_logic, check_scoped_names):
+               check_bill_logic, check_scheme_logic, check_gitignore,
+               check_scoped_names, check_local_refs,
+               check_food_board, check_qa, check_goal_tools):
         fn()
 
     for n in notes:

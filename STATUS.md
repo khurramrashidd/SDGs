@@ -58,15 +58,21 @@ Zip history and what each one contained: see `CHANGELOG.md`.
 |---|---|---|
 | 1 | No Poverty — government schemes | ✅ working |
 | 2 | Zero Hunger — IFSA bridge | ✅ working |
-| 3 | Good Health — myth vs fact | ✅ working |
-| 4 | Quality Education — scholarship watchdog | ✅ working |
-| 5 | Gender Equality — EmpowHer | ✅ working |
+| 3 | Good Health — myths, free care, child vaccine tracker | ✅ working |
+| 4 | Quality Education — scholarships, free learning, quiz, literacy | ✅ working |
+| 5 | Gender Equality — EmpowHer + women's health | ✅ working |
 | 6 | Clean Water — is my water safe, free testing | ✅ working |
 | 7 | Affordable Energy — bill check, solar, gas subsidy | ✅ working |
 | 8 | Decent Work — job scams, MGNREGA, e-Shram | ✅ working |
 | 9 | Industry & Enterprise — which loan scheme, Udyam | ✅ working |
+| 10 | Reduced Inequalities — certificate finder, complaint router | ✅ working |
+| 11 | Sustainable Cities — street complaints, PM Awas checker | ✅ working |
+| 13 | Climate Action — heat illness check, crop-loss clock | ✅ working |
 | 16 | Peace & Justice — RTI, police, legal aid | ✅ working |
-| 10–15, 17 | — | ⬜ locked, but each tile shows its plan |
+| 12 | Responsible Consumption — food label check | ✅ working |
+| 14 | Life Below Water — fishing ban dates | ✅ working |
+| 15 | Life on Land — forest rights check | ✅ working |
+| 17 | Partnerships — user corrections, transparency | ✅ working |
 
 ### SDG 1 — No Poverty ✅
 
@@ -90,7 +96,13 @@ Zip history and what each one contained: see `CHANGELOG.md`.
 - [x] AI career guidance, business ideas, course finder (via proxy)
 - [x] Every AI answer carries a "this can be wrong" note
 - [x] 21 Indian women, described by what they did
+- [x] **Women's health (zip 20):** Matru Vandana cash, free delivery under
+      JSSK, anaemia (57% of women, NFHS-5), breast and cervical screening,
+      Tele-MANAS 14416 — 5 cards, all sourced
+- [x] **Money to start a business** — opens the SDG 9 loan-scheme matcher
+- [x] Fixed EmpowHer `app.py` in `fixes/5_EmpowHer/` (key from env, limits)
 - [ ] **Verify the 7 helpline numbers** before public release
+- [ ] **Have the 5 women's health cards checked by a doctor**
 - [ ] **Have the 9 legal summaries checked** by someone qualified
 - [ ] Admin screen to read reports (currently Firebase console only)
 - [ ] Scheduled deletion of anonymous reports after 30 days
@@ -199,6 +211,10 @@ Zip history and what each one contained: see `CHANGELOG.md`.
 - [x] 8 household waste-reduction tips
 - [x] Routes donors to the official FSSAI Save Food Share Food network
 - [x] Local organisation directory — **ships empty on purpose**, admin-filled
+- [x] **Food board (zip 22)** — post only after a passing safety check;
+      expires with the food; contact only to the claimer; reports hide posts
+- [ ] Deploy rules + indexes: `firebase deploy --only firestore:rules,firestore:indexes`
+- [ ] Test with two accounts: post on one, claim on the other
 - [ ] Add real local collection organisations, each phoned before listing
 - [ ] Have the food safety thresholds checked by a food safety officer
 
@@ -214,6 +230,16 @@ Zip history and what each one contained: see `CHANGELOG.md`.
 - [ ] **Have the 16 health cards checked by a doctor** before public release
 - [ ] **Verify the 6 helpline numbers**, especially 14416 Tele-MANAS
 - [ ] Confirm the immunisation schedule against the current UIP circular
+- [x] **My child's vaccines (zip 20):** add a child by birth date, see each
+      due date, tick off doses; stored on the phone only; never says "late",
+      always says "go anyway"
+- [x] **Free and cheaper care (zip 20):** eSanjeevani, Ayushman Arogya
+      Mandir, PM-JAY (incl. 70+), Jan Aushadhi — 6 cards, tap-to-dial 14555
+- [ ] Have the 6 free-care cards checked against the scheme portals
+- [x] **Medicine reminders (zip 21)** — daily notifications, phone only
+- [x] **Daily log (zip 21)** — water, steps, active minutes; no targets
+- [x] **Leftover medicines (zip 21)** — disposal guide instead of donation
+- [ ] Do the two Android edits in LOCAL_CHANGES.md #7, then test a reminder
 
 ### SDG 4 — Quality Education ✅
 
@@ -223,6 +249,14 @@ Zip history and what each one contained: see `CHANGELOG.md`.
 - [x] Document checklist per scholarship
 - [x] Deadline countdown with urgency marker
 - [x] Admin deadline manager
+- [x] **SDG 4 home screen (zip 20)** — scholarships first, then the rest
+- [x] **Free learning by class level** — DIKSHA, NCERT, PM eVIDYA, SWAYAM,
+      NIOS, NDL; subject search; language-learning links
+- [x] **Practice quiz** — six subjects, OpenTDB (questions in English, said so)
+- [x] **Literacy rates** — World Bank data, women and men side by side
+- [x] **Study questions (zip 22)** — admin approves everything first; no
+      names, no messages, contact details refused
+- [ ] Decide who moderates Q&A daily — unanswered queues kill it
 - [ ] **Enter the 24 deadlines** — Admin → Scholarship deadlines
 - [ ] Verify the 24 scholarship records against NSP
 
@@ -322,17 +356,47 @@ in the translation pipeline yet.
 
 ---
 
+## Parity with the five Render apps (zip 20)
+
+| Old app | Feature | In the Flutter app |
+|---|---|---|
+| 1 Subsidy awareness | schemes, search, detail, links | ✅ all |
+| 2 Food sharing | food safety, waste tips, partners | ✅ |
+| 2 Food sharing | donate / claim board | ✅ safe food board (zip 22) |
+| 3 GoodHealthHub | doctor booking | ✅ as eSanjeevani (real doctors, free) |
+| 3 GoodHealthHub | pharmacy | ✅ as Jan Aushadhi |
+| 3 GoodHealthHub | health camps | ✅ as Ayushman Arogya Mandir + PM-JAY |
+| 3 GoodHealthHub | vaccination record | ✅ child tracker |
+| 3 GoodHealthHub | symptom checker | ❌ deliberately not — diagnosis by app harms |
+| 3 GoodHealthHub | medicine donation | ✅ as safe-disposal guide (your choice) |
+| 3 GoodHealthHub | reminders, fitness tracker | ✅ reminders + daily log (zip 21) |
+| 4 LearningVersity | courses, resources, languages | ✅ |
+| 4 LearningVersity | quiz, literacy tracker | ✅ |
+| 4 LearningVersity | teacher–student Q&A | ✅ moderated study Q&A, no DMs (zip 22) |
+| 5 EmpowHer | helplines, report, rights, mentor, ideas, courses, leaders | ✅ |
+| 5 EmpowHer | wage gap | ✅ inside legal rights (equal pay) |
+| 5 EmpowHer | wellness | ✅ women's health, India-specific |
+| 5 EmpowHer | businesses | ✅ links to SDG 9 matcher |
+| 5 EmpowHer | AI chat on abuse/legal pages | ❌ deliberately not — wrong legal advice in a crisis |
+| 5 EmpowHer | blogs, feedback form | ❌ were not functional in the original |
+
 ## Roadmap for goals 6-17
 
 Each locked tile opens its own plan — `lib/core/sdg/sdg_roadmap.dart` holds
-4 to 5 planned features per goal. **10 of 17 goals are now built**
-(1, 2, 3, 4, 5, 6, 7, 8, 9, 16). Remaining: 10-15 and 17.
+4 to 5 planned features per goal. **All 17 goals are built** (zip 24). Each has at least one
+tool that solves a problem, not only information.
 
 ## Outstanding risks
 
+New in zips 20-24, all shipped `verified: false`:
+- 🔴 Heat-illness and snakebite advice (SDG 13, 15) — doctor review
+- 🟠 Forest Rights, certificates, complaint routing (SDG 10, 15) — lawyer review
+- 🟠 Fishing ban dates, PMFBY 72 h / 14 days, PMAY-U figures — re-check yearly
+- 🟠 Food board and Q&A need a named daily moderator before public launch
+
 | | Issue | Action |
 |---|---|---|
-| 🔴 | Gemini API key public in the EmpowHer repo's git history | **Revoke it** |
+| 🔴 | Gemini API key public in the EmpowHer repo's git history | **Revoke it**, then deploy `fixes/5_EmpowHer/app.py` (see README_FIX.md there) |
 | 🟠 | 52 scheme links unverified | Fix in Admin → Edit content |
 | 🟠 | 24 scholarship records unverified, no deadlines | Verify and enter |
 | 🟡 | Brand colours are my placeholder | Send hex codes or screenshot |
@@ -347,4 +411,4 @@ Each locked tile opens its own plan — `lib/core/sdg/sdg_roadmap.dart` holds
 | 🟡 | Content exists in English and Hindi only | Admin → Translate content, as speakers become available |
 | 🔴 | SDG 6 water guidance needs a water quality officer | 14 cards; wrong treatment advice causes illness |
 | 🟠 | SDG 7 subsidy amounts go stale fast | Surya Ghar bands and the Ujjwala refill count both move; re-check before release |
-| 🟠 | SDG 6, 7 and 9 each have their own guide-list screen | Three copies now; extract one shared widget next |
+| 🟡 | SDG 6, 7 and 9 still use their own guide-list screens | Shared `GuideListPage` added in zip 20 (used by SDG 3 and 5); move 6/7/9 over once a device build confirms it |

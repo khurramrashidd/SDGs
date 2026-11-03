@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "category": "platform",
+    "levels": ["early", "primary", "secondary"],
+    "title": "DIKSHA — scan the QR code in the textbook",
+    "titleHi": "दीक्षा — पाठ्यपुस्तक में छपा क्यूआर कोड स्कैन करें",
+    "body": "DIKSHA is the Ministry of Education's learning platform for classes 1 to 12, with material in 33 Indian languages. Most government textbooks now carry a QR code beside each chapter. Open the DIKSHA app or website, scan that code, and the explanation video and practice for that exact chapter opens, in the language of the book. For a child stuck on a lesson with nobody at home who studied that subject, this is the closest thing to a tutor beside the book.",
+    "bodyHi": "दीक्षा शिक्षा मंत्रालय का कक्षा 1 से 12 तक का सीखने का मंच है, जिसमें 33 भारतीय भाषाओं में सामग्री है। ज़्यादातर सरकारी पाठ्यपुस्तकों में अब हर अध्याय के पास क्यूआर कोड छपा होता है। दीक्षा ऐप या वेबसाइट खोलें, वह कोड स्कैन करें, और उसी अध्याय का समझाने वाला वीडियो और अभ्यास खुल जाता है, किताब की भाषा में। जिस बच्चे के घर में उस विषय को पढ़ा हुआ कोई न हो, उसके लिए किताब के साथ बैठे ट्यूटर के सबसे क़रीब यही है।",
+    "source": "https://diksha.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 2,
+    "category": "platform",
+    "levels": ["primary", "secondary"],
+    "title": "Every NCERT textbook, as a free download",
+    "titleHi": "एनसीईआरटी की हर किताब, मुफ़्त डाउनलोड",
+    "body": "NCERT publishes its textbooks for every class online, in Hindi, English and Urdu, chapter by chapter. If a book has not reached the school, has been lost, or an older child wants to revise an earlier class, it can be read on the phone or printed at a shop. Many state boards follow the NCERT syllabus for some subjects, so check which books your child's school uses.",
+    "bodyHi": "एनसीईआरटी अपनी हर कक्षा की पाठ्यपुस्तकें ऑनलाइन प्रकाशित करती है, हिंदी, अंग्रेज़ी और उर्दू में, अध्याय दर अध्याय। अगर किताब स्कूल तक नहीं पहुँची, खो गई, या बड़ा बच्चा पिछली कक्षा दोहराना चाहता है, तो इसे फ़ोन पर पढ़ा या किसी दुकान पर छपवाया जा सकता है। कई राज्य बोर्ड कुछ विषयों में एनसीईआरटी पाठ्यक्रम अपनाते हैं, इसलिए देख लें कि आपके बच्चे का स्कूल कौन सी किताबें चलाता है।",
+    "source": "https://ncert.nic.in/",
+    "verified": false
+  },
+  {
+    "id": 3,
+    "category": "platform",
+    "levels": ["primary", "secondary"],
+    "title": "One television channel for every class",
+    "titleHi": "हर कक्षा के लिए एक टीवी चैनल",
+    "body": "Under PM eVIDYA's One Class, One Channel, each class from 1 to 12 has its own educational television channel following the NCERT curriculum, with a published timetable of what is taught when. For a home with a television and no smartphone, or one phone shared between several children, this is lessons with no data cost. The broadcast schedule for each class is on the CIET page.",
+    "bodyHi": "पीएम ई-विद्या की 'एक कक्षा, एक चैनल' योजना में कक्षा 1 से 12 तक हर कक्षा का अपना शैक्षिक टीवी चैनल है, जो एनसीईआरटी पाठ्यक्रम पर चलता है, और प्रकाशित समय-सारणी बताती है कि कब क्या पढ़ाया जाएगा। जिस घर में टीवी है पर स्मार्टफ़ोन नहीं, या कई बच्चों में एक फ़ोन बँटा है, उनके लिए यह बिना डेटा ख़र्च की पढ़ाई है। हर कक्षा का प्रसारण कार्यक्रम सीआईईटी पेज पर है।",
+    "source": "https://ciet.ncert.gov.in/dth?lang=en",
+    "verified": false
+  },
+  {
+    "id": 4,
+    "category": "platform",
+    "levels": ["secondary", "college"],
+    "title": "SWAYAM — free courses from class 9 to postgraduate",
+    "titleHi": "स्वयं — कक्षा 9 से स्नातकोत्तर तक मुफ़्त कोर्स",
+    "body": "SWAYAM hosts courses from class 9 up to post-graduation, taught by teachers from Indian schools, universities and institutes. The government states the courses are free of cost to any learner, including the videos, reading material and assessment questions. Some courses offer a certificate through a proctored exam; check the course page for whether that exam carries a fee and whether your college accepts the credit.",
+    "bodyHi": "स्वयं पर कक्षा 9 से स्नातकोत्तर तक के कोर्स हैं, जो भारतीय स्कूलों, विश्वविद्यालयों और संस्थानों के शिक्षक पढ़ाते हैं। सरकार के अनुसार ये कोर्स हर सीखने वाले के लिए मुफ़्त हैं, जिनमें वीडियो, पढ़ने की सामग्री और आकलन के प्रश्न शामिल हैं। कुछ कोर्स निगरानी वाली परीक्षा से प्रमाणपत्र देते हैं; कोर्स पेज पर देखें कि उस परीक्षा की फ़ीस है या नहीं और आपका कॉलेज उसका क्रेडिट मानता है या नहीं।",
+    "source": "https://pmevidya.education.gov.in/swayam-portal.html",
+    "verified": false
+  },
+  {
+    "id": 5,
+    "category": "platform",
+    "levels": ["leftschool"],
+    "title": "Left school? You can still finish class 10 or 12",
+    "titleHi": "स्कूल छूट गया? फिर भी 10वीं या 12वीं पूरी कर सकते हैं",
+    "body": "The National Institute of Open Schooling exists for exactly this: someone who could not finish regular school — because of work, marriage, money, distance or illness — studying for the class 10 or class 12 certificate on their own time, with exams at study centres. The certificate is recognised for further study and for jobs that ask for it. Age rules, subjects and fees change, so check the current admission notice on the NIOS site rather than relying on a number from anywhere else.",
+    "bodyHi": "राष्ट्रीय मुक्त विद्यालयी शिक्षा संस्थान ठीक इसी के लिए है: जो नियमित स्कूल पूरा न कर सका — काम, शादी, पैसे, दूरी या बीमारी की वजह से — वह अपने समय पर पढ़कर 10वीं या 12वीं का प्रमाणपत्र ले सकता है, परीक्षा अध्ययन केंद्रों पर होती है। यह प्रमाणपत्र आगे की पढ़ाई और उसे माँगने वाली नौकरियों के लिए मान्य है। उम्र के नियम, विषय और फ़ीस बदलते हैं, इसलिए कहीं और की संख्या पर भरोसा करने की जगह एनआईओएस साइट पर मौजूदा प्रवेश सूचना देखें।",
+    "source": "https://www.nios.ac.in/",
+    "verified": false
+  },
+  {
+    "id": 6,
+    "category": "platform",
+    "levels": ["leftschool", "college"],
+    "title": "SWAYAM for skills, after school is over",
+    "titleHi": "स्कूल के बाद हुनर के लिए स्वयं",
+    "body": "SWAYAM is not only for students on a degree. Anyone can take its courses, so someone who left school can use it to learn accounts, computers, a language or a subject they need for work, at their own pace, with no fee for the material. Pair it with the open schooling route if the certificate matters for the job you want.",
+    "bodyHi": "स्वयं सिर्फ़ डिग्री वाले छात्रों के लिए नहीं है। इसके कोर्स कोई भी कर सकता है, इसलिए स्कूल छोड़ चुका व्यक्ति इससे हिसाब-किताब, कंप्यूटर, कोई भाषा या काम के लिए ज़रूरी विषय अपनी रफ़्तार से सीख सकता है, सामग्री की कोई फ़ीस नहीं। अगर जो नौकरी चाहिए उसमें प्रमाणपत्र ज़रूरी है, तो इसे मुक्त विद्यालय के रास्ते के साथ जोड़ें।",
+    "source": "https://pmevidya.education.gov.in/swayam-portal.html",
+    "verified": false
+  },
+  {
+    "id": 7,
+    "category": "platform",
+    "levels": ["college"],
+    "title": "A national library, open to anyone",
+    "titleHi": "एक राष्ट्रीय पुस्तकालय, सबके लिए खुला",
+    "body": "The National Digital Library of India, run from IIT Kharagpur, gathers books, papers, lectures and question banks from Indian and international sources in one search, for school students through to researchers. It was linked from the original LearningVersity resources page, and it remains the most useful single place to look before paying for notes.",
+    "bodyHi": "भारत का राष्ट्रीय डिजिटल पुस्तकालय, जो आईआईटी खड़गपुर से चलता है, भारतीय और अंतरराष्ट्रीय स्रोतों से किताबें, शोध-पत्र, व्याख्यान और प्रश्न-बैंक एक ही खोज में लाता है, स्कूली छात्रों से लेकर शोधकर्ताओं तक के लिए। यह मूल लर्निंगवर्सिटी के संसाधन पेज पर जुड़ा था, और नोट्स के लिए पैसे देने से पहले देखने की सबसे काम की एक जगह आज भी यही है।",
+    "source": "https://ndl.iitkgp.ac.in/",
+    "verified": false
+  }
+]

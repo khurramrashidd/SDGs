@@ -18,15 +18,22 @@ lib/**            assets/**         brand/**        _icons/**
 web_template/**   proxy/**          pubspec.yaml    firebase.json
 firestore.rules   firestore.indexes.json            analysis_options.yaml
 README.md         SETUP.md          BRANDING.md     LOCAL_CHANGES.md
-install_icons.bat
+install_icons.bat tools/**          .gitignore
+CHANGELOG.md      STATUS.md
 ```
 
 ## Files I never ship — your edits here are safe
 
 ```
 android/**        ios/**        web/**        test/**
-lib/firebase_options.dart       .gitignore
+lib/firebase_options.dart
 ```
+
+> **Correction, 31 Oct 2026.** This list used to include `.gitignore`, which
+> was wrong: the file has been inside every zip since 28 October, so a zip
+> would have overwritten any edit you made to it. The doc was wrong, not the
+> zip. It is now listed above, under the files I ship. If you want something
+> changed in it, tell me and it goes into the next zip.
 
 One exception: `install_icons.bat` writes into `android/app/src/main/res/`
 and `web/`, but only icon files, the manifest and `index.html`.
@@ -266,6 +273,71 @@ Re-run `flutterfire configure`.
 
 ---
 
+### 7. Medicine reminders — two one-time edits under `android/` (zip 21)
+
+`flutter_local_notifications` needs these. I cannot ship them because I never
+ship `android/`. Do them once; they survive every zip after.
+
+**a) `android/app/build.gradle.kts`** — add two lines (keep `minSdk = 23`, and keep whatever Java version lines are already there — 11 or 17 both work):
+
+```kotlin
+android {
+    compileOptions {
+        isCoreLibraryDesugaringEnabled = true      // add this line
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    // ...
+}
+
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")   // add
+}
+```
+
+If `compileOptions` already exists, only add the `isCoreLibraryDesugaringEnabled`
+line inside it. If there is no `dependencies { }` block at the bottom of the
+file, add one.
+
+**b) `android/app/src/main/AndroidManifest.xml`**
+
+Just above `<application`, add:
+
+```xml
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+```
+
+Inside `<application ...>`, next to the existing `<activity>`, add:
+
+```xml
+<receiver android:exported="false"
+    android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
+<receiver android:exported="false"
+    android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">
+    <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+        <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+        <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+    </intent-filter>
+</receiver>
+```
+
+The second receiver puts reminders back after the phone restarts. Without it
+they silently stop after a reboot.
+
+No "exact alarm" permission is used — reminders are scheduled as inexact, so
+they may come a few minutes late, and Play Store does not ask you to justify
+an alarm permission.
+
+**If (a) is missing:** the build fails with
+`Dependency ':flutter_local_notifications' requires core library desugaring`.
+**If (b) is missing:** the build works, but no reminder ever appears on
+Android 13 and later.
+
+---
+
 ## Safe update procedure
 
 1. Copy the new zip's folders over the project, replacing files.
@@ -273,4 +345,4 @@ Re-run `flutterfire configure`.
 3. `flutter run`
 
 If step 2 or 3 fails, check this list first — it is almost always one of the
-five items above.
+numbered items above.

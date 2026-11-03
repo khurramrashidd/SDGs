@@ -31,6 +31,12 @@ dependencies:
   url_launcher: ^6.3.0
   http: ^1.2.2
 
+  # Medicine reminders (SDG 3). Held at 19.x on purpose: 20.0 needs Flutter
+  # 3.32 and changes every call to named parameters, 21.0 needs Flutter
+  # 3.38. Needs two one-time edits under android/ - see LOCAL_CHANGES.md #7.
+  flutter_local_notifications: ^19.4.0
+  timezone: '>=0.10.0 <0.11.0'
+
   # NOTE: `intl` is tied to the Flutter SDK, because flutter_localizations
   # pins an exact range of it. If `flutter pub get` ever fails with
   # "flutter_localizations from sdk ... depends on intl ^x.y.z", set the

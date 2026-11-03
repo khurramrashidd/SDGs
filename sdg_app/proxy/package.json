@@ -1,0 +1,17 @@
+{
+  "name": "ibtidaa-ai-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI and push proxy for the Ibtidaa Tech SDG app. Holds provider keys server-side.",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "firebase-admin": "^12.7.0"
+  }
+}

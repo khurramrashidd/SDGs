@@ -9,6 +9,10 @@ import '../../core/i18n/locale_scope.dart';
 import '../../core/i18n/strings.dart';
 import '../../core/layout/responsive.dart';
 import '../../core/theme/brand.dart';
+import '../../core/widgets/guide_list_page.dart';
+import 'child_vaccines_page.dart';
+import 'daily_log_page.dart';
+import 'medicine_reminders_page.dart';
 import 'myths_page.dart';
 import 'vaccination_page.dart';
 
@@ -102,6 +106,118 @@ class _HealthHomePageState extends State<HealthHomePage> {
                   ? 'जन्म से 16 वर्ष तक, और गर्भवती महिलाओं के लिए'
                   : 'Birth to 16 years, and for pregnant women',
               onTap: () => _push(context, const VaccinationPage()),
+            ),
+            // From GoodHealthHub's vaccination record, kept on the phone and
+            // computed from the date of birth instead of typed in by hand.
+            _Row(
+              icon: Icons.child_care,
+              title: hi ? 'मेरे बच्चे के टीके' : 'My child\u2019s vaccines',
+              subtitle: hi
+                  ? 'जन्मतिथि डालें, देखें कौन सा टीका कब लगना है'
+                  : 'Add a date of birth, see what is due and when',
+              onTap: () => _push(context, const ChildVaccinesPage()),
+            ),
+
+            // GoodHealthHub had a doctor booking that reached no doctor, a
+            // pharmacy list anyone could edit, and camp sign-ups for camps
+            // that did not exist. These are the real things those pages
+            // were reaching for, and every one of them is free.
+            const SizedBox(height: 24),
+            _SectionLabel(hi ? 'मुफ़्त और सस्ता इलाज' : 'Free and cheaper care'),
+            _Row(
+              icon: Icons.video_call_outlined,
+              title: hi
+                  ? 'मुफ़्त डॉक्टर — घर से, वीडियो पर'
+                  : 'A free doctor — from home, by video',
+              subtitle: hi
+                  ? 'ई-संजीवनी, और नज़दीकी आयुष्मान आरोग्य मंदिर'
+                  : 'eSanjeevani, and your nearest Ayushman Arogya Mandir',
+              onTap: () => _push(
+                context,
+                const GuideListPage(
+                  collection: 'freecare',
+                  category: 'doctor',
+                  title: 'A free doctor',
+                  titleHi: 'मुफ़्त डॉक्टर',
+                  goal: 3,
+                ),
+              ),
+            ),
+            _Row(
+              icon: Icons.local_hospital_outlined,
+              title: hi
+                  ? '5 लाख तक का मुफ़्त अस्पताल इलाज'
+                  : 'Up to Rs 5 lakh of free hospital care',
+              subtitle: hi
+                  ? 'आयुष्मान भारत — और 70 से ऊपर सबके लिए'
+                  : 'Ayushman Bharat — and everyone over 70',
+              onTap: () => _push(
+                context,
+                const GuideListPage(
+                  collection: 'freecare',
+                  category: 'cover',
+                  title: 'Free hospital care',
+                  titleHi: 'मुफ़्त अस्पताल इलाज',
+                  goal: 3,
+                ),
+              ),
+            ),
+            _Row(
+              icon: Icons.medication_outlined,
+              title: hi
+                  ? 'वही दवा, 50 से 90% सस्ती'
+                  : 'The same medicine, 50 to 90% cheaper',
+              subtitle: hi
+                  ? 'जन औषधि केंद्र, और सही दवा कैसे माँगें'
+                  : 'Jan Aushadhi, and how to ask for the right one',
+              onTap: () => _push(
+                context,
+                const GuideListPage(
+                  collection: 'freecare',
+                  category: 'medicine',
+                  title: 'Cheaper medicines',
+                  titleHi: 'सस्ती दवाएँ',
+                  goal: 3,
+                ),
+              ),
+            ),
+            _Row(
+              icon: Icons.delete_sweep_outlined,
+              title: hi
+                  ? 'बची या एक्सपायर दवाओं का क्या करें'
+                  : 'Leftover or expired medicines',
+              subtitle: hi
+                  ? 'सुरक्षित तरीके से हटाना — और दूसरों को क्यों न दें'
+                  : 'Safe disposal — and why not to pass them on',
+              onTap: () => _push(
+                context,
+                const GuideListPage(
+                  collection: 'freecare',
+                  category: 'leftover',
+                  title: 'Leftover medicines',
+                  titleHi: 'बची हुई दवाएँ',
+                  goal: 3,
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 24),
+            _SectionLabel(hi ? 'रोज़ की आदतें' : 'Every day'),
+            _Row(
+              icon: Icons.alarm_outlined,
+              title: hi ? 'दवा रिमाइंडर' : 'Medicine reminders',
+              subtitle: hi
+                  ? 'डॉक्टर के बताए समय पर रोज़ सूचना'
+                  : 'A daily alert at the time your doctor said',
+              onTap: () => _push(context, const MedicineRemindersPage()),
+            ),
+            _Row(
+              icon: Icons.water_drop_outlined,
+              title: hi ? 'रोज़ का रिकॉर्ड' : 'Daily log',
+              subtitle: hi
+                  ? 'पानी, क़दम, सक्रिय मिनट — सिर्फ़ आपके फ़ोन पर'
+                  : 'Water, steps, active minutes — on your phone only',
+              onTap: () => _push(context, const DailyLogPage()),
             ),
 
             const SizedBox(height: 24),

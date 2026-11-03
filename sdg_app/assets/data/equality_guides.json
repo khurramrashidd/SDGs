@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "category": "disability",
+    "title": "Free aids and appliances",
+    "titleHi": "मुफ़्त सहायक उपकरण",
+    "body": "Under the ADIP scheme the government gives wheelchairs, tricycles, hearing aids, crutches, artificial limbs, smart canes and other aids free, or part-paid, to people with disabilities whose family income is below the scheme's limit. They are handed out at assessment camps and through ALIMCO and partner agencies. You will need the disability certificate or UDID card and an income certificate. Ask at the district disability rehabilitation centre or social welfare office when the next camp is.",
+    "bodyHi": "एडिप योजना के तहत सरकार व्हीलचेयर, ट्राइसाइकिल, सुनने की मशीन, बैसाखी, कृत्रिम अंग, स्मार्ट छड़ी और दूसरे उपकरण मुफ़्त या आंशिक भुगतान पर देती है, उन दिव्यांगजनों को जिनकी पारिवारिक आय योजना की सीमा से कम है। ये आकलन शिविरों में और एलिम्को व साझेदार संस्थाओं के ज़रिए मिलते हैं। दिव्यांगता प्रमाण पत्र या यूडीआईडी कार्ड और आय प्रमाण पत्र चाहिए। अगला शिविर कब है, यह ज़िला दिव्यांग पुनर्वास केंद्र या समाज कल्याण कार्यालय में पूछें।",
+    "source": "https://adip.depwd.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 2,
+    "category": "disability",
+    "title": "School is free for children with benchmark disabilities, up to 18",
+    "titleHi": "बेंचमार्क दिव्यांगता वाले बच्चों की पढ़ाई 18 साल तक मुफ़्त",
+    "body": "The Rights of Persons with Disabilities Act, 2016 gives every child with a benchmark disability the right to free education from 6 to 18, in a neighbourhood school or a special school of the family's choice. Government and government-aided schools must admit them without discrimination and make reasonable adjustments. A school that refuses can be complained of to the State Commissioner for Persons with Disabilities.",
+    "bodyHi": "दिव्यांगजन अधिकार अधिनियम, 2016 बेंचमार्क दिव्यांगता वाले हर बच्चे को 6 से 18 साल तक मुफ़्त शिक्षा का अधिकार देता है, पास के स्कूल में या परिवार की पसंद के विशेष स्कूल में। सरकारी और सरकारी सहायता प्राप्त स्कूलों को उन्हें बिना भेदभाव दाख़िला देना और उचित सुविधाएँ करनी होती हैं। मना करने वाले स्कूल की शिकायत राज्य दिव्यांगजन आयुक्त से की जा सकती है।",
+    "source": "https://depwd.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 3,
+    "category": "disability",
+    "title": "Public places must be accessible",
+    "titleHi": "सार्वजनिक जगहें सुगम होनी चाहिए",
+    "body": "The same Act requires government buildings, public transport and government websites to be made accessible — ramps, accessible toilets, lifts where needed, readable websites. If a hospital, bank, office or station you need is not accessible, write to that office first and keep a copy; if nothing changes, take it to the State Commissioner for Persons with Disabilities, or the Chief Commissioner for central government buildings.",
+    "bodyHi": "यही क़ानून सरकारी इमारतों, सार्वजनिक परिवहन और सरकारी वेबसाइटों को सुगम बनाने को कहता है — रैंप, सुगम शौचालय, ज़रूरत हो तो लिफ़्ट, पढ़ने लायक वेबसाइट। अगर आपके काम का अस्पताल, बैंक, दफ़्तर या स्टेशन सुगम नहीं है, तो पहले उस दफ़्तर को लिखें और कॉपी रखें; कुछ न बदले तो राज्य दिव्यांगजन आयुक्त, या केंद्र सरकार की इमारतों के लिए मुख्य आयुक्त के पास जाएँ।",
+    "source": "https://ccdisabilities.nic.in/",
+    "verified": false
+  },
+  {
+    "id": 4,
+    "category": "reservation",
+    "title": "How much is reserved, centrally",
+    "titleHi": "केंद्र में कितना आरक्षण",
+    "body": "In central government jobs and central institutions filled by all-India open competition, the shares are: Scheduled Castes 15%, Scheduled Tribes 7.5%, Other Backward Classes 27% (non-creamy layer only) and Economically Weaker Sections 10%. Persons with benchmark disabilities have 4% of posts, counted across these categories rather than on top of them. States set their own shares for state jobs and colleges, and these differ from state to state.",
+    "bodyHi": "अखिल भारतीय खुली प्रतियोगिता से भरी जाने वाली केंद्र सरकार की नौकरियों और केंद्रीय संस्थानों में हिस्सा है: अनुसूचित जाति 15%, अनुसूचित जनजाति 7.5%, अन्य पिछड़ा वर्ग 27% (सिर्फ़ नॉन-क्रीमी लेयर) और आर्थिक रूप से कमज़ोर वर्ग 10%। बेंचमार्क दिव्यांगता वाले लोगों के लिए 4% पद हैं, जो इन्हीं श्रेणियों के भीतर गिने जाते हैं, ऊपर से नहीं। राज्य अपनी नौकरियों और कॉलेजों के लिए अपने हिस्से तय करते हैं, जो हर राज्य में अलग हैं।",
+    "source": "https://dopt.gov.in/",
+    "verified": false
+  },
+  {
+    "id": 5,
+    "category": "reservation",
+    "title": "Four mistakes that cost people their seat",
+    "titleHi": "चार ग़लतियाँ जिनसे सीट चली जाती है",
+    "body": "1. A state-format OBC certificate used for a central job or institution, which needs the central format. 2. An OBC non-creamy layer or EWS certificate from the wrong year — check the date the form asks for. 3. A category your community is on in the state list but not the central list, or the other way round. 4. Not carrying the original to document verification. Get certificates months early, keep copies in DigiLocker, and read the notification's exact wording on which certificate it wants.",
+    "bodyHi": "1. केंद्रीय नौकरी या संस्थान के लिए राज्य प्रारूप का ओबीसी प्रमाण पत्र, जबकि केंद्रीय प्रारूप चाहिए। 2. ग़लत साल का ओबीसी नॉन-क्रीमी लेयर या ईडब्ल्यूएस प्रमाण पत्र — फ़ॉर्म कौन सी तारीख़ माँगता है, देखें। 3. ऐसी श्रेणी जिसमें आपका समुदाय राज्य सूची में है पर केंद्रीय सूची में नहीं, या उल्टा। 4. दस्तावेज़ सत्यापन में मूल प्रमाण पत्र न ले जाना। प्रमाण पत्र महीनों पहले बनवाएँ, कॉपी डिजिलॉकर में रखें, और अधिसूचना में ठीक-ठीक पढ़ें कि कौन सा प्रमाण पत्र चाहिए।",
+    "source": "https://www.digilocker.gov.in/",
+    "verified": false
+  }
+]
