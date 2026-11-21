@@ -1,0 +1,233 @@
+// GENERATED-ISSUE-FILE
+// The problems SDG 12 sets out to solve.
+//
+// Edited by hand when a tool is built: set `open` to the screen it opens.
+// Everything the goal's mini-app shows - its menu, its home screen, its
+// place in the app-wide search - is read from this one list.
+import 'package:flutter/material.dart';
+
+import '../../core/issues/issue.dart';
+import '../../core/widgets/guide_list_page.dart';
+import 'buy_tools.dart';
+import 'check_tools.dart';
+import 'complaint_tools.dart';
+import 'consumption_pages.dart';
+import 'footprint_tools.dart';
+import 'waste_tools.dart';
+
+const _groups = [
+  IssueGroup('buy', 'Before you buy', 'ख़रीदने से पहले'),
+  IssueGroup('complain', 'When it goes wrong', 'कुछ ग़लत हो जाए तो'),
+  IssueGroup('waste', 'Waste less', 'कम बर्बाद करें'),
+  IssueGroup('check', 'Check what you have', 'जो है उसे जाँचें'),
+];
+
+final List<Issue> sdg12Issues = [
+  Issue(
+    id: 'g12i01',
+    goal: 12,
+    group: 'check',
+    titleEn: 'Is this packet food healthy',
+    titleHi: 'क्या यह पैकेट वाला खाना सेहतमंद है',
+    blurbEn: 'Four numbers from the back of the packet, read for you.',
+    blurbHi: 'पैकेट के पीछे के चार अंक, आपके लिए पढ़े हुए।',
+    icon: Icons.fact_check_outlined,
+    keywords: const ['label', 'लेबल', 'sugar', 'चीनी', 'salt'],
+    open: (_) => const LabelCheckPage(),
+  ),
+  Issue(
+    id: 'g12i02',
+    goal: 12,
+    group: 'complain',
+    titleEn: 'Right to repair',
+    titleHi: 'मरम्मत का अधिकार',
+    blurbEn: 'Phones and appliances - when a company must help you repair.',
+    blurbHi: 'फ़ोन और उपकरण - कंपनी को मरम्मत में कब मदद करनी है।',
+    icon: Icons.build_outlined,
+    keywords: const ['repair', 'मरम्मत', 'warranty', 'वारंटी'],
+    open: (_) =>
+        const GuideListPage(collection: 'consumption', category: 'repair',
+        title: 'Right to repair', titleHi: 'मरम्मत का अधिकार', goal: 12),
+  ),
+  Issue(
+    id: 'g12i03',
+    goal: 12,
+    group: 'waste',
+    titleEn: 'E-waste and banned plastics',
+    titleHi: 'ई-कचरा और प्रतिबंधित प्लास्टिक',
+    blurbEn: 'Old phones and batteries, and what may no longer be sold.',
+    blurbHi: 'पुराने फ़ोन और बैटरी, और अब क्या नहीं बेचा जा सकता।',
+    icon: Icons.recycling_outlined,
+    keywords: const ['ewaste', 'ई-कचरा', 'plastic', 'प्लास्टिक'],
+    open: (_) =>
+        const GuideListPage(collection: 'consumption', category: 'waste',
+        title: 'E-waste and plastic', titleHi: 'ई-कचरा और प्लास्टिक', goal:
+        12),
+  ),
+  Issue(
+    id: 'g12i04',
+    goal: 12,
+    group: 'complain',
+    titleEn: 'Defective product',
+    titleHi: 'ख़राब सामान',
+    blurbEn: 'A complaint letter, then the consumer forum, without a lawyer.',
+    blurbHi: 'शिकायत पत्र, फिर उपभोक्ता मंच, बिना वकील।',
+    icon: Icons.edit_note_outlined,
+    keywords: const ['defective', 'ख़राब', 'consumer', 'उपभोक्ता'],
+    open: (_) => const DefectiveProductPage(),
+  ),
+  Issue(
+    id: 'g12i05',
+    goal: 12,
+    group: 'complain',
+    titleEn: 'Order not delivered or refund stuck',
+    titleHi: 'सामान नहीं आया या रिफ़ंड अटका',
+    blurbEn: 'The steps in order, and when to stop waiting.',
+    blurbHi: 'क्रम से क़दम, और इंतज़ार कब छोड़ें।',
+    icon: Icons.inventory_2_outlined,
+    keywords: const ['refund', 'रिफ़ंड', 'online', 'delivery'],
+    open: (_) => const OrderNotDeliveredPage(),
+  ),
+  Issue(
+    id: 'g12i06',
+    goal: 12,
+    group: 'complain',
+    titleEn: 'Charged above MRP',
+    titleHi: 'एमआरपी से ज़्यादा लिया',
+    blurbEn: 'What the law says, and the complaint that gets money back.',
+    blurbHi: 'क़ानून क्या कहता है, और कौन सी शिकायत पैसे वापस दिलाती है।',
+    icon: Icons.report_outlined,
+    keywords: const ['mrp', 'एमआरपी', 'overcharge'],
+    open: (_) => const AboveMrpPage(),
+  ),
+  Issue(
+    id: 'g12i07',
+    goal: 12,
+    group: 'complain',
+    titleEn: 'Misleading advertisement',
+    titleHi: 'भ्रामक विज्ञापन',
+    blurbEn: 'What counts as misleading, and where it is reported.',
+    blurbHi: 'भ्रामक क्या माना जाता है, और शिकायत कहाँ होती है।',
+    icon: Icons.campaign_outlined,
+    keywords: const ['advertisement', 'विज्ञापन', 'ccpa'],
+    open: (_) => const MisleadingAdPage(),
+  ),
+  Issue(
+    id: 'g12i08',
+    goal: 12,
+    group: 'check',
+    titleEn: 'Is this gold hallmarked',
+    titleHi: 'क्या यह सोना हॉलमार्क वाला है',
+    blurbEn: 'The marks to look for, and what each one means.',
+    blurbHi: 'कौन से निशान देखें, और हर निशान का मतलब।',
+    icon: Icons.verified_outlined,
+    keywords: const ['gold', 'सोना', 'hallmark', 'huid'],
+    open: (_) => const HallmarkPage(),
+  ),
+  Issue(
+    id: 'g12i09',
+    goal: 12,
+    group: 'check',
+    titleEn: 'Is this medicine or product fake',
+    titleHi: 'क्या यह दवा या सामान नक़ली है',
+    blurbEn: 'Marks, codes and the checks you can do in a shop.',
+    blurbHi: 'निशान, कोड और वे जाँचें जो दुकान में हो सकती हैं।',
+    icon: Icons.verified_outlined,
+    keywords: const ['fake', 'नक़ली', 'counterfeit'],
+    open: (_) => const FakeMedicinePage(),
+  ),
+  Issue(
+    id: 'g12i10',
+    goal: 12,
+    group: 'check',
+    titleEn: 'Use-by or best-before: can I still eat it',
+    titleHi: 'यूज़-बाय या बेस्ट-बिफ़ोर: क्या अब भी खा सकते हैं',
+    blurbEn: 'The two dates mean different things. One is a safety line.',
+    blurbHi: 'दोनों तारीख़ों का मतलब अलग है। एक सुरक्षा की रेखा है।',
+    icon: Icons.timer_outlined,
+    keywords: const ['expiry', 'एक्सपायरी', 'best before'],
+    open: (_) => const UseByPage(),
+  ),
+  Issue(
+    id: 'g12i11',
+    goal: 12,
+    group: 'buy',
+    titleEn: 'Unit price: which pack is cheaper',
+    titleHi: 'प्रति इकाई दाम: कौन सा पैक सस्ता है',
+    blurbEn: 'Price per kilo or litre, so the big pack cannot fool you.',
+    blurbHi: 'प्रति किलो या लीटर दाम, ताकि बड़ा पैक धोखा न दे।',
+    icon: Icons.calculate_outlined,
+    keywords: const ['unit price', 'दाम', 'compare'],
+    open: (_) => const UnitPricePage(),
+  ),
+  Issue(
+    id: 'g12i12',
+    goal: 12,
+    group: 'buy',
+    titleEn: 'Warranty tracker',
+    titleHi: 'वारंटी का हिसाब',
+    blurbEn: 'Bills and expiry dates, kept on the phone.',
+    blurbHi: 'बिल और वारंटी की तारीख़ें, फ़ोन पर।',
+    icon: Icons.receipt_long_outlined,
+    keywords: const ['warranty', 'वारंटी', 'bill', 'बिल'],
+    open: (_) => const WarrantyTrackerPage(),
+  ),
+  Issue(
+    id: 'g12i13',
+    goal: 12,
+    group: 'waste',
+    titleEn: 'Which bin does this go in',
+    titleHi: 'यह किस कूड़ेदान में जाए',
+    blurbEn: 'Wet, dry, hazardous or e-waste, item by item.',
+    blurbHi: 'गीला, सूखा, ख़तरनाक या ई-कचरा, चीज़ दर चीज़।',
+    icon: Icons.delete_sweep_outlined,
+    keywords: const ['segregation', 'कूड़ा', 'bin'],
+    open: (_) => const WhichBinPage(),
+  ),
+  Issue(
+    id: 'g12i14',
+    goal: 12,
+    group: 'waste',
+    titleEn: 'Compost at home',
+    titleHi: 'घर में खाद बनाएँ',
+    blurbEn: 'What goes in, what never does, and how long it takes.',
+    blurbHi: 'क्या डालें, क्या कभी नहीं, और कितना समय लगता है।',
+    icon: Icons.grass_outlined,
+    keywords: const ['compost', 'खाद', 'kitchen waste'],
+    open: (_) => const CompostPage(),
+  ),
+  Issue(
+    id: 'g12i15',
+    goal: 12,
+    group: 'waste',
+    titleEn: 'Old phone or battery: where it goes',
+    titleHi: 'पुराना फ़ोन या बैटरी: कहाँ दें',
+    blurbEn: 'The safe routes, and wiping your data first.',
+    blurbHi: 'सुरक्षित रास्ते, और पहले अपना डेटा मिटाना।',
+    icon: Icons.recycling_outlined,
+    keywords: const ['ewaste', 'battery', 'बैटरी', 'recycle'],
+    open: (_) => const OldPhonePage(),
+  ),
+  Issue(
+    id: 'g12i16',
+    goal: 12,
+    group: 'buy',
+    titleEn: 'My home\'s water and power footprint',
+    titleHi: 'मेरे घर का पानी और बिजली का असर',
+    blurbEn: 'Where most of it goes, and the three cuts worth making.',
+    blurbHi: 'सबसे ज़्यादा कहाँ जाता है, और कौन सी तीन कटौती करने लायक हैं।',
+    icon: Icons.bar_chart_outlined,
+    keywords: const ['footprint', 'saving', 'बचत'],
+    open: (_) => const HomeFootprintPage(),
+  ),
+];
+
+final GoalIssues sdg12Goal = GoalIssues(
+  goal: 12,
+  groups: _groups,
+  issues: sdg12Issues,
+  helplines: const [
+    GoalHelpline('1915', 'National Consumer Helpline', 'उपभोक्ता हेल्पलाइन'),
+    GoalHelpline('1800114000', 'Consumer help (alt)', 'उपभोक्ता मदद'),
+  ],
+);

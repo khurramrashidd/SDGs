@@ -3,7 +3,7 @@
 Updated every time something ships. `[x]` means working on your device,
 not "code written".
 
-**Last updated:** 31 Oct 2026 · after zip 19
+**Last updated:** 19 Nov 2026 · after zip 30
 
 Zip history and what each one contained: see `CHANGELOG.md`.
 
@@ -211,7 +211,7 @@ Zip history and what each one contained: see `CHANGELOG.md`.
 - [x] 8 household waste-reduction tips
 - [x] Routes donors to the official FSSAI Save Food Share Food network
 - [x] Local organisation directory — **ships empty on purpose**, admin-filled
-- [x] **Food board (zip 22)** — post only after a passing safety check;
+- [x] **Food board (zip 20)** — post only after a passing safety check;
       expires with the food; contact only to the claimer; reports hide posts
 - [ ] Deploy rules + indexes: `firebase deploy --only firestore:rules,firestore:indexes`
 - [ ] Test with two accounts: post on one, claim on the other
@@ -236,9 +236,9 @@ Zip history and what each one contained: see `CHANGELOG.md`.
 - [x] **Free and cheaper care (zip 20):** eSanjeevani, Ayushman Arogya
       Mandir, PM-JAY (incl. 70+), Jan Aushadhi — 6 cards, tap-to-dial 14555
 - [ ] Have the 6 free-care cards checked against the scheme portals
-- [x] **Medicine reminders (zip 21)** — daily notifications, phone only
-- [x] **Daily log (zip 21)** — water, steps, active minutes; no targets
-- [x] **Leftover medicines (zip 21)** — disposal guide instead of donation
+- [x] **Medicine reminders (zip 20)** — daily notifications, phone only
+- [x] **Daily log (zip 20)** — water, steps, active minutes; no targets
+- [x] **Leftover medicines (zip 20)** — disposal guide instead of donation
 - [ ] Do the two Android edits in LOCAL_CHANGES.md #7, then test a reminder
 
 ### SDG 4 — Quality Education ✅
@@ -254,7 +254,7 @@ Zip history and what each one contained: see `CHANGELOG.md`.
       NIOS, NDL; subject search; language-learning links
 - [x] **Practice quiz** — six subjects, OpenTDB (questions in English, said so)
 - [x] **Literacy rates** — World Bank data, women and men side by side
-- [x] **Study questions (zip 22)** — admin approves everything first; no
+- [x] **Study questions (zip 20)** — admin approves everything first; no
       names, no messages, contact details refused
 - [ ] Decide who moderates Q&A daily — unanswered queues kill it
 - [ ] **Enter the 24 deadlines** — Admin → Scholarship deadlines
@@ -362,17 +362,17 @@ in the translation pipeline yet.
 |---|---|---|
 | 1 Subsidy awareness | schemes, search, detail, links | ✅ all |
 | 2 Food sharing | food safety, waste tips, partners | ✅ |
-| 2 Food sharing | donate / claim board | ✅ safe food board (zip 22) |
+| 2 Food sharing | donate / claim board | ✅ safe food board (zip 20) |
 | 3 GoodHealthHub | doctor booking | ✅ as eSanjeevani (real doctors, free) |
 | 3 GoodHealthHub | pharmacy | ✅ as Jan Aushadhi |
 | 3 GoodHealthHub | health camps | ✅ as Ayushman Arogya Mandir + PM-JAY |
 | 3 GoodHealthHub | vaccination record | ✅ child tracker |
 | 3 GoodHealthHub | symptom checker | ❌ deliberately not — diagnosis by app harms |
 | 3 GoodHealthHub | medicine donation | ✅ as safe-disposal guide (your choice) |
-| 3 GoodHealthHub | reminders, fitness tracker | ✅ reminders + daily log (zip 21) |
+| 3 GoodHealthHub | reminders, fitness tracker | ✅ reminders + daily log (zip 20) |
 | 4 LearningVersity | courses, resources, languages | ✅ |
 | 4 LearningVersity | quiz, literacy tracker | ✅ |
-| 4 LearningVersity | teacher–student Q&A | ✅ moderated study Q&A, no DMs (zip 22) |
+| 4 LearningVersity | teacher–student Q&A | ✅ moderated study Q&A, no DMs (zip 20) |
 | 5 EmpowHer | helplines, report, rights, mentor, ideas, courses, leaders | ✅ |
 | 5 EmpowHer | wage gap | ✅ inside legal rights (equal pay) |
 | 5 EmpowHer | wellness | ✅ women's health, India-specific |
@@ -383,12 +383,99 @@ in the translation pipeline yet.
 ## Roadmap for goals 6-17
 
 Each locked tile opens its own plan — `lib/core/sdg/sdg_roadmap.dart` holds
-4 to 5 planned features per goal. **All 17 goals are built** (zip 24). Each has at least one
+4 to 5 planned features per goal. **All 17 goals are built** (zip 20). Each has at least one
 tool that solves a problem, not only information.
+
+## The 50-issues-per-goal plan (from 16 Nov 2026)
+
+Each goal is to solve 50 named problems. Round one registered 282 across the
+17 goals and built the frame they live in; later rounds raise each goal to 50.
+
+zip 22 built the frame. zip 23 added 17 tools across goals 1 to 4.
+zip 24 fixed zip 23's build. zip 25 finished goal 1. zip 26 finished goals
+2, 3, 4 and 5 — 33 tools in one package.
+
+zip 27 finished goals 6, 7 and 8. zip 28 finished goals 9, 10 and 11 — 38
+tools. zip 29 built 36 tools across goals 12, 13 and 14 but missed three
+(their titles had apostrophes and my separate listing skipped them; the
+project's own generator count was right); zip 30
+built those three and all of goals 15, 16 and 17 — 44 tools.
+
+**All 17 goals are done: every one of the 282 registered problems opens a
+working screen.**
+
+Target dropped from 50 per goal to finishing the 282 registered (17 Nov).
+Five zips, goals grouped: 26 did 2-5, 27 did 6-8, then 9-11, 12-14, 15-17.
+
+| | |
+|---|---|
+| Problems registered | 282 |
+| Working today | 282 |
+| Listed, still to build | 0 |
+| Goals finished | 17 of 17 |
+| Zips left to finish all 282 | none |
+| Where they live | `lib/features/sdgN_*/issues.dart`, joined by `lib/core/issues/registry.dart` |
+
+To build one: write its screen, then set `open:` on its entry. It appears in
+the goal's menu, the goal's home, and the app-wide search at once.
 
 ## Outstanding risks
 
-New in zips 20-24, all shipped `verified: false`:
+New in zip 30 — please add these to the review packet doc:
+- 🔴 Pesticide poisoning first aid, livestock vaccine calendar, "do not open
+  an animal that died with dark blood" (anthrax), blood donation deferrals
+  (goals 15, 17) — doctor / vet review
+- 🔴 Police, arrest, bail, FIR refusal (goal 16) use **BNSS 2023 section
+  numbers** (173, 173(4), 175(3)) with the old CrPC numbers alongside —
+  lawyer review
+- 🟠 Cheque bounce clock (30 days / 15 days / 1 month), Lok Adalat, legal aid
+  groups under section 12, PC Act 7-day rule for a forced bribe, RBI
+  3-working-day zero liability (goal 16) — lawyer review
+- 🟠 Tree felling: 2025 model rules (NTMS portal, 10-tree self-declaration)
+  are described as "being adopted by states" — re-check per state
+- 🟠 PMFBY wild-animal add-on from Kharif 2026 in notified states, 72 hours
+  (goal 15) — re-check each season
+- 🟠 CSR thresholds (₹500 cr / ₹1,000 cr / ₹5 cr, 2%), CSR-1, NGO forms
+  (goal 17) — CA or lawyer review
+- 🟡 Carbon factors: grid 0.727 kg/unit (CEA 2023-24), LPG 42.3 kg/cylinder,
+  petrol 2.31, diesel 2.68; India 2.19 t/person (OWID 2025) — re-check yearly
+- 🟡 "Share a tool" sends ibtidaatech.com as the link, since the app has no
+  store listing yet — swap in the Play Store link when it exists
+
+Earlier, from zip 29 — please add these to the review packet doc:
+- 🔴 Lightning: "safe to touch a person who was struck, start CPR if you know
+  how" (goal 13) — doctor review
+- 🔴 Sea state (goal 14) uses Open-Meteo's marine model. It **never says the
+  sea is safe**; it only flags waves ≥ 2.5 m or gusts ≥ 50 km/h as warning
+  level, and puts IMD/INCOIS first. Open-Meteo says its marine data is not
+  for coastal navigation — the screen says so too
+- 🟠 Open-Meteo's free API is for **non-commercial use**. The app already
+  used it for weather; zip 29 adds its marine endpoint. If the app ever
+  earns money (ads, paid tier), it needs their paid key
+- 🟠 Consumer commission limits (₹50 lakh district, no fee to ₹5 lakh),
+  service-charge ruling, MRP rules, hallmark grades, QR codes on medicines
+  (goal 12) — lawyer review; re-check yearly
+- 🟠 Fisher accident insurance figures (₹5 lakh / ₹2.5 lakh / ₹25,000, 90-day
+  notice, 180-day documents) — from the NFDB SOP; confirm each year
+- 🟡 Stubble fines (₹5,000 / ₹10,000 / ₹30,000, NCR region) — CAQM, Nov 2024
+- 🟡 Pond stocking and lime ranges are commonly advised figures, shown as
+  ranges with "confirm with the fisheries officer"
+
+Earlier, from zip 28 — please add these to the review packet doc:
+- 🔴 Road accident first ten minutes (goal 11) — doctor review: don't move
+  the injured, press on bleeding, leave the helmet on, no water
+- 🟠 Atrocity relief stages and amounts, maintenance tribunal, RERA defect
+  liability, eviction (goals 10, 11) — lawyer review
+- 🟠 **Transgender ID card (goal 10): the law changed in 2026** and is under
+  Supreme Court challenge. The screen deliberately gives no step-by-step
+  process; it states what is settled and routes to DLSA and the district
+  office. Re-check whenever the Supreme Court rules
+- 🟠 Rah-Veer ₹25,000 and cashless treatment ₹1.5 lakh / 7 days (goal 11) —
+  checked against several reports in Nov 2026; confirm on morth.nic.in
+- 🟡 Railway senior concession is stated as **withdrawn since March 2020** —
+  re-check if Railways restores it
+
+New in zip 20, all shipped `verified: false`:
 - 🔴 Heat-illness and snakebite advice (SDG 13, 15) — doctor review
 - 🟠 Forest Rights, certificates, complaint routing (SDG 10, 15) — lawyer review
 - 🟠 Fishing ban dates, PMFBY 72 h / 14 days, PMAY-U figures — re-check yearly
@@ -411,4 +498,5 @@ New in zips 20-24, all shipped `verified: false`:
 | 🟡 | Content exists in English and Hindi only | Admin → Translate content, as speakers become available |
 | 🔴 | SDG 6 water guidance needs a water quality officer | 14 cards; wrong treatment advice causes illness |
 | 🟠 | SDG 7 subsidy amounts go stale fast | Surya Ghar bands and the Ujjwala refill count both move; re-check before release |
+| 🟡 | 9 old goal home pages are now unused, left on disk |
 | 🟡 | SDG 6, 7 and 9 still use their own guide-list screens | Shared `GuideListPage` added in zip 20 (used by SDG 3 and 5); move 6/7/9 over once a device build confirms it |

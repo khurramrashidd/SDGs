@@ -241,7 +241,7 @@ class _LabelCheckPageState extends State<LabelCheckPage> {
             style: TextStyle(fontSize: 12, color: scheme.onSurfaceVariant),
           ),
           const SizedBox(height: 6),
-          GuideCard(row: const {
+          const GuideCard(row: {
             'title': 'Source: NHS, food labels',
             'titleHi': 'स्रोत: एनएचएस, खाने के लेबल',
             'body': 'Low and high per 100 g — fat 3 g / 17.5 g, saturated fat '

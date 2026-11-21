@@ -9,6 +9,7 @@
 /// Source: MPEDA, "Ban Period". Coastal states set their own bans inside
 /// territorial waters (up to 12 nautical miles), usually for the same
 /// season, which is why the tool tells people to check their state notice.
+library;
 
 enum Coast { east, west }
 

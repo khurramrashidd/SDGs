@@ -1,0 +1,231 @@
+// GENERATED-ISSUE-FILE
+// The problems SDG 15 sets out to solve.
+//
+// Edited by hand when a tool is built: set `open` to the screen it opens.
+// Everything the goal's mini-app shows - its menu, its home screen, its
+// place in the app-wide search - is read from this one list.
+import 'package:flutter/material.dart';
+
+import '../../core/issues/issue.dart';
+import '../../core/widgets/guide_list_page.dart';
+import 'animal_tools.dart';
+import 'land_pages.dart';
+import 'land_rights_tools.dart';
+import 'report_tools.dart';
+import 'soil_tools.dart';
+
+const _groups = [
+  IssueGroup('rights', 'Rights over land and forest', 'ज़मीन और जंगल पर हक़'),
+  IssueGroup('animals', 'Wild animals', 'जंगली जानवर'),
+  IssueGroup('soil', 'Soil and crops', 'मिट्टी और फ़सल'),
+  IssueGroup('protect', 'Protect what is left', 'जो बचा है उसे बचाएँ'),
+];
+
+final List<Issue> sdg15Issues = [
+  Issue(
+    id: 'g15i01',
+    goal: 15,
+    group: 'rights',
+    titleEn: 'Forest rights: which claim and how',
+    titleHi: 'वन अधिकार: कौन सा दावा और कैसे',
+    blurbEn: 'Who qualifies, which form, and the evidence that counts.',
+    blurbHi: 'कौन पात्र है, कौन सा फ़ॉर्म, और कौन से सबूत मान्य हैं।',
+    icon: Icons.forest_outlined,
+    keywords: const ['fra', 'वन अधिकार', 'forest', 'patta'],
+    open: (_) => const ForestRightsPage(),
+  ),
+  Issue(
+    id: 'g15i02',
+    goal: 15,
+    group: 'animals',
+    titleEn: 'Wild animal harm and compensation',
+    titleHi: 'जंगली जानवर से नुक़सान और मुआवज़ा',
+    blurbEn: 'Reporting fast, the amounts, and staying safe meanwhile.',
+    blurbHi: 'जल्दी सूचना, राशि, और तब तक सुरक्षित रहना।',
+    icon: Icons.pets_outlined,
+    keywords: const ['elephant', 'हाथी', 'compensation', 'मुआवज़ा'],
+    open: (_) =>
+        const GuideListPage(collection: 'land', category: 'wildlife', title:
+        'Wild animal conflict', titleHi: 'जंगली जानवरों से टकराव', goal: 15),
+  ),
+  Issue(
+    id: 'g15i03',
+    goal: 15,
+    group: 'soil',
+    titleEn: 'Soil health',
+    titleHi: 'मिट्टी की सेहत',
+    blurbEn: 'The free soil test, and how to read the card it gives you.',
+    blurbHi: 'मुफ़्त मिट्टी जाँच, और मिलने वाला कार्ड कैसे पढ़ें।',
+    icon: Icons.grass_outlined,
+    keywords: const ['soil', 'मिट्टी', 'npk', 'ph'],
+    open: (_) =>
+        const GuideListPage(collection: 'land', category: 'soil', title:
+        'Soil health', titleHi: 'मिट्टी की सेहत', goal: 15),
+  ),
+  Issue(
+    id: 'g15i04',
+    goal: 15,
+    group: 'animals',
+    titleEn: 'Crop raided by animals',
+    titleHi: 'जानवरों ने फ़सल उजाड़ दी',
+    blurbEn: 'The claim letter, and the deadline you must not miss.',
+    blurbHi: 'दावे की चिट्ठी, और वह समय सीमा जो छूटनी नहीं चाहिए।',
+    icon: Icons.edit_note_outlined,
+    keywords: const ['crop raid', 'नीलगाय', 'wild boar', 'मुआवज़ा'],
+    open: (_) => const CropRaidPage(),
+  ),
+  Issue(
+    id: 'g15i05',
+    goal: 15,
+    group: 'animals',
+    titleEn: 'Animal sick or several died',
+    titleHi: 'पशु बीमार या कई मर गए',
+    blurbEn: 'Who to call, how fast, and what compensation exists.',
+    blurbHi: 'किसे बुलाएँ, कितनी जल्दी, और कौन सा मुआवज़ा है।',
+    icon: Icons.pets_outlined,
+    keywords: const ['livestock', 'पशु', 'disease', 'बीमारी'],
+    open: (_) => const AnimalDeathsPage(),
+  ),
+  Issue(
+    id: 'g15i06',
+    goal: 15,
+    group: 'animals',
+    titleEn: 'Livestock vaccination calendar',
+    titleHi: 'पशु टीकाकरण कैलेंडर',
+    blurbEn: 'Which vaccine, at what age, and when the camp comes.',
+    blurbHi: 'कौन सा टीका, किस उम्र में, और शिविर कब आता है।',
+    icon: Icons.vaccines_outlined,
+    keywords: const ['vaccine', 'टीका', 'cattle', 'fmd'],
+    open: (_) => const VaccineCalendarPage(),
+  ),
+  Issue(
+    id: 'g15i07',
+    goal: 15,
+    group: 'rights',
+    titleEn: 'Do I need permission to cut this tree',
+    titleHi: 'क्या इस पेड़ को काटने की अनुमति चाहिए',
+    blurbEn: 'It depends on the species and where it stands.',
+    blurbHi: 'यह प्रजाति और जगह पर निर्भर करता है।',
+    icon: Icons.forest_outlined,
+    keywords: const ['felling', 'पेड़ काटना', 'permission'],
+    open: (_) => const TreeFellingPage(),
+  ),
+  Issue(
+    id: 'g15i08',
+    goal: 15,
+    group: 'rights',
+    titleEn: 'Land record check',
+    titleHi: 'भूमि रिकॉर्ड की जाँच',
+    blurbEn: 'Read your record of rights, and spot what is wrong in it.',
+    blurbHi: 'अपना अधिकार अभिलेख पढ़ें, और उसमें क्या ग़लत है पहचानें।',
+    icon: Icons.description_outlined,
+    keywords: const ['khatauni', 'खतौनी', 'record', 'ror'],
+    open: (_) => const LandRecordPage(),
+  ),
+  Issue(
+    id: 'g15i09',
+    goal: 15,
+    group: 'rights',
+    titleEn: 'Land measurement converter',
+    titleHi: 'ज़मीन की माप बदलें',
+    blurbEn: 'Bigha, katha, acre and hectare - they differ by state.',
+    blurbHi: 'बीघा, कट्ठा, एकड़ और हेक्टेयर - राज्य के हिसाब से अलग।',
+    icon: Icons.calculate_outlined,
+    keywords: const ['bigha', 'बीघा', 'acre', 'एकड़'],
+    open: (_) => const LandUnitPage(),
+  ),
+  Issue(
+    id: 'g15i10',
+    goal: 15,
+    group: 'rights',
+    titleEn: 'Encroachment on my land',
+    titleHi: 'मेरी ज़मीन पर क़ब्ज़ा',
+    blurbEn: 'The first steps, and a letter that starts the record.',
+    blurbHi: 'पहले क़दम, और वह चिट्ठी जो रिकॉर्ड शुरू करती है।',
+    icon: Icons.edit_note_outlined,
+    keywords: const ['encroachment', 'क़ब्ज़ा', 'land'],
+    open: (_) => const EncroachmentPage(),
+  ),
+  Issue(
+    id: 'g15i11',
+    goal: 15,
+    group: 'soil',
+    titleEn: 'Fertiliser dose for my field',
+    titleHi: 'मेरे खेत के लिए खाद की मात्रा',
+    blurbEn: 'Crop and field size, turned into bags - usually fewer.',
+    blurbHi: 'फ़सल और खेत के आकार से, बोरियों में - अक्सर कम।',
+    icon: Icons.calculate_outlined,
+    keywords: const ['fertiliser', 'खाद', 'urea', 'यूरिया'],
+    open: (_) => const FertiliserDosePage(),
+  ),
+  Issue(
+    id: 'g15i12',
+    goal: 15,
+    group: 'soil',
+    titleEn: 'Pesticide safety and waiting days',
+    titleHi: 'कीटनाशक की सुरक्षा और प्रतीक्षा दिन',
+    blurbEn: 'Days to wait before harvest, and how to protect yourself.',
+    blurbHi: 'कटाई से पहले कितने दिन रुकें, और ख़ुद को कैसे बचाएँ।',
+    icon: Icons.science_outlined,
+    keywords: const ['pesticide', 'कीटनाशक', 'spray', 'phi'],
+    open: (_) => const PesticideSafetyPage(),
+  ),
+  Issue(
+    id: 'g15i13',
+    goal: 15,
+    group: 'soil',
+    titleEn: 'Organic farming: certification and support',
+    titleHi: 'जैविक खेती: प्रमाणन और सहायता',
+    blurbEn: 'The steps to certification, and the money that comes with it.',
+    blurbHi: 'प्रमाणन के क़दम, और उसके साथ मिलने वाला पैसा।',
+    icon: Icons.grass_outlined,
+    keywords: const ['organic', 'जैविक', 'certification', 'pkvy'],
+    open: (_) => const OrganicPage(),
+  ),
+  Issue(
+    id: 'g15i14',
+    goal: 15,
+    group: 'protect',
+    titleEn: 'Illegal felling or poaching seen',
+    titleHi: 'अवैध कटाई या शिकार दिखा',
+    blurbEn: 'How to report it, including without giving your name.',
+    blurbHi: 'कैसे सूचना दें, बिना नाम बताए भी।',
+    icon: Icons.report_outlined,
+    keywords: const ['poaching', 'शिकार', 'illegal', 'felling'],
+    open: (_) => const IllegalFellingPage(),
+  ),
+  Issue(
+    id: 'g15i15',
+    goal: 15,
+    group: 'protect',
+    titleEn: 'Forest fire seen',
+    titleHi: 'जंगल में आग दिखी',
+    blurbEn: 'Report it fast, and stay on the safe side of it.',
+    blurbHi: 'जल्दी सूचना दें, और उसके सुरक्षित तरफ़ रहें।',
+    icon: Icons.local_fire_department_outlined,
+    keywords: const ['fire', 'आग', 'forest'],
+    open: (_) => const ForestFirePage(),
+  ),
+  Issue(
+    id: 'g15i16',
+    goal: 15,
+    group: 'protect',
+    titleEn: 'Water harvesting on farmland',
+    titleHi: 'खेत पर जल संचयन',
+    blurbEn: 'Farm ponds and bunds, and the schemes that pay for them.',
+    blurbHi: 'खेत तालाब और मेड़, और इनके लिए पैसा देने वाली योजनाएँ।',
+    icon: Icons.water_drop_outlined,
+    keywords: const ['farm pond', 'तालाब', 'bund', 'मेड़'],
+    open: (_) => const FarmPondPage(),
+  ),
+];
+
+final GoalIssues sdg15Goal = GoalIssues(
+  goal: 15,
+  groups: _groups,
+  issues: sdg15Issues,
+  helplines: const [
+    GoalHelpline('1926', 'Forest fire / forest help', 'वन हेल्पलाइन'),
+    GoalHelpline('108', 'Ambulance', 'एम्बुलेंस'),
+  ],
+);

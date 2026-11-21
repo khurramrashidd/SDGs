@@ -1,0 +1,233 @@
+// GENERATED-ISSUE-FILE
+// The problems SDG 16 sets out to solve.
+//
+// Edited by hand when a tool is built: set `open` to the screen it opens.
+// Everything the goal's mini-app shows - its menu, its home screen, its
+// place in the app-wide search - is read from this one list.
+import 'package:flutter/material.dart';
+
+import '../../core/issues/issue.dart';
+import '../../core/widgets/guide_list_page.dart';
+import 'ask_tools.dart';
+import 'court_tools.dart';
+import 'fraud_tools.dart';
+import 'police_tools.dart';
+import 'rti_builder_page.dart';
+
+const _groups = [
+  IssueGroup('ask', 'Ask the government', 'सरकार से पूछें'),
+  IssueGroup('police', 'Police and FIR', 'पुलिस और एफ़आईआर'),
+  IssueGroup('court', 'Courts and cases', 'अदालत और मुक़दमे'),
+  IssueGroup('fraud', 'Fraud and safety', 'धोखाधड़ी और सुरक्षा'),
+];
+
+final List<Issue> sdg16Issues = [
+  Issue(
+    id: 'g16i01',
+    goal: 16,
+    group: 'ask',
+    titleEn: 'Write an RTI application',
+    titleHi: 'आरटीआई आवेदन लिखें',
+    blurbEn: 'Your question turned into an application that cannot be '
+        'refused on form.',
+    blurbHi: 'आपका सवाल ऐसे आवेदन में, जिसे बनावट के आधार पर मना न किया जा '
+        'सके।',
+    icon: Icons.edit_note_outlined,
+    keywords: const ['rti', 'आरटीआई', 'information', 'सूचना'],
+    open: (_) => const RtiBuilderPage(),
+  ),
+  Issue(
+    id: 'g16i02',
+    goal: 16,
+    group: 'police',
+    titleEn: 'Police, FIR and legal aid',
+    titleHi: 'पुलिस, एफ़आईआर और क़ानूनी सहायता',
+    blurbEn: 'Eleven cards on your rights, grievances and free legal help.',
+    blurbHi: 'आपके अधिकार, शिकायत और मुफ़्त क़ानूनी मदद पर ग्यारह कार्ड।',
+    icon: Icons.local_police_outlined,
+    keywords: const ['fir', 'एफ़आईआर', 'police', 'पुलिस'],
+    open: (_) =>
+        const GuideListPage(collection: 'civicrights', title:
+        'Police and rights', titleHi: 'पुलिस और अधिकार', goal: 16),
+  ),
+  Issue(
+    id: 'g16i03',
+    goal: 16,
+    group: 'police',
+    titleEn: 'Police will not register my FIR',
+    titleHi: 'पुलिस एफ़आईआर दर्ज नहीं कर रही',
+    blurbEn: 'The next three steps, in order, each one free.',
+    blurbHi: 'अगले तीन क़दम, क्रम से, हर एक मुफ़्त।',
+    icon: Icons.local_police_outlined,
+    keywords: const ['fir', 'refusal', 'sp', 'magistrate'],
+    open: (_) => const FirRefusedPage(),
+  ),
+  Issue(
+    id: 'g16i04',
+    goal: 16,
+    group: 'police',
+    titleEn: 'Arrested relative: first 24 hours',
+    titleHi: 'रिश्तेदार गिरफ़्तार: पहले 24 घंटे',
+    blurbEn: 'What the family must do, and what the police must do.',
+    blurbHi: 'परिवार को क्या करना है, और पुलिस को क्या करना है।',
+    icon: Icons.gavel_outlined,
+    keywords: const ['arrest', 'गिरफ़्तारी', 'custody', 'bail'],
+    open: (_) => const ArrestPage(),
+  ),
+  Issue(
+    id: 'g16i05',
+    goal: 16,
+    group: 'court',
+    titleEn: 'Is the offence bailable',
+    titleHi: 'क्या अपराध ज़मानती है',
+    blurbEn: 'What that means in practice, and what to ask for.',
+    blurbHi: 'व्यवहार में इसका मतलब, और क्या माँगना है।',
+    icon: Icons.balance_outlined,
+    keywords: const ['bail', 'ज़मानत', 'bailable'],
+    open: (_) => const BailPage(),
+  ),
+  Issue(
+    id: 'g16i06',
+    goal: 16,
+    group: 'court',
+    titleEn: 'Which court or forum for my problem',
+    titleHi: 'मेरी समस्या के लिए कौन सी अदालत या मंच',
+    blurbEn: 'Consumer, labour, family or civil - and what each costs.',
+    blurbHi: 'उपभोक्ता, श्रम, परिवार या दीवानी - और हर एक का ख़र्च।',
+    icon: Icons.balance_outlined,
+    keywords: const ['court', 'अदालत', 'forum', 'jurisdiction'],
+    open: (_) => const WhichCourtPage(),
+  ),
+  Issue(
+    id: 'g16i07',
+    goal: 16,
+    group: 'court',
+    titleEn: 'Cheque bounced',
+    titleHi: 'चेक बाउंस हो गया',
+    blurbEn: 'The 30-day notice clock, and the notice itself.',
+    blurbHi: '30 दिन के नोटिस की घड़ी, और नोटिस ख़ुद।',
+    icon: Icons.receipt_long_outlined,
+    keywords: const ['cheque', 'चेक', '138', 'bounce'],
+    open: (_) => const ChequeBouncePage(),
+  ),
+  Issue(
+    id: 'g16i08',
+    goal: 16,
+    group: 'court',
+    titleEn: 'Legal notice received',
+    titleHi: 'क़ानूनी नोटिस मिला',
+    blurbEn: 'What it means, what the clock is, and how to reply.',
+    blurbHi: 'इसका मतलब, कितना समय है, और जवाब कैसे दें।',
+    icon: Icons.description_outlined,
+    keywords: const ['notice', 'नोटिस', 'reply', 'जवाब'],
+    open: (_) => const LegalNoticePage(),
+  ),
+  Issue(
+    id: 'g16i09',
+    goal: 16,
+    group: 'court',
+    titleEn: 'Lok Adalat: settle without fees',
+    titleHi: 'लोक अदालत: बिना फ़ीस समझौता',
+    blurbEn: 'What can be settled there, and when the next one sits.',
+    blurbHi: 'वहाँ क्या सुलझ सकता है, और अगली कब बैठती है।',
+    icon: Icons.handshake_outlined,
+    keywords: const ['lok adalat', 'लोक अदालत', 'settlement'],
+    open: (_) => const LokAdalatPage(),
+  ),
+  Issue(
+    id: 'g16i10',
+    goal: 16,
+    group: 'fraud',
+    titleEn: 'Online fraud: the first hour',
+    titleHi: 'ऑनलाइन धोखा: पहला घंटा',
+    blurbEn: 'Call 1930 first. Then these steps, in this order.',
+    blurbHi: 'पहले 1930 पर कॉल करें। फिर ये क़दम, इसी क्रम में।',
+    icon: Icons.report_outlined,
+    keywords: const ['fraud', 'धोखा', 'cyber', '1930', 'upi'],
+    open: (_) => const OnlineFraudPage(),
+  ),
+  Issue(
+    id: 'g16i11',
+    goal: 16,
+    group: 'fraud',
+    titleEn: 'Lost phone: block and trace',
+    titleHi: 'फ़ोन खो गया: ब्लॉक और खोज',
+    blurbEn: 'The government portal that blocks a stolen handset.',
+    blurbHi: 'वह सरकारी पोर्टल जो चोरी हुआ फ़ोन ब्लॉक करता है।',
+    icon: Icons.phone_outlined,
+    keywords: const ['ceir', 'lost phone', 'खोया फ़ोन', 'imei'],
+    open: (_) => const LostPhonePage(),
+  ),
+  Issue(
+    id: 'g16i12',
+    goal: 16,
+    group: 'fraud',
+    titleEn: 'Bribe demanded',
+    titleHi: 'रिश्वत माँगी गई',
+    blurbEn: 'Where to report, and what to record before you do.',
+    blurbHi: 'शिकायत कहाँ करें, और पहले क्या दर्ज कर लें।',
+    icon: Icons.report_outlined,
+    keywords: const ['bribe', 'रिश्वत', 'corruption', 'भ्रष्टाचार'],
+    open: (_) => const BribePage(),
+  ),
+  Issue(
+    id: 'g16i13',
+    goal: 16,
+    group: 'fraud',
+    titleEn: 'Missing person or child',
+    titleHi: 'कोई लापता, या बच्चा गुम',
+    blurbEn: 'What to do in the first hours, and who must act.',
+    blurbHi: 'पहले कुछ घंटों में क्या करें, और किसे कार्रवाई करनी है।',
+    icon: Icons.search_outlined,
+    keywords: const ['missing', 'लापता', 'child', 'बच्चा'],
+    open: (_) => const MissingPersonPage(),
+  ),
+  Issue(
+    id: 'g16i14',
+    goal: 16,
+    group: 'ask',
+    titleEn: 'Voter ID: register, correct, move',
+    titleHi: 'वोटर आईडी: बनवाएँ, सुधारें, बदलें',
+    blurbEn: 'Which form does what, and how long each takes.',
+    blurbHi: 'कौन सा फ़ॉर्म किस काम का, और हर एक में कितना समय।',
+    icon: Icons.how_to_vote_outlined,
+    keywords: const ['voter', 'वोटर', 'epic', 'form 6'],
+    open: (_) => const VoterIdPage(),
+  ),
+  Issue(
+    id: 'g16i15',
+    goal: 16,
+    group: 'ask',
+    titleEn: 'My complaint got no answer',
+    titleHi: 'मेरी शिकायत का जवाब नहीं आया',
+    blurbEn: 'The grievance ladder, and the appeal most people never file.',
+    blurbHi: 'शिकायत की सीढ़ी, और वह अपील जो ज़्यादातर लोग कभी नहीं करते।',
+    icon: Icons.edit_note_outlined,
+    keywords: const ['grievance', 'शिकायत', 'cpgrams', 'appeal'],
+    open: (_) => const GrievanceLadderPage(),
+  ),
+  Issue(
+    id: 'g16i16',
+    goal: 16,
+    group: 'ask',
+    titleEn: 'Free legal aid: am I entitled',
+    titleHi: 'मुफ़्त क़ानूनी सहायता: क्या मेरा हक़ है',
+    blurbEn: 'Who gets a free lawyer by right, and where to ask.',
+    blurbHi: 'किसे हक़ से मुफ़्त वकील मिलता है, और कहाँ माँगें।',
+    icon: Icons.gavel_outlined,
+    keywords: const ['legal aid', 'क़ानूनी सहायता', 'nalsa'],
+    open: (_) => const LegalAidPage(),
+  ),
+];
+
+final GoalIssues sdg16Goal = GoalIssues(
+  goal: 16,
+  groups: _groups,
+  issues: sdg16Issues,
+  helplines: const [
+    GoalHelpline('1930', 'Cyber fraud', 'साइबर धोखाधड़ी'),
+    GoalHelpline('112', 'Emergency', 'आपातकाल'),
+    GoalHelpline('15100', 'Free legal aid', 'मुफ़्त क़ानूनी सहायता'),
+    GoalHelpline('1064', 'Anti-corruption', 'भ्रष्टाचार निरोधक'),
+  ],
+);

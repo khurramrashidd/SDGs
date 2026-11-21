@@ -3,6 +3,9 @@ import 'package:provider/provider.dart';
 
 import '../../core/i18n/app_languages.dart';
 import '../../core/i18n/strings.dart';
+import '../../core/issues/saved_tools.dart';
+import '../../core/place/place_picker_page.dart';
+import '../../core/place/place_service.dart';
 import '../../core/layout/responsive.dart';
 import '../../core/theme/brand.dart';
 import '../../core/theme/settings_controller.dart';
@@ -127,6 +130,14 @@ class SettingsPage extends StatelessWidget {
               ),
             ),
 
+            const SizedBox(height: 28),
+            _SectionTitle(
+                Localizations.localeOf(context).languageCode == 'hi'
+                    ? 'आपकी जगह और आपका डेटा'
+                    : 'Your place and your data'),
+            const _PlaceSetting(),
+            const _SavedSetting(),
+
             const SizedBox(height: 32),
             const Divider(),
             const SizedBox(height: 16),
@@ -237,4 +248,90 @@ class _Label extends StatelessWidget {
             style: const TextStyle(
                 fontSize: 14, fontWeight: FontWeight.w600)),
       );
+}
+
+/// Where the app thinks you are, and how to change it.
+class _PlaceSetting extends StatelessWidget {
+  const _PlaceSetting();
+
+  @override
+  Widget build(BuildContext context) {
+    final hi = Localizations.localeOf(context).languageCode == 'hi';
+    final service = context.watch<PlaceService>();
+    final place = service.place;
+    return Card(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: ListTile(
+        leading: const Icon(Icons.place_outlined),
+        title: Text(hi ? 'आपकी जगह' : 'Your place'),
+        subtitle: Text(
+          place == null
+              ? (hi ? 'अभी तय नहीं' : 'Not set yet')
+              : place.chosen
+                  ? place.label
+                  : '${place.label} · ${hi ? 'अंदाज़ा' : 'guessed'}',
+        ),
+        trailing: const Icon(Icons.chevron_right),
+        onTap: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (_) => const PlacePickerPage())),
+      ),
+    );
+  }
+}
+
+/// Clears bookmarks and the recently-opened list.
+///
+/// Worth its own setting because the list of tools someone opened can be
+/// revealing - the abuse screens, the ration appeal - and a shared phone is
+/// normal. One tap wipes it.
+class _SavedSetting extends StatelessWidget {
+  const _SavedSetting();
+
+  @override
+  Widget build(BuildContext context) {
+    final hi = Localizations.localeOf(context).languageCode == 'hi';
+    final saved = context.watch<SavedTools>();
+    final count = saved.saved.length + saved.recent.length;
+    return Card(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: ListTile(
+        leading: const Icon(Icons.bookmark_outline),
+        title: Text(hi ? 'सहेजे और हाल के टूल' : 'Saved and recent tools'),
+        subtitle: Text(
+          count == 0
+              ? (hi ? 'कुछ नहीं रखा है' : 'Nothing kept')
+              : hi
+                  ? '$count चीज़ें, सिर्फ़ इस फ़ोन पर'
+                  : '$count items, on this phone only',
+        ),
+        trailing: TextButton(
+          onPressed: count == 0
+              ? null
+              : () async {
+                  final ok = await showDialog<bool>(
+                    context: context,
+                    builder: (ctx) => AlertDialog(
+                      title: Text(hi ? 'सब मिटाएँ?' : 'Clear all?'),
+                      content: Text(hi
+                          ? 'सहेजे और हाल में खोले गए टूल हट जाएँगे।'
+                          : 'Saved and recently opened tools are removed.'),
+                      actions: [
+                        TextButton(
+                            onPressed: () => Navigator.pop(ctx, false),
+                            child: Text(hi ? 'रहने दें' : 'Cancel')),
+                        FilledButton(
+                            onPressed: () => Navigator.pop(ctx, true),
+                            child: Text(hi ? 'मिटाएँ' : 'Clear')),
+                      ],
+                    ),
+                  );
+                  if (ok == true && context.mounted) {
+                    await context.read<SavedTools>().clearAll();
+                  }
+                },
+          child: Text(hi ? 'मिटाएँ' : 'Clear'),
+        ),
+      ),
+    );
+  }
 }

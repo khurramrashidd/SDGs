@@ -23,11 +23,10 @@ class AboutPage extends StatelessWidget {
           children: [
             const Center(child: _AppMark(size: 92)),
             const SizedBox(height: 18),
-            Center(
+            const Center(
               child: Text(
                 Brand.appName,
-                style: const TextStyle(
-                    fontSize: 26, fontWeight: FontWeight.w800),
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800),
               ),
             ),
             const SizedBox(height: 4),
@@ -51,7 +50,7 @@ class AboutPage extends StatelessWidget {
             const SizedBox(height: 28),
 
             _Card(children: [
-              _Row(
+              const _Row(
                 icon: Icons.business_outlined,
                 title: 'Designed and developed by',
                 subtitle: Brand.companyName,
@@ -82,51 +81,50 @@ class AboutPage extends StatelessWidget {
 
             const SizedBox(height: 22),
 
-            _Card(children: [
+            const _Card(children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 6),
+                padding: EdgeInsets.fromLTRB(16, 16, 16, 6),
                 child: Text(
                   'Follow ${Brand.companyName}',
-                  style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.w800),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
                 ),
               ),
-              const _Social(
+              _Social(
                 icon: Icons.language,
-                tint: const Color(0xFF3B82F6),
+                tint: Color(0xFF3B82F6),
                 title: 'Website',
                 subtitle: CompanyLinks.websiteLabel,
                 url: CompanyLinks.website,
               ),
-              const _Social(
+              _Social(
                 icon: Icons.play_arrow_rounded,
-                tint: const Color(0xFFEF4444),
+                tint: Color(0xFFEF4444),
                 title: 'YouTube',
                 subtitle: CompanyLinks.youtubeLabel,
                 url: CompanyLinks.youtube,
               ),
-              const _Social(
+              _Social(
                 icon: Icons.camera_alt_outlined,
-                tint: const Color(0xFFEC4899),
+                tint: Color(0xFFEC4899),
                 title: 'Instagram',
                 subtitle: CompanyLinks.instagramLabel,
                 url: CompanyLinks.instagram,
               ),
-              const _Social(
+              _Social(
                 icon: Icons.chat_bubble_outline,
-                tint: const Color(0xFF22C55E),
+                tint: Color(0xFF22C55E),
                 title: 'WhatsApp channel',
                 subtitle: CompanyLinks.whatsappLabel,
                 url: CompanyLinks.whatsapp,
               ),
-              const _Social(
+              _Social(
                 icon: Icons.work_outline,
-                tint: const Color(0xFF0A66C2),
+                tint: Color(0xFF0A66C2),
                 title: 'LinkedIn',
                 subtitle: CompanyLinks.linkedinLabel,
                 url: CompanyLinks.linkedin,
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8),
             ]),
 
             const SizedBox(height: 26),
@@ -193,8 +191,8 @@ class _AppMark extends StatelessWidget {
         color: scheme.primary,
         borderRadius: BorderRadius.circular(size * 0.22),
       ),
-      child: CustomPaint(
-          painter: const _MarkPainter(dot: Brand.accent)),
+      child: const CustomPaint(
+          painter: _MarkPainter(dot: Brand.accent)),
     );
   }
 }

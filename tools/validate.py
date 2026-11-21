@@ -167,10 +167,24 @@ def declared_symbols(path: str) -> set[str]:
     out: set[str] = set()
     out |= set(re.findall(
         r'^(?:abstract\s+)?(?:class|enum|mixin|extension)\s+(\w+)', s, re.M))
-    out |= set(re.findall(r'^(?:const|final)\s+[\w<>,\s]*?(\w+)\s*=', s, re.M))
+    # Every pattern below uses `[ \t]`, never `\s`, for the space between a
+    # type and the name it declares. `\s` matches a newline, so with re.M
+    # the old pattern ran straight past the end of the line and matched any
+    # `Name(` anywhere in the file - including `Text(`, `Icon(` and
+    # `SizedBox(` inside a build method. Those names appear in nearly every
+    # Flutter file, so every import looked used and this check passed two
+    # genuinely unused imports (zip 23, mgnrega_tool and papers_tools).
+    # A top-level declaration starts at column 0, which is what anchors it.
+    TYPE = r'(?:[\w<>,?\[\]]+[ \t]+)+'
+    out |= set(re.findall(r'^(?:const|final)[ \t]+[\w<>,?\[\] \t]*?(\w+)[ \t]*=',
+                          s, re.M))
     # `?` included: a nullable return type (`double? f(`) hid the function
     # and made its import look unused (zip 22).
-    out |= set(re.findall(r'^[\w<>,?\s]+\s+(\w+)\s*\(', s, re.M))
+    out |= set(re.findall(rf'^{TYPE}(\w+)[ \t]*\(', s, re.M))
+    # A top-level getter (`List<Issue> get kAllIssues => ...`) has no
+    # parentheses, so the pattern above misses it and its import looks
+    # unused (zip 22, home_page.dart).
+    out |= set(re.findall(rf'^{TYPE}get[ \t]+(\w+)', s, re.M))
 
     # Members of an extension are used as `context.tr(...)`, so the
     # extension's own name never appears at the call site. Collect the
@@ -193,7 +207,7 @@ def declared_symbols(path: str) -> set[str]:
             i += 1
         ext_body = s[start:i]
         out |= set(re.findall(r'\bget\s+(\w+)', ext_body))
-        out |= set(re.findall(r'^\s*[\w<>,\s\?\[\]]+?\s(\w+)\s*(?:\(|=>)',
+        out |= set(re.findall(rf'^[ \t]*{TYPE}(\w+)[ \t]*(?:\(|=>)',
                               ext_body, re.M))
 
     # Keywords are not declarations, and a name starting with `_` is private
@@ -1352,13 +1366,375 @@ def check_goal_tools() -> None:
                 fail(f'{path}: {why}')
 
 
+# -- the mini-app frame and the issue registry --------------------------------
+# From zip 22 every goal draws itself from its issue list. These rules keep
+# that single source of truth from quietly growing a second copy.
+def check_issues() -> None:
+    ids: dict[str, str] = {}
+    goal_files = sorted(glob.glob('lib/features/*/issues.dart'))
+    if len(goal_files) != 17:
+        fail(f'expected 17 issue files, found {len(goal_files)}')
+    for f in goal_files:
+        src = open(f, encoding='utf-8').read()
+        groups = set(re.findall(r"IssueGroup\('([^']+)'", src))
+        if not groups:
+            fail(f'{f}: no groups declared')
+        for m in re.finditer(r"id: '(g\d+i\d+)',\s*\n\s*goal: (\d+),"
+                             r"\s*\n\s*group: '([^']+)'", src):
+            issue_id, goal, group = m.group(1), m.group(2), m.group(3)
+            if issue_id in ids:
+                fail(f'{f}: issue id {issue_id} already used in '
+                     f'{ids[issue_id]}')
+            ids[issue_id] = f
+            if not issue_id.startswith(f'g{goal}i'):
+                fail(f'{f}: {issue_id} says goal {goal}')
+            if group not in groups:
+                fail(f'{f}: {issue_id} is in group "{group}", which does '
+                     f'not exist in this goal')
+        # Every number offered for tap-to-dial must be digits only:
+        # anything else silently fails to dial on a real handset.
+        for num in re.findall(r"GoalHelpline\('([^']*)'", src):
+            if not num.isdigit():
+                fail(f'{f}: helpline "{num}" is not digits only')
+    if len(ids) < 250:
+        fail(f'only {len(ids)} issues registered; expected 250 or more')
+
+    # One route for all seventeen goals.
+    router = open('lib/core/router/app_router.dart', encoding='utf-8').read()
+    if "'/sdg/:goal'" not in router:
+        fail('app_router.dart: the single /sdg/:goal route is missing')
+    for n in range(1, 18):
+        if f"_contentRoute('/sdg/{n}'" in router:
+            fail(f'app_router.dart: /sdg/{n} still has its own route - '
+                 'every goal goes through /sdg/:goal now')
+
+    # The weather is shown only where it changes what someone should do.
+    app = open('lib/core/widgets/goal_app.dart', encoding='utf-8').read()
+    if 'const [3, 8, 13].contains(goal)' not in app:
+        fail('goal_app.dart: the heat warning must stay limited to the '
+             'goals it bears on')
+
+    # A latin letter inside a Devanagari word means a typo that renders as
+    # a broken word on the device ('मृत्यu'). Caught here because it reads
+    # fine in a diff.
+    for f in DART:
+        raw = open(f, encoding='utf-8').read()
+        # Blank out what legitimately puts latin next to Devanagari: escape
+        # sequences and interpolated values. Keep the newlines so the line
+        # numbers still point at the right place.
+        body = re.sub(r'\$\{[^}]*\}|\$\w+|\\[a-z]', ' ', raw)
+        # The danda (U+0964) and double danda are punctuation, not letters,
+        # so they end a word the way a full stop does. Without this, a unit
+        # or an acronym written before a Hindi full stop - 'VA\u0964', 'ORS\u0964' -
+        # reads as a latin letter glued to Devanagari and trips the rule.
+        body = body.replace('\u0964', ' ').replace('\u0965', ' ')
+        for m in re.finditer(r'[\u0900-\u097F][A-Za-z]|[A-Za-z][\u0900-\u097F]',
+                             body):
+            ln = body[:m.start()].count('\n') + 1
+            fail(f'{f}:{ln}: latin letter inside a Devanagari word '
+                 f'({m.group(0)!r}) - a typo')
+
+    # The place is never replaced once the user has picked it themselves.
+    svc = open('lib/core/place/place_service.dart', encoding='utf-8').read()
+    if 'if (place == null || !place.chosen)' not in svc:
+        fail('place_service.dart: a guess must never overwrite the place '
+             'the user chose')
+
+
+
+def check_string_literals() -> None:
+    """Catch a single-quoted string that is left open at end of line.
+
+    Dart's one-quote strings may not span lines, so an unclosed one is a
+    syntax error - and the analyzer reports it as dozens of nonsense errors
+    about "illegal character" on whatever text followed, pages away from
+    the quote that actually went missing. The generator that writes the
+    issue files once broke a line in the middle of a literal, and this is
+    the check that would have caught it before the zip went out.
+
+    The scanner understands what a naive quote count cannot: escapes, raw
+    strings, triple-quoted strings that are allowed to span lines, and
+    `${...}` interpolation, which may itself contain quoted strings.
+    """
+    for f in DART:
+        src = open(f, encoding='utf-8').read()
+        # stack entries are the quote of each string we are inside, with
+        # interpolations in between; [] means we are in ordinary code.
+        stack: list[tuple[str, bool]] = []  # (quote, is_raw)
+        depth: list[int] = []  # brace depth of each open interpolation
+        line = 1
+        i, n = 0, len(src)
+        in_block_comment = False
+        while i < n:
+            c = src[i]
+            if c == '\n':
+                line += 1
+                if stack and len(stack[-1][0]) == 1 and len(stack) > len(depth):
+                    fail(f'{f}:{line - 1}: a string literal is still open at '
+                         f'the end of this line. A one-quote Dart string may '
+                         f'not span lines - close it, or break the line '
+                         f'somewhere outside the quotes')
+                    break
+                i += 1
+                continue
+            if in_block_comment:
+                if src[i:i + 2] == '*/':
+                    in_block_comment = False
+                    i += 2
+                    continue
+                i += 1
+                continue
+            inside_string = len(stack) > len(depth)
+            if inside_string:
+                quote, raw = stack[-1]
+                if not raw and c == '\\':
+                    i += 2
+                    continue
+                if not raw and src[i:i + 2] == '${':
+                    depth.append(0)
+                    i += 2
+                    continue
+                if src[i:i + len(quote)] == quote:
+                    stack.pop()
+                    i += len(quote)
+                    continue
+                i += 1
+                continue
+            # ordinary code (possibly inside an interpolation)
+            if src[i:i + 2] == '//':
+                j = src.find('\n', i)
+                i = n if j < 0 else j
+                continue
+            if src[i:i + 2] == '/*':
+                in_block_comment = True
+                i += 2
+                continue
+            if c in '\'"':
+                raw = i > 0 and src[i - 1] == 'r'
+                triple = src[i:i + 3] in ('"""', "'''")
+                stack.append((src[i:i + 3] if triple else c, raw))
+                i += 3 if triple else 1
+                continue
+            if depth:
+                if c == '{':
+                    depth[-1] += 1
+                elif c == '}':
+                    if depth[-1] == 0:
+                        depth.pop()  # back into the string around it
+                    else:
+                        depth[-1] -= 1
+            i += 1
+
+
+def _call_named_args(src: str, open_paren: int):
+    """Named argument labels at the top level of the call at `open_paren`.
+
+    Walks the argument list tracking bracket depth and string state, so a
+    `name:` inside a nested call, a map literal or a quoted string is not
+    mistaken for an argument of this call. Returns (labels, end_index).
+    """
+    labels = []
+    depth = 0
+    quote = None
+    i = open_paren
+    n = len(src)
+    while i < n:
+        c = src[i]
+        if quote:
+            if c == '\\':
+                i += 2
+                continue
+            if src[i:i + len(quote)] == quote:
+                i += len(quote)
+                quote = None
+                continue
+            i += 1
+            continue
+        if c in '\'"':
+            quote = src[i:i + 3] if src[i:i + 3] in ('"""', "'''") else c
+            i += len(quote)
+            continue
+        if src[i:i + 2] == '//':
+            j = src.find('\n', i)
+            i = n if j < 0 else j
+            continue
+        if c in '([{':
+            depth += 1
+        elif c in ')]}':
+            depth -= 1
+            if depth == 0:
+                return labels, i
+        elif depth == 1:
+            m = re.match(r'([A-Za-z_]\w*)\s*:(?!:)', src[i:])
+            # a label is preceded by '(' or ',' once whitespace is dropped
+            if m:
+                before = src[:i].rstrip()
+                if before and before[-1] in '(,':
+                    labels.append(m.group(1))
+                    i += m.end()
+                    continue
+        i += 1
+    return labels, -1
+
+
+def check_unused_private() -> None:
+    """Catch a private top-level declaration nothing in its file uses.
+
+    The analyzer reports these as "the declaration isn't referenced", and
+    they accumulate: a constant written for a screen, then inlined into
+    the text and forgotten. Privates are file-scoped in Dart, so the file
+    is the whole search space, which makes this cheap and exact.
+    """
+    for f in DART:
+        src = open(f, encoding='utf-8').read()
+        # Blanking the literals hides `'₹$_sbmGrantRupees'` and
+        # `'${_round(va)} VA'`, so the interpolated expressions are added
+        # back as searchable text. Without this the rule reports a dozen
+        # constants that are used, which is worse than not having the rule.
+        interpolated = ' '.join(
+            a or b for a, b in re.findall(r'\$\{([^{}]*)\}|\$(\w+)', src))
+        body = _blank_literals(src) + '\n' + interpolated
+        names = set()
+        names |= set(re.findall(r'^(?:const|final)\s+[\w<>,?\s]*?(_\w+)\s*=',
+                                body, re.M))
+        names |= set(re.findall(r'^(?:class|enum|mixin)\s+(_\w+)', body, re.M))
+        # A top-level function only: a type token at column 0, then the
+        # name. Allowing leading whitespace here matched usage lines as
+        # declarations ('..._picker(hi)') and reported seven names that
+        # were in use.
+        names |= set(re.findall(r'^(?:[\w<>,?\[\]]+[ \t]+)+(_\w+)[ \t]*\(',
+                                body, re.M))
+        for name in sorted(names):
+            uses = len(re.findall(r'(?<![\w.])' + re.escape(name) + r'\b',
+                                  body))
+            if uses <= 1:  # the declaration itself
+                ln = body[:body.index(name)].count('\n') + 1
+                fail(f'{f}:{ln}: {name} is declared and never used. Either '
+                     f'use it or take it out - the analyzer reports it')
+
+
+def check_widget_arguments() -> None:
+    """Catch a named argument a project widget does not declare.
+
+    `CopyBlock(title: ...)` when CopyBlock takes only `text` and `note` is
+    a compile error, and nothing else in this checker sees it: the import
+    resolves, the symbol exists, the parentheses balance. It cost a round
+    trip in zip 27 before this rule existed.
+
+    Only classes declared in this project are checked, and only when their
+    constructor parameter list is a simple named one. Flutter's own widgets
+    are left alone - their parameter lists are not in this repository.
+    """
+    declared: dict[str, set[str]] = {}
+    for f in DART:
+        src = open(f, encoding='utf-8').read()
+        for m in re.finditer(r'^class (\w+)\b', src, re.M):
+            name = m.group(1)
+            # the constructor: `const Name({...})` or `Name({...})`
+            cm = re.search(r'\n\s*(?:const\s+)?' + re.escape(name) +
+                           r'\(\{', src[m.start():])
+            if not cm:
+                continue
+            start = m.start() + cm.end() - 1  # at the '{'
+            params, end = _call_named_args(src, start)
+            if end < 0:
+                continue
+            body = src[start:end]
+            names = set(re.findall(r'\bthis\.(\w+)', body))
+            names |= set(re.findall(r'\bsuper\.(\w+)', body))
+            # plainly typed named params: `required String label,`
+            names |= set(re.findall(
+                r'(?:required\s+)?[\w<>,?\s]*?\b(\w+)\s*(?:=[^,]+)?[,}]',
+                body))
+            declared.setdefault(name, set()).update(names)
+
+    for f in DART:
+        src = open(f, encoding='utf-8').read()
+        for m in re.finditer(r'\b([A-Z]\w+)\(', src):
+            name = m.group(1)
+            if name not in declared:
+                continue
+            if re.search(r'(?:class|enum)\s+' + re.escape(name) + r'\b',
+                         src[max(0, m.start() - 80):m.start() + 1]):
+                continue
+            labels, end = _call_named_args(src, m.end() - 1)
+            if end < 0:
+                continue
+            unknown = [x for x in labels if x not in declared[name]]
+            if unknown:
+                ln = src[:m.start()].count('\n') + 1
+                fail(f'{f}:{ln}: {name} has no parameter '
+                     f'{", ".join(unknown)}. It takes: '
+                     f'{", ".join(sorted(x for x in declared[name] if x))}')
+
+
+def check_interpolation_braces() -> None:
+    """Catch `${name}` where `$name` would do.
+
+    `unnecessary_brace_in_string_interps` is on, through
+    package:lints/recommended, which package:flutter_lints includes. The
+    braces are needed only when the next character could continue the
+    identifier - `'${field}Hi'` and `'${uid}_$id'` keep theirs. Anything
+    else is an analyzer info, and a hundred of them bury the real errors.
+    """
+    for f in DART:
+        src = open(f, encoding='utf-8').read()
+        for m in re.finditer(r'\$\{(\w+)\}(.?)', src):
+            nxt = m.group(2)
+            if nxt and (nxt.isalnum() or nxt == '_'):
+                continue  # the braces are doing work
+            ln = src[:m.start()].count('\n') + 1
+            fail(f'{f}:{ln}: write $' + m.group(1) + ' rather than ${'
+                 + m.group(1) + '} - the braces are unnecessary here and '
+                 'the analyzer says so')
+
+
+def check_icon_names() -> None:
+    """Catch a Material icon name that does not exist.
+
+    `Icons.some_name` that is not in Flutter's Icons class is a compile
+    error, and it is the kind that cannot be spotted by reading: the names
+    are long, inconsistently suffixed (`_outlined`, `_rounded`,
+    `_outline`), and a plausible guess is wrong about a third of the time.
+    `tools/icon_names.txt` is the list of every IconData declared in
+    Flutter's own `material/icons.dart`, so the check is against the real
+    thing rather than a guess.
+
+    Refresh the list when the Flutter version moves:
+      curl -sS https://raw.githubusercontent.com/flutter/flutter/stable/\\
+    packages/flutter/lib/src/material/icons.dart | \\
+        grep -oP 'static const IconData \\K\\w+' | sort -u > tools/icon_names.txt
+    """
+    path = 'tools/icon_names.txt'
+    if not os.path.exists(path):
+        notes.append('tools/icon_names.txt missing - icon names unchecked')
+        return
+    valid = set(open(path, encoding='utf-8').read().split())
+    if len(valid) < 1000:
+        notes.append(f'{path} looks truncated ({len(valid)} names) - '
+                     'icon names unchecked')
+        return
+    for f in DART:
+        src = _blank_literals(open(f, encoding='utf-8').read())
+        for m in re.finditer(r'\bIcons\.(\w+)', src):
+            if m.group(1) not in valid:
+                ln = src[:m.start()].count('\n') + 1
+                fail(f'{f}:{ln}: Icons.{m.group(1)} does not exist. Check '
+                     f'the spelling and the suffix (_outlined / _rounded / '
+                     f'_outline) against tools/icon_names.txt')
+
+
 def main() -> int:
-    for fn in (check_delimiters, check_imports, check_const,
+    for fn in (check_delimiters, check_string_literals, check_icon_names,
+               check_interpolation_braces, check_widget_arguments,
+               check_unused_private,
+               check_imports, check_const,
                check_http_bodies, check_slivers, check_json, check_secrets,
                check_regressions, check_i18n, check_water_logic,
                check_bill_logic, check_scheme_logic, check_gitignore,
                check_scoped_names, check_local_refs,
-               check_food_board, check_qa, check_goal_tools):
+               check_food_board, check_qa, check_goal_tools,
+               check_issues):
         fn()
 
     for n in notes:

@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../../core/services/ai_service.dart';
+import '../../core/i18n/strings.dart';
 import '../../core/layout/responsive.dart';
+import '../../core/sdg/sdg_catalog.dart';
 
 /// Writes the notice to Firestore (the in-app bell feed), and optionally
 /// asks the proxy to also push it over FCM. Both halves of the agreed
@@ -23,6 +25,11 @@ class _SendNoticePageState extends State<SendNoticePage> {
   final _body = TextEditingController();
   bool _alsoPush = false;
   bool _busy = false;
+
+  /// null means the notice is for the whole app. A number pins it to one
+  /// goal, where it shows in that goal's side panel - a scholarship
+  /// deadline has no business interrupting someone on the water screens.
+  int? _goal;
 
   @override
   void dispose() {
@@ -42,6 +49,7 @@ class _SendNoticePageState extends State<SendNoticePage> {
         'createdAt': FieldValue.serverTimestamp(),
         'createdBy': FirebaseAuth.instance.currentUser?.uid,
         'pushed': _alsoPush,
+        if (_goal != null) 'goal': _goal,
       });
 
       if (_alsoPush) {
@@ -98,6 +106,25 @@ class _SendNoticePageState extends State<SendNoticePage> {
             decoration: const InputDecoration(labelText: 'Message'),
             maxLines: 4,
             maxLength: 300,
+          ),
+          const SizedBox(height: 12),
+          DropdownButtonFormField<int?>(
+            initialValue: _goal,
+            decoration: const InputDecoration(
+              labelText: 'Show it where',
+              helperText: 'A goal pins the notice to that goal\'s panel.',
+            ),
+            items: [
+              const DropdownMenuItem<int?>(
+                  value: null, child: Text('Everywhere (bell feed)')),
+              for (final e in kSdgCatalog)
+                DropdownMenuItem<int?>(
+                  value: e.goal,
+                  child: Text(
+                      'SDG ${e.goal} - ${context.tr(e.titleKey)}'),
+                ),
+            ],
+            onChanged: (v) => setState(() => _goal = v),
           ),
           const SizedBox(height: 12),
           SwitchListTile(

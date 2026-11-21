@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../i18n/locale_scope.dart';
+import '../widgets/goal_app.dart';
 import '../sdg/sdg_catalog.dart';
 
 import '../../features/admin/admin_home_page.dart';
@@ -15,23 +16,7 @@ import '../../core/sdg/sdg_roadmap.dart';
 import '../../features/common/module_scaffold_page.dart';
 import '../../features/home/home_page.dart';
 import '../../features/notifications/notifications_page.dart';
-import '../../features/sdg1_schemes/schemes_page.dart';
-import '../../features/sdg2_food/food_home_page.dart';
-import '../../features/sdg3_health/health_home_page.dart';
-import '../../features/sdg4_scholarships/education_home_page.dart';
-import '../../features/sdg16_justice/justice_home_page.dart';
-import '../../features/sdg8_work/work_home_page.dart';
-import '../../features/sdg5_empower/empower_home_page.dart';
-import '../../features/sdg6_water/water_home_page.dart';
-import '../../features/sdg7_energy/energy_home_page.dart';
-import '../../features/sdg9_enterprise/enterprise_home_page.dart';
-import '../../features/sdg10_equality/equality_pages.dart';
-import '../../features/sdg11_cities/cities_pages.dart';
-import '../../features/sdg13_climate/climate_pages.dart';
-import '../../features/sdg12_consumption/consumption_pages.dart';
-import '../../features/sdg14_ocean/ocean_pages.dart';
-import '../../features/sdg15_land/land_pages.dart';
-import '../../features/sdg17_partnerships/partnerships_pages.dart';
+import '../../features/search/search_page.dart';
 import '../../features/settings/settings_page.dart';
 
 /// A content route, wrapped so the screen can be read in another language
@@ -60,6 +45,7 @@ final appRouter = GoRouter(
     GoRoute(path: '/account', builder: (_, __) => const AccountPage()),
 
     GoRoute(path: '/settings', builder: (_, __) => const SettingsPage()),
+    GoRoute(path: '/search', builder: (_, __) => const SearchPage()),
     GoRoute(
         path: '/notifications',
         builder: (_, __) => const NotificationsPage()),
@@ -72,23 +58,25 @@ final appRouter = GoRouter(
         builder: (_, __) => const PrivacyPolicyPage()),
 
     // ---- SDG modules ----
-    _contentRoute('/sdg/1', () => const SchemesPage()),
-    _contentRoute('/sdg/2', () => const FoodHomePage()),
-    _contentRoute('/sdg/3', () => const HealthHomePage()),
-    _contentRoute('/sdg/4', () => const EducationHomePage()),
-    _contentRoute('/sdg/5', () => const EmpowerHomePage()),
-    _contentRoute('/sdg/6', () => const WaterHomePage()),
-    _contentRoute('/sdg/7', () => const EnergyHomePage()),
-    _contentRoute('/sdg/8', () => const WorkHomePage()),
-    _contentRoute('/sdg/9', () => const EnterpriseHomePage()),
-    _contentRoute('/sdg/10', () => const EqualityHomePage()),
-    _contentRoute('/sdg/11', () => const CitiesHomePage()),
-    _contentRoute('/sdg/13', () => const ClimateHomePage()),
-    _contentRoute('/sdg/12', () => const ConsumptionHomePage()),
-    _contentRoute('/sdg/14', () => const OceanHomePage()),
-    _contentRoute('/sdg/15', () => const LandHomePage()),
-    _contentRoute('/sdg/16', () => const JusticeHomePage()),
-    _contentRoute('/sdg/17', () => const PartnershipsHomePage()),
+    // One route for all seventeen. Each goal draws itself from its own
+    // issue list, so a new goal needs no new route and no new home screen.
+    //
+    // `?issue=g3i02` opens the goal with that tool already on screen,
+    // which is how search and a saved bookmark get the user somewhere
+    // useful without dropping them on a page with no way back.
+    GoRoute(
+      path: '/sdg/:goal',
+      builder: (_, state) {
+        final goal = int.tryParse(state.pathParameters['goal'] ?? '') ?? 1;
+        if (goal < 1 || goal > 17) return const HomePage();
+        return LocaleScope(
+          child: GoalApp(
+            goal: goal,
+            openIssueId: state.uri.queryParameters['issue'],
+          ),
+        );
+      },
+    ),
 
     // Every goal is live now; this route stays so an old link to a planned
     // goal still opens its roadmap rather than a blank error.

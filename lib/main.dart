@@ -4,6 +4,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 import 'core/i18n/strings.dart';
+import 'core/issues/saved_tools.dart';
+import 'core/place/place_service.dart';
 import 'core/router/app_router.dart';
 import 'core/services/auth_service.dart';
 import 'core/services/notification_service.dart';
@@ -39,6 +41,11 @@ class SdgApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => NotificationService()),
         ChangeNotifierProvider(create: (_) => StudentProfileStore()..load()),
         ChangeNotifierProvider(create: (_) => AdminService()..refresh()),
+        // Where the user is, and what the weather is doing there. Started
+        // once here so every goal's header reads the same reading rather
+        // than each screen fetching its own.
+        ChangeNotifierProvider(create: (_) => PlaceService()..start()),
+        ChangeNotifierProvider(create: (_) => SavedTools()..start()),
       ],
       child: Consumer<SettingsController>(
         builder: (context, s, _) {

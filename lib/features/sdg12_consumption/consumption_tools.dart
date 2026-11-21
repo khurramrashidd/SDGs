@@ -9,6 +9,7 @@
 /// has not yet put an equivalent on packets. They are a guide to compare
 /// two products, not a medical limit. Drinks use different values, so the
 /// tool is for foods only and says so.
+library;
 
 enum Nutrient { fat, saturates, sugars, salt }
 

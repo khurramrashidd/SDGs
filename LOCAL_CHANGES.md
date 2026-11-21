@@ -340,7 +340,11 @@ Android 13 and later.
 
 ## Safe update procedure
 
-1. Copy the new zip's folders over the project, replacing files.
+1. Copy the new zip's folders over the project, replacing files. The
+   zip holds a top folder called `sdg_app`; its *contents* go into your
+   `sdg_app`. If you end up with `sdg_app\sdg_app\lib`, delete the inner
+   `sdg_app` folder — the analyzer reads it too and reports every problem
+   twice, plus a false `firebase_options.dart` error.
 2. `flutter pub get`
 3. `flutter run`
 

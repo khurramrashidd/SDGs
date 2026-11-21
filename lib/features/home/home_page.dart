@@ -3,6 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/i18n/strings.dart';
+import '../../core/issues/registry.dart';
+import '../../core/place/place_picker_page.dart';
+import '../../core/place/place_service.dart';
 import '../../core/layout/responsive.dart';
 import '../../core/sdg/sdg_catalog.dart';
 import '../../core/services/notification_service.dart';
@@ -79,6 +82,10 @@ class HomePage extends StatelessWidget {
                               Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                       ),
+                      const SizedBox(height: 16),
+                      const _SearchBar(),
+                      const SizedBox(height: 10),
+                      const _PlaceLine(),
                     ],
                   ),
                 ),
@@ -258,6 +265,23 @@ class _SdgTile extends StatelessWidget {
                     color: scheme.onSurfaceVariant,
                   ),
                 ),
+                if (live) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    () {
+                      final g = goalIssues(entry.goal);
+                      return Localizations.localeOf(context).languageCode ==
+                              'hi'
+                          ? '${g.builtCount}/${g.issues.length} तैयार'
+                          : '${g.builtCount}/${g.issues.length} ready';
+                    }(),
+                    style: TextStyle(
+                      fontSize: compact ? 10.5 : 11.5,
+                      fontWeight: FontWeight.w700,
+                      color: sdgColor,
+                    ),
+                  ),
+                ],
               ],
             ),
           ),
@@ -314,6 +338,92 @@ class _NotificationBell extends StatelessWidget {
           ],
         );
       },
+    );
+  }
+}
+
+/// The one box that searches every problem in the app.
+///
+/// Not a real text field: tapping it opens the search screen, which keeps
+/// the home screen cheap to build and means the keyboard never covers the
+/// goal grid.
+class _SearchBar extends StatelessWidget {
+  const _SearchBar();
+
+  @override
+  Widget build(BuildContext context) {
+    final hi = Localizations.localeOf(context).languageCode == 'hi';
+    final scheme = Theme.of(context).colorScheme;
+    return Material(
+      color: scheme.surfaceContainerHighest,
+      borderRadius: BorderRadius.circular(14),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(14),
+        onTap: () => context.push('/search'),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+          child: Row(
+            children: [
+              Icon(Icons.search, color: scheme.onSurfaceVariant),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  hi
+                      ? 'अपनी समस्या खोजें — ${kAllIssues.length} में से'
+                      : 'Search your problem — ${kAllIssues.length} of them',
+                  style: TextStyle(
+                      fontSize: 14, color: scheme.onSurfaceVariant),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Where the app thinks you are, and the weather there. Tapping it opens
+/// the place picker, because the guess is often a nearby town.
+class _PlaceLine extends StatelessWidget {
+  const _PlaceLine();
+
+  @override
+  Widget build(BuildContext context) {
+    final hi = Localizations.localeOf(context).languageCode == 'hi';
+    final scheme = Theme.of(context).colorScheme;
+    final service = context.watch<PlaceService>();
+    final place = service.place;
+    final now = service.now;
+
+    final text = place == null
+        ? (service.loading
+            ? (hi ? 'जगह पता की जा रही है…' : 'Finding your place…')
+            : (hi ? 'अपनी जगह चुनें' : 'Set your place'))
+        : now == null
+            ? place.label
+            : '${place.label}  ·  ${now.tempC.round()}°C';
+
+    return InkWell(
+      onTap: () => Navigator.of(context)
+          .push(MaterialPageRoute(builder: (_) => const PlacePickerPage())),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4),
+        child: Row(
+          children: [
+            Icon(Icons.place_outlined, size: 16, color: scheme.primary),
+            const SizedBox(width: 6),
+            Flexible(
+              child: Text(text,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontSize: 12.5, color: scheme.onSurfaceVariant)),
+            ),
+            const SizedBox(width: 4),
+            Icon(Icons.edit_outlined, size: 13, color: scheme.outline),
+          ],
+        ),
+      ),
     );
   }
 }
